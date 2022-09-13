@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .package-lock.json
-.vscode
+
 
 # testing
 /coverage
@@ -20,6 +20,8 @@
 # misc
 .DS_Store
 *.pem
+.vscode
+.eslintrc.js
 
 # debug
 npm-debug.log*
