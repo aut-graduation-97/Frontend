@@ -52,7 +52,7 @@ export default function Sidebar() {
           <Typography variant="h6"> پروفایل</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/Mosts')}>
           <ListItemIcon>
             <GavelIcon fontSize="large" />
           </ListItemIcon>
