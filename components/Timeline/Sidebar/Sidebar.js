@@ -1,7 +1,4 @@
-
-
 import { useRouter } from 'next/router';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -20,14 +17,18 @@ export default function Sidebar() {
   const router = useRouter();
 
   return (
+    <Box sx={{ width: '100%'}}>
 
-    <Box sx={{ width: '100%', maxWidth: 200 , bgcolor: 'background.paper' }}>
-
-      <Avatar />
-
-      <List component="nav" aria-label="main mailbox folders">
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
-          <ListItemIcon>
+      <Box  sx={{py: 6}}>
+      <Avatar size='128px' />
+      </Box>
+     
+      <List
+        component="nav"
+        aria-label="main mailbox folders"
+      >
+        <ListItemButton selected sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+          <ListItemIcon >
             <HomeIcon fontSize="large" />
           </ListItemIcon>
           <Typography variant="h6">تایم لاین</Typography>
@@ -54,15 +55,13 @@ export default function Sidebar() {
           <Typography variant="h6"> گالری</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{py: 1}} onClick={(event) => router.push('/')}>
+        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
           <ListItemIcon>
             <PeopleIcon fontSize="large" />
           </ListItemIcon>
           <Typography variant="h6"> دانشجویان</Typography>
         </ListItemButton>
-
       </List>
     </Box>
-    
   );
 }
