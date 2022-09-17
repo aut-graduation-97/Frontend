@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function ({ likesCount }) {
   const [liked, setLiked] = useState(false);
-  // TODO: not sure if this causes bug. technically should not but react is kinda shit so ...
+  // FIXME: not sure if this causes bug. technically should not but react is kinda shit so ...
   const [count, setCount] = useState(likesCount);
 
   const likeHandler = () => {

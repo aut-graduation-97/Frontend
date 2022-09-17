@@ -1,14 +1,15 @@
 import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import PasswordIcon from '@mui/icons-material/Password';
 import LoadingButton from '@mui/lab/LoadingButton';
 import FormControl from '@mui/material/FormControl';
 import LoginIcon from '@mui/icons-material/Login';
-import { FormHelperText } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function LoginForm() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formIsUntouched, setFromIsUntouched] = useState(true);
 
@@ -41,41 +42,50 @@ export default function LoginForm() {
 
   const loginHandler = () => {
     setLoading(true);
+    // TODO: login and redirect user
     console.log(usernameInput, passwordInput);
   };
+
+  const guestLoginHandler = () => {};
   return (
-    <div style={{ paddingTop: '4rem' }}>
-      <FormControl>
-        <TextField
-          id="outlined-basic"
-          label="شماره دانشجویی"
-          type="username"
-          autoComplete="current-username"
-          onChange={usernameChangeHandler}
-          error={!userNameIsValid}
-        />
+    <FormControl sx={{ m: 5 }}>
+      <TextField
+        id="outlined-basic"
+        label="شماره دانشجویی"
+        type="username"
+        autoComplete="current-username"
+        onChange={usernameChangeHandler}
+        error={!userNameIsValid}
+        sx={{ my: 4 }}
+      />
 
-        <TextField
-          id="outlined-password-input"
-          label="رمز عبور"
-          type="password"
-          autoComplete="current-password"
-          onChange={passwordChangeHandler}
-          error={!passwordIsValid}
-        />
+      <TextField
+        id="outlined-password-input"
+        label="رمز عبور"
+        type="password"
+        autoComplete="current-password"
+        onChange={passwordChangeHandler}
+        error={!passwordIsValid}
+        sx={{ mb: 4 }}
+      />
 
-        <LoadingButton
-          disabled={!(passwordIsValid && userNameIsValid) || formIsUntouched}
-          size="big"
-          onClick={loginHandler}
-          startIcon={<LoginIcon sx={{ mx: 1 }} />}
-          loading={loading}
-          loadingPosition="start"
-          variant="contained"
-        >
-          ورود
-        </LoadingButton>
-      </FormControl>
-    </div>
+      <LoadingButton
+        disabled={!(passwordIsValid && userNameIsValid) || formIsUntouched}
+        size="big"
+        onClick={loginHandler}
+        startIcon={<LoginIcon sx={{ mx: 1 }} />}
+        loading={loading}
+        loadingPosition="start"
+        variant="contained"
+        sx={{ my: 4 }}
+      >
+        ورود
+      </LoadingButton>
+      <Divider />
+      {/* TODO: change with actual link */}
+      <Button variant="text" sx={{ mt: 3 }} onClick={(e)=> router.push("/")}>
+        ورود به عنوان مهمان
+      </Button>
+    </FormControl>
   );
 }

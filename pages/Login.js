@@ -1,15 +1,21 @@
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import PasswordIcon from '@mui/icons-material/Password';
+import Box from '@mui/material/Box';
 import LoginForm from '../components/Login/LoginFrom';
-
-
+import Paper from '@mui/material/Paper';
 
 export default function Login() {
   return (
-    <div style={{ paddingTop: '4rem' }}>
-      <LoginForm />
-    </div>
+    <Box
+      sx={{
+        width: '300px',
+        height: '600px',
+        m: 'auto',
+        top: '20vh',
+        position: 'relative',
+      }}
+    >
+      <Paper elevation={15}>
+        <LoginForm />
+      </Paper>
+    </Box>
   );
 }
