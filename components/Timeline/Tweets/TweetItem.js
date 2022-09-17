@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import Avatar from '../Sidebar/Avatar';
+import Avatar from '../../UI/Elements/Avatar';
 import  Typography  from '@mui/material/Typography';
 import TweetLikeButton from './TweetLikeButton';
 import Divider from '@mui/material/Divider';

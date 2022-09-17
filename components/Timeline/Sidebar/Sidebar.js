@@ -9,7 +9,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import PeopleIcon from '@mui/icons-material/People';
 
-import Avatar from './Avatar';
+import Avatar from '../../UI/Elements/Avatar';
 
 import { Typography } from '@mui/material';
 
@@ -55,7 +55,7 @@ export default function Sidebar() {
           <Typography variant="h6"> گالری</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/Students')}>
           <ListItemIcon>
             <PeopleIcon fontSize="large" />
           </ListItemIcon>
