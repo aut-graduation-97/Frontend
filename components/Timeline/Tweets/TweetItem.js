@@ -10,7 +10,6 @@ const DUMMY_TITLE = 'مهسا امینی'
 const DUMMY_LIKES = 326
 
 export default function TweetItem() {
-  // img, title, text, like button
   return (
     <Grid container spacing={2} sx={{mb:4}} >
       <Grid item xs={2} >
