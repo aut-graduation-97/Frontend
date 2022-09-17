@@ -19,6 +19,7 @@ import Avatar from '../../UI/Elements/Avatar';
 export default function Sidebar() {
   const router = useRouter();
 
+  // TODO: fetch current user data from database
   return (
     <Box
       sx={{
@@ -30,7 +31,7 @@ export default function Sidebar() {
         borderColor: '#d1d1d1',
       }}
     >
-      <Box sx={{py:6}}>
+      <Box sx={{ py: 6 }}>
         <Avatar size="128px" />
       </Box>
       <List component="nav" aria-label="main mailbox folders">
@@ -52,7 +53,10 @@ export default function Sidebar() {
           <Typography variant="h6"> پروفایل</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/Mosts')}>
+        <ListItemButton
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/Mosts')}
+        >
           <ListItemIcon>
             <GavelIcon fontSize="large" />
           </ListItemIcon>

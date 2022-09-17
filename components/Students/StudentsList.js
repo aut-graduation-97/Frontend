@@ -4,7 +4,9 @@ import StudentCard from './StudentCard';
 const DUMMY_NAME = ' جمشید نوروزی اصل ایذه تبار';
 
 export default function () {
-    
+  //TODO: fetch students from database.
+  // pass them to function below
+
   const returnCardsArray = () => {
     let tmp = [];
     for (let i = 0; i < 12; i++) {
