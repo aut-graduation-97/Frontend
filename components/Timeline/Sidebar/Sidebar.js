@@ -1,34 +1,46 @@
 import { useRouter } from 'next/router';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+import {
+  Box,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  Typography,
+  Divider,
+} from '@mui/material';
+
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GavelIcon from '@mui/icons-material/Gavel';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import PeopleIcon from '@mui/icons-material/People';
 
-import Avatar from './Avatar';
-
-import { Typography } from '@mui/material';
+import Avatar from '../../UI/Elements/Avatar';
 
 export default function Sidebar() {
   const router = useRouter();
 
+  // TODO: fetch current user data from database
   return (
-    <Box sx={{ width: '100%'}}>
-
-      <Box  sx={{py: 6}}>
-      <Avatar size='128px' />
+    <Box
+      sx={{
+        mt: 4,
+        pl: 1,
+        width: '100%',
+        height: '90vh',
+        borderLeft: 1,
+        borderColor: '#d1d1d1',
+      }}
+    >
+      <Box sx={{ py: 6 }}>
+        <Avatar size="128px" />
       </Box>
-     
-      <List
-        component="nav"
-        aria-label="main mailbox folders"
-      >
-        <ListItemButton selected sx={{ py: 1 }} onClick={(event) => router.push('/')}>
-          <ListItemIcon >
+      <List component="nav" aria-label="main mailbox folders">
+        <ListItemButton
+          selected
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/')}
+        >
+          <ListItemIcon>
             <HomeIcon fontSize="large" />
           </ListItemIcon>
           <Typography variant="h6">تایم لاین</Typography>
@@ -41,11 +53,14 @@ export default function Sidebar() {
           <Typography variant="h6"> پروفایل</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/Mosts')}
+        >
           <ListItemIcon>
             <GavelIcon fontSize="large" />
           </ListItemIcon>
-          <Typography variant="h6"> نتایح ترین ها</Typography>
+          <Typography variant="h6"> نتایج ترینها</Typography>
         </ListItemButton>
 
         <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
@@ -55,7 +70,10 @@ export default function Sidebar() {
           <Typography variant="h6"> گالری</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/Students')}
+        >
           <ListItemIcon>
             <PeopleIcon fontSize="large" />
           </ListItemIcon>

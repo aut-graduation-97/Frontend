@@ -48,7 +48,7 @@ export default function LoginForm() {
 
   const guestLoginHandler = () => {};
   return (
-    <FormControl sx={{ m: 5 }}>
+    <FormControl sx={{ mx: 5, py:5, display: 'flex', alignItems:'center' }}>
       <TextField
         id="outlined-basic"
         label="شماره دانشجویی"
@@ -56,7 +56,7 @@ export default function LoginForm() {
         autoComplete="current-username"
         onChange={usernameChangeHandler}
         error={!userNameIsValid}
-        sx={{ my: 4 }}
+        sx={{ my: 4 , width: '100%'}}
       />
 
       <TextField
@@ -66,7 +66,7 @@ export default function LoginForm() {
         autoComplete="current-password"
         onChange={passwordChangeHandler}
         error={!passwordIsValid}
-        sx={{ mb: 4 }}
+        sx={{ mb: 4, width: '100%' }}
       />
 
       <LoadingButton
@@ -77,13 +77,13 @@ export default function LoginForm() {
         loading={loading}
         loadingPosition="start"
         variant="contained"
-        sx={{ my: 4 }}
+        sx={{ my: 4, width:'70%'  }}
       >
         ورود
       </LoadingButton>
       <Divider />
       {/* TODO: change with actual link */}
-      <Button variant="text" sx={{ mt: 3 }} onClick={(e)=> router.push("/")}>
+      <Button variant="text" sx={{ mt: 3}} onClick={(e)=> router.push("/")}>
         ورود به عنوان مهمان
       </Button>
     </FormControl>
