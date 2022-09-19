@@ -3,7 +3,7 @@ import Item from '@mui/material/Grid';
 import NewTweetModal from '../components/Timeline/NewTweet/NewTweetModal';
 
 import Sidebar from '../components/Timeline/Sidebar/Sidebar';
-import TweetList from '../components/Shared Components/Tweets/TweetList';
+import TweetList from '../components/SharedComponents/Tweets/TweetList';
 
 export default function Timeline() {
   return (

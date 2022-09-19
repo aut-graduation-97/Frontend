@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
-import Avatar from '../Shared Components/Elements/Avatar';
+import Avatar from '../SharedComponents/Elements/Avatar';
 export default function ProfileHead() {
   const router = useRouter();
   return (

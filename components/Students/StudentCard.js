@@ -1,6 +1,6 @@
 import { Button, Typography, Grid, Paper } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Avatar from '../UI/Elements/Avatar';
+import Avatar from '../SharedComponents/Elements/Avatar';
 
 export default function ({ name, avatar, profileLink, shift, key }) {
   return (
