@@ -1,7 +1,7 @@
 import { Typography, Grid, Paper, Box } from '@mui/material';
 import Image from 'next/image';
 
-import Avatar from '../UI/Elements/Avatar';
+import Avatar from '../SharedComponents/Elements/Avatar';
 
 export default function MostCard({ avatar, name, shift, key, medal }) {
   return (
