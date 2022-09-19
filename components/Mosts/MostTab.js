@@ -11,73 +11,46 @@ const DUMMY_NAME = 'محمد علی محمدی';
 export default function MostTab({ names, avatar }) {
   const phone = useMediaQuery('(max-width:900px)');
 
-  const phoneOrder = (
-    <Grid container spacing={5} sx={{ py: phone ? 2 : 0 }}>
-      <Grid item lg={4} md={4} xs={12}>
-        <MostCard
-          medal={goldMedal}
-          name={names[0]}
-          shift={{ my: 0 }}
-          key="1"
-          avatar={avatar}
-        />
-      </Grid>
-      <Grid item lg={4} md={4} xs={12}>
-        <MostCard
-          medal={silverMedal}
-          name={names[1]}
-          shift={{ my: 5 }}
-          key="2"
-          avatar={avatar}
-        />
-      </Grid>
-      <Grid item lg={4} md={4} xs={12}>
-        <MostCard
-          medal={bronzeMedal}
-          name={names[2]}
-          shift={{ my: 8 }}
-          key="3"
-          avatar={avatar}
-        />
-      </Grid>
+  const gold = (
+    <Grid item lg={4} md={4} xs={12}>
+      <MostCard
+        medal={goldMedal}
+        name={names[0]}
+        shift={{ my: 0 }}
+        key="1"
+        avatar={avatar}
+      />
     </Grid>
   );
-  return (
-    <>
-      {phone ? (
-        phoneOrder
-      ) : (
-        <Grid container spacing={5} sx={{ py: phone ? 2 : 0 }}>
-          <Grid item lg={4} md={4} xs={12}>
-            <MostCard
-              medal={bronzeMedal}
-              name={names[2]}
-              shift={{ my: 8 }}
-              key="3"
-              avatar={avatar}
-            />
-          </Grid>
-          <Grid item lg={4} md={4} xs={12}>
-            <MostCard
-              medal={goldMedal}
-              name={names[0]}
-              shift={{ my: 0 }}
-              key="1"
-              avatar={avatar}
-            />
-          </Grid>
+  const silver = (
+    <Grid item lg={4} md={4} xs={12}>
+      <MostCard
+        medal={silverMedal}
+        name={names[1]}
+        shift={{ my: 5 }}
+        key="2"
+        avatar={avatar}
+      />
+    </Grid>
+  );
+  const bronze = (
+    <Grid item lg={4} md={4} xs={12}>
+      <MostCard
+        medal={bronzeMedal}
+        name={names[2]}
+        shift={{ my: 8 }}
+        key="3"
+        avatar={avatar}
+      />
+    </Grid>
+  );
 
-          <Grid item lg={4} md={4} xs={12}>
-            <MostCard
-              medal={silverMedal}
-              name={names[1]}
-              shift={{ my: 5 }}
-              key="2"
-              avatar={avatar}
-            />
-          </Grid>
-        </Grid>
-      )}
-    </>
+  const phoneOrder = [gold, silver, bronze];
+  const desktopOrder = [bronze, gold, silver];
+
+  return (
+    <Grid container spacing={5} sx={{ py: phone ? 2 : 0 }}>
+      {phone ? phoneOrder : desktopOrder}
+    </Grid>
   );
 }

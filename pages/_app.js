@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
-       {notWide ? <TimelineAppBar /> : null} 
+        {notWide ? <TimelineAppBar /> : null}
         <Component {...pageProps} />
       </Container>
     </ThemeProvider>
