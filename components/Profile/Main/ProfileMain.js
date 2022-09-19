@@ -1,26 +1,42 @@
-import { Box, Grid } from '@mui/material';
-import ContactTable from './ContactTable';
+import { Box, Grid,Typography, Button } from '@mui/material';
+import ContactTable from '../Side/ContactTable';
 import MainTabs from './MainTabs';
 
 export default function ProfileMain() {
   return (
-    <Box>
-      <Grid container spacing={2}>
-        <Grid
-          item
-          lg={3}
-          md={3}
-          sm={12}
-          xs={12}
-          sx={{ pt: { sm: '100px', lg: '16px' } }}
+    <>
+      <Typography
+        variant="h5"
+      >
+        محمد حسن آلبوغبیش عراقی
+        <Button
+          variant="contained"
+          size="small"
+          sx={{ mx: 2, my: 2, borderRadius: '30px' }}
+          onClick={() => router.push('/')}
         >
-          <ContactTable />
-        </Grid>
-
-        <Grid item lg={9} md={9} sm={12} xs={12}>
-          <MainTabs />
-        </Grid>
-      </Grid>
-    </Box>
+          مشاهده ترین
+        </Button>
+      </Typography>
+      <Typography
+        variant="body2"
+        sx={{ overflowY: 'scroll', height: '100px', position: 'relative' }}
+      >
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+        از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+        سطرآنچنان که لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+        و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+        ستون و سطرآنچنان که لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+        صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
+        و مجله در ستون و سطرآنچنان که لورم ایپسوم متن ساختگی با تولید سادگی
+        نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+        بلکه روزنامه و مجله در ستون و سطرآنچنان که لورم ایپسوم متن ساختگی با
+        تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لورم ایپسوم
+        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+        گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
+      </Typography>
+      <MainTabs />
+    </>
   );
 }
