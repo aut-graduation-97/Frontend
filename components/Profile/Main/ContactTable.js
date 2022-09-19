@@ -8,6 +8,7 @@ import {
   Paper,
   Box,
   Chip,
+  useMediaQuery
 } from '@mui/material/';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -18,6 +19,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function ContactTable() {
+  const phone = useMediaQuery('(max-width:600px)');
+
+
   const getChip = (text) => (
     <Chip
       label={text}
@@ -25,25 +29,25 @@ export default function ContactTable() {
       size="small"
       clickable
       color="primary"
-      sx={{ width: 110, direction: 'ltr' }}
+      sx={{ width: '100%', direction: 'ltr' }}
     />
   );
   return (
-    <TableContainer component={Paper} sx={{ overflowX: 'auto', my: 5 }}>
+    <TableContainer component={Paper} sx={{ overflowX: 'auto', mt: phone ? '20vh': 5 }}>
       <Table aria-label="simple table">
         <TableBody>
           <TableRow>
             <TableCell align="right">
               <AlternateEmailIcon />
             </TableCell>
-            <TableCell align="right">{getChip('0910 600 8858')}</TableCell>
+            <TableCell align="left">{getChip('0910 600 8858')}</TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell align="right">
               <PhoneAndroidIcon />
             </TableCell>
-            <TableCell align="right">
+            <TableCell align="left">
               {getChip('sample text is here')}
             </TableCell>
           </TableRow>

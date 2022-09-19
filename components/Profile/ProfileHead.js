@@ -1,9 +1,11 @@
-import { Box, Typography, Grid, Button } from '@mui/material';
+import { Box, Typography, Grid, Button, useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import Avatar from '../SharedComponents/Elements/Avatar';
 export default function ProfileHead() {
   const router = useRouter();
+  const phone = useMediaQuery('(max-width:600px)');
+
   return (
     <>
       <Box
@@ -13,12 +15,17 @@ export default function ProfileHead() {
         sx={{ height: '30vh' }}
       >
         <Grid container sx={{ pt: '10vh' }}>
-          <Grid item xs={3}>
+          <Grid item lg={3} md={3} sm={4}>
             <Avatar size="150px" />
           </Grid>
 
-          <Grid item xs={9}>
-            <Typography variant="h5" sx={{ mt: 8, mb: 1 }}>
+          <Grid item lg={9} md={9} sm={7}>
+            <Typography
+              variant="h5"
+              sx={{
+                mt: phone ? 2 : 8,
+              }}
+            >
               محمد حسن آلبوغبیش عراقی
               <Button
                 variant="contained"

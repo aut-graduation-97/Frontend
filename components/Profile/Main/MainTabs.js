@@ -4,7 +4,7 @@ import { TabPanel, TabList } from '@mui/lab';
 import TabContext from '@mui/lab/TabContext';
 import { useState } from 'react';
 
-import TweetList from '../../Shared Components/Tweets/TweetList';
+import TweetList from '../../SharedComponents/Tweets/TweetList';
 
 export default function MainTabs(){
     const [tabContent, setTabContent] = useState('1');
