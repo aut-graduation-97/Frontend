@@ -2,25 +2,29 @@ import Grid from '@mui/material/Grid';
 import Item from '@mui/material/Grid';
 import NewTweetModal from '../components/Timeline/NewTweet/NewTweetModal';
 
-import Sidebar from '../components/Timeline/Sidebar/Sidebar';
+import Sidebar from '../components/Timeline/Sidebar';
 import TweetList from '../components/SharedComponents/Tweets/TweetList';
+import { useMediaQuery } from '@mui/material';
+import TimelineAppBar from '../components/Timeline/TimelineAppBar';
 
 export default function Timeline() {
-  return (
-    <>
-      <Grid container spacing={2}>
-        <Grid item xs={3}>
-          <Sidebar />
-        </Grid>
+  const tabletOrLower = useMediaQuery('(min-width:900px)');
 
-        <Grid item xs={9} sx={{ overflowY: 'scroll', height: '100vh' }}>
-      
-          <TweetList />
-          <NewTweetModal />
-        </Grid>
-       
+  return tabletOrLower ? (
+    <Grid container spacing={2}>
+      <Grid item xs={3}>
+        <Sidebar />
       </Grid>
-	  
+      <Grid item xs={9} sx={{ overflowY: 'scroll', height: '100vh' }}>
+        <TweetList />
+        <NewTweetModal />
+      </Grid>
+    </Grid>
+  ) : (
+    <>
+      <TweetList />
+      <NewTweetModal shift={true} />
+      <TimelineAppBar />
     </>
   );
 }

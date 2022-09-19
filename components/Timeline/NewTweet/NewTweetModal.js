@@ -14,7 +14,7 @@ import NewTweetButton from './NewTweetButton';
 import ProgressBar from './ProgressBar';
 import SendTweetButton from './SendTweetButton';
 
-export default function NewTweetModal() {
+export default function NewTweetModal({shift}) {
   // TODO: change according to backend
   const tweetLengthLimit = 10;
   const [show, setShow] = useState(false);
@@ -66,7 +66,7 @@ export default function NewTweetModal() {
 
   return (
     <>
-      {!show && <NewTweetButton onClick={openModalHandler} />}
+      {!show && <NewTweetButton shift={shift} onClick={openModalHandler} />}
       <Modal open={show} onClose={closeModalHandler}>
         <Box style={style}>
           <Paper
