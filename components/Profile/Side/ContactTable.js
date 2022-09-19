@@ -34,7 +34,7 @@ export default function ContactTable() {
   return (
     <TableContainer
       component={Paper}
-      sx={{ overflowX: 'auto', width: '100%', mt: 2}}
+      sx={{ overflowX: 'auto', width: '100%', mt: 2 }}
     >
       <Table aria-label="simple table">
         <TableBody>

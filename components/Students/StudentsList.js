@@ -28,7 +28,7 @@ export default function () {
 
       <Divider variant="inset" sx={{ m: 'auto', width: '80%' }} />
 
-      <Grid container spacing={4} sx={{ my: 4 }}>
+      <Grid container spacing={2} sx={{ my: 4 }}>
         {returnCardsArray()}
       </Grid>
     </>

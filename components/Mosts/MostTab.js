@@ -9,7 +9,7 @@ const DUMMY_NAME = 'محمد علی محمدی';
 
 // Student name and image must be passed to this component
 export default function MostTab({ names, avatar }) {
-  const phone = useMediaQuery('(max-width:600px)');
+  const phone = useMediaQuery('(max-width:900px)');
 
   const phoneOrder = (
     <Grid container spacing={5} sx={{ py: phone ? 2 : 0 }}>
