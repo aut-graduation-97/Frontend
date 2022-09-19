@@ -1,9 +1,9 @@
 # Graduation Website - Frontend
 
 *JSX TODOs*
-1. adding profile page
+1. 
 2. desiging theme
-3. adding bottom menu for responsive timeline
+3.
 
 *Logic TODOs*
 1. adding login (nextJS way) 
