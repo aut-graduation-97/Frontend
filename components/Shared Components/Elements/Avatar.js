@@ -11,7 +11,9 @@ export default function Avatar({ size }) {
         width: size,
         height: size,
         margin: 'auto',
+
       }}
+      style={{border: 'solid 5px white'}}
     >
       <Image
         src="https://i.pravatar.cc/300"
