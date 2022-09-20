@@ -14,24 +14,20 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import PeopleIcon from '@mui/icons-material/People';
 
-import Avatar from '../SharedComponents/Elements/Avatar';
+import Avatar from '../Elements/Avatar';
 
-export default function Sidebar() {
+export default function AppSidebar() {
   const router = useRouter();
 
   // TODO: fetch current user data from database
   return (
     <Box
       sx={{
-        mt: 4,
         pl: 1,
         width: '100%',
-        height: '90vh',
-        borderLeft: 1,
-        borderColor: '#d1d1d1',
       }}
     >
-      <Box sx={{ py: 6 }}>
+      <Box sx={{pb:3}}>
         <Avatar size="128px" />
       </Box>
       <List component="nav" aria-label="main mailbox folders">

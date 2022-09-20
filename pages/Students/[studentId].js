@@ -7,12 +7,7 @@ import ContactTable from '../../components/Profile/Side/ContactTable';
 export default function Profile() {
   return (
     <>
-      {/* <Box
-        style={{
-          background: 'linear-gradient(to bottom, #3d5dd1 60%, white 40%)',
-          height: '30vh',
-        }}
-      ></Box> */}
+
       <Box
         style={{
           background: '#3d5dd1',

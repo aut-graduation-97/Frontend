@@ -7,7 +7,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import Avatar from '../Elements/Avatar';
 import { useRouter } from 'next/router';
 
-export default function TimelineAppBar() {
+export default function AppToolbar() {
   const router = useRouter();
   return (
     <>
