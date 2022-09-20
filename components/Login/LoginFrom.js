@@ -82,10 +82,7 @@ export default function LoginForm() {
         ورود
       </LoadingButton>
       <Divider />
-      {/* TODO: change with actual link */}
-      <Button variant="text" sx={{ mt: 3}} onClick={(e)=> router.push("/")}>
-        ورود به عنوان مهمان
-      </Button>
+
     </FormControl>
   );
 }

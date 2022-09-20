@@ -4,7 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import GavelIcon from '@mui/icons-material/Gavel';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import PeopleIcon from '@mui/icons-material/People';
-import Avatar from '../SharedComponents/Elements/Avatar';
+import Avatar from '../Elements/Avatar';
 import { useRouter } from 'next/router';
 
 export default function TimelineAppBar() {

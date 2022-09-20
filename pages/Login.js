@@ -1,19 +1,38 @@
-import Box from '@mui/material/Box';
-import LoginForm from '../components/Login/LoginFrom';
-import Paper from '@mui/material/Paper';
+import { Box, Button, useMediaQuery } from '@mui/material';
+import { useState } from 'react';
+import LoginFormDrawer from '../components/Login/LoginFormDrawer';
+
 export default function Login() {
+  const [showDrawer, setShowDrawer] = useState(false);
+  const phone = useMediaQuery('(max-width:600px)');
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        px: 5,
-      }}
-    >
-      <Paper elevation={15} sx={{ mt: 13, width: 400 }}>
-        <LoginForm />
-      </Paper>
-    </Box>
+    <>
+      <LoginFormDrawer show={showDrawer} setShow={setShowDrawer} />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: phone ? 'center' : 'space-between',
+          flexDirection: phone ? 'column' : 'row',
+          alignItems: 'center',
+          height: '150vh',
+          width: '80vw',
+          m: 'auto',
+          px: 5,
+        }}
+      >
+        <Button
+          sx={{ m: 4 }}
+          variant="contained"
+          onClick={() => setShowDrawer(true)}
+        >
+          ورود اعضا
+        </Button>
+        {/* TODO: change with actual link */}
+        <Button variant="contained" onClick={(e) => router.push('/')}>
+          ورود به عنوان مهمان
+        </Button>
+      </Box>
+    </>
   );
 }
