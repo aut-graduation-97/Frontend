@@ -28,7 +28,8 @@ export default function ContactTable() {
       size="small"
       clickable
       color="primary"
-      sx={{ width: '100%', direction: 'ltr' }}
+      //FIXME: width most not be hardcoded
+      sx={{ width: '180px', direction: 'ltr' }}
     />
   );
   return (
@@ -42,44 +43,44 @@ export default function ContactTable() {
             <TableCell align="right">
               <AlternateEmailIcon />
             </TableCell>
-            <TableCell align="left">{getChip('0910 600 8858')}</TableCell>
+            <TableCell align="left">{getChip('folani@yahoo.com')}</TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell align="right">
               <PhoneAndroidIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('0910 600 8858')}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell align="right">
               <TwitterIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div')}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell align="right">
               <TelegramIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div')}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell align="right">
               <InstagramIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('t.me/fnsdjgnskngkjds')}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell align="right">
               <GitHubIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div')}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell align="right">
               <LinkedInIcon />
             </TableCell>
-            <TableCell align="left">{getChip('sample text is here')}</TableCell>
+            <TableCell align="left">{getChip('https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div')}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

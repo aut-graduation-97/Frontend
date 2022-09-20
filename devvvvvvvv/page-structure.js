@@ -1,8 +1,11 @@
-import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from '../components/SharedComponents/UI/HeaderImage';
 
-const forLandScape = (
+//1
+const tabletOrLower = useMediaQuery('(min-width:900px)');
+//2
+const JSX = phone ? (
   <>
-  <HeaderImage />
+    <HeaderImage />
     <Grid container spacing={2}>
       <Grid item lg={3} md={3} sm={3} xs={12} sx={{ mt: '-60px' }}>
         <AppSidebar />
@@ -15,9 +18,7 @@ const forLandScape = (
       </Grid>
     </Grid>
   </>
-);
-
-const forPortrait = (
+) : (
   <>
     <>
       // Components for main side of the page

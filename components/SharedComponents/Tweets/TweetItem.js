@@ -11,7 +11,7 @@ const DUMMY_LIKES = 326;
 export default function TweetItem() {
   const phone = useMediaQuery('(max-width:600px)');
   return (
-    <Grid container spacing={2} sx={{ mb: 4 }}>
+    <Grid container spacing={2} >
       <Grid item xs={2}>
         <Box sx={{ py: 0 }}>
           <Avatar size={phone ? '50px' : '80px'} />

@@ -1,5 +1,5 @@
-import { Box, Grid,Typography, Button } from '@mui/material';
-import ContactTable from '../Side/ContactTable';
+import {Typography, Button } from '@mui/material';
+
 import MainTabs from './MainTabs';
 
 export default function ProfileMain() {
@@ -17,6 +17,7 @@ export default function ProfileMain() {
         >
           مشاهده ترین
         </Button>
+        --other buttons here--
       </Typography>
       <Typography
         variant="body2"

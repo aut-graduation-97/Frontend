@@ -1,8 +1,11 @@
 import { Button, Typography, Grid, Paper } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useRouter } from 'next/router';
+
 import Avatar from '../SharedComponents/Elements/Avatar';
 
 export default function ({ name, avatar, profileLink, shift, key }) {
+  const router = useRouter();
   return (
     <>
       <Grid item xs={6} md={4} lg={3} key={key}>
@@ -24,7 +27,7 @@ export default function ({ name, avatar, profileLink, shift, key }) {
             startIcon={<AccountCircleIcon sx={{ ml: 0.4 }} />}
             size="small"
             variant="outlined"
-            onClick={(e) => router.push(profileLink)}
+            onClick={(e) => router.push('/Students/32543535435')}
           >
             پروفایل
           </Button>

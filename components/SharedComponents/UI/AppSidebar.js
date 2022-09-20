@@ -16,7 +16,7 @@ import PeopleIcon from '@mui/icons-material/People';
 
 import Avatar from '../Elements/Avatar';
 
-export default function AppSidebar() {
+export default function AppSidebar({ extraButtons, selected }) {
   const router = useRouter();
 
   // TODO: fetch current user data from database
@@ -27,14 +27,14 @@ export default function AppSidebar() {
         width: '100%',
       }}
     >
-      <Box sx={{pb:3}}>
+      <Box sx={{ pb: 3 }}>
         <Avatar size="128px" />
       </Box>
       <List component="nav" aria-label="main mailbox folders">
         <ListItemButton
-          selected
+          selected={selected === 'TIMELINE'}
           sx={{ py: 1 }}
-          onClick={(event) => router.push('/')}
+          onClick={(event) => router.push('/Timeline')}
         >
           <ListItemIcon>
             <HomeIcon fontSize="large" />
@@ -42,7 +42,11 @@ export default function AppSidebar() {
           <Typography variant="h6">تایم لاین</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton
+          selected={selected === 'PROFILE'}
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/MyProfile')}
+        >
           <ListItemIcon>
             <AccountCircleIcon fontSize="large" />
           </ListItemIcon>
@@ -50,16 +54,21 @@ export default function AppSidebar() {
         </ListItemButton>
 
         <ListItemButton
+          selected={selected === 'MOSTS'}
           sx={{ py: 1 }}
           onClick={(event) => router.push('/Mosts')}
         >
           <ListItemIcon>
             <GavelIcon fontSize="large" />
           </ListItemIcon>
-          <Typography variant="h6"> نتایج ترینها</Typography>
+          <Typography variant="h6">ترین ها</Typography>
         </ListItemButton>
 
-        <ListItemButton sx={{ py: 1 }} onClick={(event) => router.push('/')}>
+        <ListItemButton
+          selected={selected === 'GALLERY'}
+          sx={{ py: 1 }}
+          onClick={(event) => router.push('/')}
+        >
           <ListItemIcon>
             <CollectionsIcon fontSize="large" />
           </ListItemIcon>
@@ -67,6 +76,7 @@ export default function AppSidebar() {
         </ListItemButton>
 
         <ListItemButton
+          selected={selected === 'STUDENTS'}
           sx={{ py: 1 }}
           onClick={(event) => router.push('/Students')}
         >
@@ -75,6 +85,9 @@ export default function AppSidebar() {
           </ListItemIcon>
           <Typography variant="h6"> دانشجویان</Typography>
         </ListItemButton>
+
+        {extraButtons ? <Divider /> : null}
+        {extraButtons ? extraButtons() : null}
       </List>
     </Box>
   );
