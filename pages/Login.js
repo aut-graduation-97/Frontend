@@ -1,10 +1,13 @@
 import { Box, Button, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import LoginFormDrawer from '../components/Login/LoginFormDrawer';
+import {useRouter} from "next/router";
 
 export default function Login() {
+
   const [showDrawer, setShowDrawer] = useState(false);
-  const phone = useMediaQuery('(max-width:600px)');
+  const router = useRouter();
+    const phone = useMediaQuery('(max-width:600px)');
 
   return (
     <>

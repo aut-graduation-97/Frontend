@@ -3,13 +3,11 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Paper,
-  Box,
   Chip,
   useMediaQuery,
-} from '@mui/material/';
+} from '@mui/material';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -19,7 +17,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function ContactTable() {
-  const phone = useMediaQuery('(max-width:600px)');
+
 
   const getChip = (text) => (
     <Chip
