@@ -12,10 +12,11 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Vazirmatn, sans-serif',
     h6: {
-      fontSize: '1rem',
+      fontSize: '16px',
     },
+
     p: {
-      fontSize: '15px',
+      fontSize: '14px',
     },
   },
 });

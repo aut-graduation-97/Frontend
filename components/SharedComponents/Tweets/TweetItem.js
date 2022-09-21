@@ -17,20 +17,20 @@ export default function TweetItem({ tmp }) {
           <Grid container spacing={2}>
               {  /*FIXME: this grid item causes a thin white line in appbar for some reason*/}
               <Grid item xs={2} sx={{pl:'33px'}}>
-                  <Box sx={{ py: 0 }}>
-                      <Avatar size={phone ? '50px' : '80px'} />
+                  <Box sx={{ py: 1 }}>
+                      <Avatar size={phone ? '60px' : '75px'} />
                   </Box>
               </Grid>
 
               <Grid item xs={10}>
                   <Typography
-                      variant="h5"
+                      variant="h6"
                       component="h5"
-                      sx={{ pt: phone ? 1 : 3, pb: 2 }}
+                      sx={{ mt: phone ? 3 : 2, pb: 1,  fontWeight: '600', }}
                   >
                       {tmp.tmp === '1' ? DUMMY_TITLE1 : DUMMY_TITLE2}
                   </Typography>
-                  <Typography variant="p" component="p">
+                  <Typography variant="p" component="p" sx={{pl:4,}}>
                       {DUMMY_TEXT}
                   </Typography>
                   <TweetLikeButton likesCount={DUMMY_LIKES} />

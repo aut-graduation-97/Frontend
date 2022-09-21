@@ -9,20 +9,21 @@ export default function Login() {
   const router = useRouter();
     const phone = useMediaQuery('(max-width:600px)');
 
+    const styles = {display: 'flex',
+        justifyContent: phone ? 'center' : 'space-between',
+        flexDirection: phone ? 'column' : 'row',
+        alignItems: 'center',
+        height: '150vh',
+        width: '80vw',
+        m: 'auto',
+        px: 5,
+    }
+
   return (
     <>
       <LoginFormDrawer show={showDrawer} setShow={setShowDrawer} />
       <Box
-        sx={{
-          display: 'flex',
-          justifyContent: phone ? 'center' : 'space-between',
-          flexDirection: phone ? 'column' : 'row',
-          alignItems: 'center',
-          height: '150vh',
-          width: '80vw',
-          m: 'auto',
-          px: 5,
-        }}
+        sx={styles}
       >
         <Button
           sx={{ m: 4 }}
@@ -31,8 +32,7 @@ export default function Login() {
         >
           ورود اعضا
         </Button>
-        {/* TODO: change with actual link */}
-        <Button variant="contained" onClick={(e) => router.push('/')}>
+        <Button variant="contained" onClick={(e) => router.push('/Timeline')}>
           ورود به عنوان مهمان
         </Button>
       </Box>

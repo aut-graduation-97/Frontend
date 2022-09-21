@@ -29,7 +29,7 @@ export default function ({ likesCount }) {
   };
 
   return (
-    <IconButton color="error" onClick={likeHandler} sx={{position: 'relative', right:'87%'}}>
+    <IconButton color="error" onClick={likeHandler} sx={{position: 'relative', right:'80%'}}>
       <p style={{ fontSize: '12px', paddingLeft: '.3rem' }}>{count}</p>
       {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
     </IconButton>
