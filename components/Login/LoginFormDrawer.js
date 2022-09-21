@@ -9,8 +9,12 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+
 export default function LoginFormDrawer({ show, setShow }) {
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   const [loading, setLoading] = useState(false);
   const [formIsUntouched, setFromIsUntouched] = useState(true);
@@ -42,10 +46,17 @@ export default function LoginFormDrawer({ show, setShow }) {
     setPasswordIsValid(true);
   };
 
-  const loginHandler = () => {
+  const loginHandler = async () => {
     setLoading(true);
-    // TODO: login and redirect user
-    console.log(usernameInput, passwordInput);
+
+    await signIn('credentials', {
+      email: usernameInput,
+      password: passwordInput,
+      redirect: false,
+    });
+
+    setLoading(false);
+    router.push('/Timeline');
   };
 
   const guestLoginHandler = () => {};
@@ -96,6 +107,17 @@ export default function LoginFormDrawer({ show, setShow }) {
             onClick={(e) => router.push('/')}
           >
             ورود به عنوان مهمان
+          </Button>
+
+          <Button
+            variant="text"
+            sx={{ mt: 3 }}
+            onClick={(e) => {
+              console.log(session);
+              console.log(status);
+            }}
+          >
+            log session data button (for debugging)
           </Button>
         </FormControl>
       </Drawer>

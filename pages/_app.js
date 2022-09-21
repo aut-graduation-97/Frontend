@@ -1,9 +1,8 @@
 import { ThemeProvider } from '@emotion/react';
 import createTheme from '@mui/material/styles/createTheme';
 import Container from '@mui/material/Container';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
-
 
 const theme = createTheme({
   typography: {
@@ -17,13 +16,14 @@ const theme = createTheme({
   },
 });
 
-function MyApp({ Component, pageProps }) {
-
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="lg">
-        <Component {...pageProps} />
-      </Container>
+      <SessionProvider session={session}>
+        <Container maxWidth="lg">
+          <Component {...pageProps} />
+        </Container>
+      </SessionProvider>
     </ThemeProvider>
   );
 }

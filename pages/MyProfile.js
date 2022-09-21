@@ -3,10 +3,18 @@ import { Grid, useMediaQuery } from '@mui/material';
 import HeaderImage from '../components/SharedComponents/UI/HeaderImage';
 import AppToolbar from '../components/SharedComponents/UI/AppToolbar';
 import AppSidebar from '../components/SharedComponents/UI/AppSidebar';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export default function MyProfile() {
+
+  const router = useRouter();
+  const session = useSession();
   const tabletOrLower = useMediaQuery('(min-width:900px)');
 
+  if (session.status ==='unauthenticated') router.push('/Err/unAuthorized');
+
+  // for dev
   const extraButtonComponent = () => {
     return (
       <>
