@@ -6,9 +6,15 @@ import CollectionsIcon from '@mui/icons-material/Collections';
 import PeopleIcon from '@mui/icons-material/People';
 import Avatar from '../Elements/Avatar';
 import { useRouter } from 'next/router';
+import {useSession} from "next-auth/react";
 
 export default function AppToolbar() {
   const router = useRouter();
+  const {status} = useSession();
+
+
+
+
   return (
     <>
       <AppBar
@@ -42,9 +48,9 @@ export default function AppToolbar() {
             <PeopleIcon sx={{ color: 'white' }} fontSize="large" />
           </IconButton>
 
-          <IconButton sx={{ py: 1, color: 'white' }}>
+          {status === 'authenticated' && <IconButton sx={{ py: 1, color: 'white' }}>
             <Avatar size="32px" />
-          </IconButton>
+          </IconButton>}
         </Toolbar>
       </AppBar>
     </>

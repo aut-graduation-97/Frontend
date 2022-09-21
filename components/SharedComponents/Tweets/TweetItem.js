@@ -13,27 +13,31 @@ export default function TweetItem({ tmp }) {
 
   const phone = useMediaQuery('(max-width:600px)');
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={2}>
-        <Box sx={{ py: 0 }}>
-          <Avatar size={phone ? '50px' : '80px'} />
-        </Box>
-      </Grid>
 
-      <Grid item xs={10}>
-        <Typography
-          variant="h5"
-          component="h5"
-          sx={{ pt: phone ? 1 : 3, pb: 2 }}
-        >
-          {tmp.tmp === '1' ? DUMMY_TITLE1 : DUMMY_TITLE2}
-        </Typography>
-        <Typography variant="p" component="p">
-          {DUMMY_TEXT}
-        </Typography>
-        <TweetLikeButton likesCount={DUMMY_LIKES} />
-        <Divider />
-      </Grid>
-    </Grid>
+          <Grid container spacing={2}>
+              {  /*FIXME: this grid item causes a thin white line in appbar for some reason*/}
+              <Grid item xs={2} sx={{pl:'33px'}}>
+                  <Box sx={{ py: 0 }}>
+                      <Avatar size={phone ? '50px' : '80px'} />
+                  </Box>
+              </Grid>
+
+              <Grid item xs={10}>
+                  <Typography
+                      variant="h5"
+                      component="h5"
+                      sx={{ pt: phone ? 1 : 3, pb: 2 }}
+                  >
+                      {tmp.tmp === '1' ? DUMMY_TITLE1 : DUMMY_TITLE2}
+                  </Typography>
+                  <Typography variant="p" component="p">
+                      {DUMMY_TEXT}
+                  </Typography>
+                  <TweetLikeButton likesCount={DUMMY_LIKES} />
+                  <Divider />
+              </Grid>
+          </Grid>
+
+
   );
 }

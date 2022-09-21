@@ -7,7 +7,6 @@ export default function TweetList(tmp) {
 
   return (
     <Box sx={{ my: 3 }}>
-
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
