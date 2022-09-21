@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, useMediaQuery } from '@mui/material';
+import { Box, Tab, useMediaQuery } from '@mui/material';
 import { TabPanel, TabList } from '@mui/lab';
 import TabContext from '@mui/lab/TabContext';
 import { useState } from 'react';
@@ -24,11 +24,13 @@ export default function MainTabs() {
         </Box>
 
         <TabPanel value="1">
-          <TweetList />
+
+          <TweetList tmp="1" />
         </TabPanel>
 
         <TabPanel value="2">
-          <TweetList />
+
+          <TweetList tmp="2" />
         </TabPanel>
       </TabContext>
     </Box>

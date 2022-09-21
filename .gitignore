@@ -21,6 +21,7 @@
 *.pem
 .vscode
 .eslintrc.js
+.idea
 
 # debug
 npm-debug.log*
