@@ -6,7 +6,7 @@ import '../styles/globals.css';
 import {ToastContainer} from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
-
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 
 const theme = createTheme({
   typography: {
@@ -21,10 +21,14 @@ const theme = createTheme({
   },
 });
 
+const queryClient = new QueryClient()
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+
   return (
     <ThemeProvider theme={theme}>
       <SessionProvider session={session}>
+        <QueryClientProvider client={queryClient}>
         <ToastContainer
             position="top-center"
             autoClose={2000}
@@ -40,6 +44,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <Container maxWidth="lg">
           <Component {...pageProps} />
         </Container>
+        </QueryClientProvider>
       </SessionProvider>
     </ThemeProvider>
   );

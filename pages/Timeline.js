@@ -10,9 +10,7 @@ import {useSession} from "next-auth/react";
 
 export default function Timeline() {
   const tabletOrLower = useMediaQuery('(min-width:900px)');
-    const s = useSession();
-    console.log(s);
-  test();
+
   return tabletOrLower ? (
     <>
       <HeaderImage />

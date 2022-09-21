@@ -12,7 +12,7 @@ export const  getAllTweets = async () => {
         headers: getBasicHeaders(),
         }
     );
-
+    if (!response.ok) throw new Error('Could not fetch tweets');
     const data = await response.json();
     console.log("requested to", BASE_URL + '/tweets');
     console.log("received", data);
