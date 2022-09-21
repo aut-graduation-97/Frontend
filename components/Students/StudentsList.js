@@ -18,17 +18,7 @@ export default function () {
 
   return (
     <>
-      <Typography
-        variant="h4"
-        component="h4"
-        sx={{ textAlign: 'center', pt: 4, pb: 2 }}
-      >
-        دانشجویان فارغ التحصیل ورودی ۹۷ دانشکده
-      </Typography>
-
-      <Divider variant="inset" sx={{ m: 'auto', width: '80%' }} />
-
-      <Grid container spacing={2} sx={{ my: 4 }}>
+      <Grid container spacing={2} sx={{ p: 4 }}>
         {returnCardsArray()}
       </Grid>
     </>
