@@ -5,10 +5,14 @@ import AppSidebar from '../components/SharedComponents/UI/AppSidebar';
 import TweetList from '../components/SharedComponents/Tweets/TweetList';
 import AppToolbar from '../components/SharedComponents/UI/AppToolbar';
 import HeaderImage from '../components/SharedComponents/UI/HeaderImage';
+import test from "../api/tweet-api";
+import {useSession} from "next-auth/react";
 
 export default function Timeline() {
   const tabletOrLower = useMediaQuery('(min-width:900px)');
-
+    const s = useSession();
+    console.log(s);
+  test();
   return tabletOrLower ? (
     <>
       <HeaderImage />
