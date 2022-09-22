@@ -1,5 +1,5 @@
-import { Alert, Divider, Typography, Box, Button } from '@mui/material';
-import { useRouter } from 'next/router';
+import { Alert, Divider, Typography, Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 /**
  *
@@ -13,11 +13,11 @@ export default function CustomError({ errorMessage, redirectTo }) {
     <Box
       sx={{
         py: 10,
-        width: '80%',
-        m: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
+        width: "80%",
+        m: "auto",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
       }}
     >
       <Alert variant="outlined" severity="error">

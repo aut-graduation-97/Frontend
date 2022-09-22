@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 
+
 export default function HeaderImage() {
     // TODO: fetch profile image here
   return (

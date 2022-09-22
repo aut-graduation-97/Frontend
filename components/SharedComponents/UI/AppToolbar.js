@@ -8,6 +8,9 @@ import Avatar from '../Elements/Avatar';
 import { useRouter } from 'next/router';
 import {useSession} from "next-auth/react";
 
+/**
+ * @returns {JSX.Element} an app toolbar component
+ */
 export default function AppToolbar() {
   const router = useRouter();
   const {status} = useSession();

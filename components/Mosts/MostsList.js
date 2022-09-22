@@ -1,15 +1,15 @@
-import { Box, Tab, Tabs } from '@mui/material';
-import { TabPanel, TabList } from '@mui/lab';
-import TabContext from '@mui/lab/TabContext';
-import { useState } from 'react';
-import MostTab from './MostTab';
+import { Box, Tab, Tabs } from "@mui/material";
+import { TabPanel, TabList } from "@mui/lab";
+import TabContext from "@mui/lab/TabContext";
+import { useState } from "react";
+import MostTab from "./MostTab";
 
-const DUMMY_NAMES1 = ['محمد علی محمدی', 'محمد علی محمدی', 'محمد علی محمدی'];
-const DUMMY_NAMES2 = ['علی نوروزی', 'علی نوروزی', 'علی نوروزی'];
-const DUMMY_NAMES3 = ['محمدحمدی', 'محمد  محمدی', 'محمد  محمدی'];
+const DUMMY_NAMES1 = ["محمد علی محمدی", "محمد علی محمدی", "محمد علی محمدی"];
+const DUMMY_NAMES2 = ["علی نوروزی", "علی نوروزی", "علی نوروزی"];
+const DUMMY_NAMES3 = ["محمدحمدی", "محمد  محمدی", "محمد  محمدی"];
 
 export default function MostsList() {
-  const [tabContent, setTabContent] = useState('1');
+  const [tabContent, setTabContent] = useState("1");
 
   const handleChange = (event, newValue) => {
     setTabContent(newValue);
@@ -20,9 +20,9 @@ export default function MostsList() {
 
   return (
     <>
-      <Box sx={{ width: '100%', my: 5 }}>
+      <Box sx={{ width: "100%", my: 5 }}>
         <TabContext value={tabContent}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
               <Tab label="خنگ ترین" value="1" />
               <Tab label="باحال ترین " value="2" />

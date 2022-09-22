@@ -17,6 +17,12 @@ import PeopleIcon from '@mui/icons-material/People';
 import Avatar from '../Elements/Avatar';
 import {useSession} from "next-auth/react";
 
+/**
+ *
+ * @param extraButtons {JSX.Element} extra buttons to be added to the sidebar
+ * @param selected {string} string to show which button is selected
+ * @returns {JSX.Element} a sidebar component
+ */
 export default function AppSidebar({extraButtons, selected}) {
     const {status} = useSession();
     const router = useRouter();

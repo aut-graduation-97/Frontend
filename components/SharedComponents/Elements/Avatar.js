@@ -1,19 +1,18 @@
-import Image from 'next/image';
-import Box from '@mui/material/Box';
+import Image from "next/image";
+import Box from "@mui/material/Box";
 
 export default function Avatar({ size }) {
   // TODO: check if this way is compatible with SSR and backend
   return (
     <Box
       sx={{
-        borderRadius: '50%',
-        overflow: 'hidden',
+        borderRadius: "50%",
+        overflow: "hidden",
         width: size,
         height: size,
-        margin: 'auto',
-
+        margin: "auto",
       }}
-      style={{border: 'solid 5px white'}}
+      style={{ border: "solid 5px white" }}
     >
       <Image
         src="https://i.pravatar.cc/300"

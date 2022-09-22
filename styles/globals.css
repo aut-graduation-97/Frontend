@@ -1,35 +1,39 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Vazirmatn', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.toast{
-  font-family: 'Vazirmatn', sans-serif !important;
+.toast {
+    font-family: 'Vazirmatn', sans-serif !important;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 6px;
+    width: 10px;
+    height: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
 }
-::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-  background: rgba(0,0,0,0.2);
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
 }
-::-webkit-scrollbar-thumb:hover{
-  background: rgba(0,0,0,0.4);
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
 }
-::-webkit-scrollbar-thumb:active{
-  background: rgba(0,0,0,.9);
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, .9);
 }
 
 /* @media (prefers-color-scheme: dark) {

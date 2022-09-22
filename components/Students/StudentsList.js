@@ -1,9 +1,9 @@
-import { Typography, Divider, Grid } from '@mui/material';
-import StudentCard from './StudentCard';
+import { Grid } from "@mui/material";
+import StudentCard from "./StudentCard";
 
-const DUMMY_NAME = ' جمشید نوروزی اصل ایذه تبار';
+const DUMMY_NAME = " جمشید نوروزی اصل ایذه تبار";
 
-export default function () {
+export default function StudentsList() {
   //TODO: fetch students from database.
   // pass them to function below
 

@@ -1,19 +1,19 @@
-import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 const apiEnd =
-  'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDyv5g4w6QhxD-TvUuXjesci6Tmv_6Y9II';
+  "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDyv5g4w6QhxD-TvUuXjesci6Tmv_6Y9II";
 
 const authOptions = {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log('credentials', credentials);
+        console.log("credentials", credentials);
         const response = await fetch(apiEnd, {
-          method: 'POST',
+          method: "POST",
           body: JSON.stringify(credentials),
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
         const data = await response.json();
@@ -22,7 +22,7 @@ const authOptions = {
         return {
           token: data,
           userData: {
-            field1: 'custom user data',
+            field1: "custom user data",
           },
         };
       },
@@ -40,11 +40,11 @@ const authOptions = {
     },
   },
   pages: {
-    signIn: '/Login',
-    signOut: '--not-used-yet--',
-    error: '--not-used-yet--',
-    verifyRequest: '--not-used-yet--',
-    newUser: '--not-used-yet--',
+    signIn: "/Login",
+    signOut: "--not-used-yet--",
+    error: "--not-used-yet--",
+    verifyRequest: "--not-used-yet--",
+    newUser: "--not-used-yet--",
   },
 };
 

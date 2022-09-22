@@ -1,19 +1,17 @@
-import {Typography, Button } from '@mui/material';
+import { Typography, Button } from "@mui/material";
 
-import MainTabs from './MainTabs';
+import MainTabs from "./MainTabs";
 
 export default function ProfileMain() {
   return (
     <>
-      <Typography
-        variant="h5"
-      >
+      <Typography variant="h5">
         محمد حسن آلبوغبیش عراقی
         <Button
           variant="contained"
           size="small"
-          sx={{ mx: 2, my: 2, borderRadius: '30px' }}
-          onClick={() => router.push('/')}
+          sx={{ mx: 2, my: 2, borderRadius: "30px" }}
+          onClick={() => router.push("/")}
         >
           مشاهده ترین
         </Button>
@@ -21,7 +19,7 @@ export default function ProfileMain() {
       </Typography>
       <Typography
         variant="body2"
-        sx={{ overflowY: 'scroll', height: '100px', position: 'relative' }}
+        sx={{ overflowY: "scroll", height: "100px", position: "relative" }}
       >
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
         از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و

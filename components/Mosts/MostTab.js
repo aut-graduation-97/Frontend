@@ -1,15 +1,15 @@
-import MostCard from './MostCard';
+import MostCard from "./MostCard";
 
-import goldMedal from '../../public/gold-medal.png';
-import silverMedal from '../../public/silver-medal.png';
-import bronzeMedal from '../../public/bronze-medal.png';
-import { Grid, useMediaQuery } from '@mui/material';
+import goldMedal from "../../public/gold-medal.png";
+import silverMedal from "../../public/silver-medal.png";
+import bronzeMedal from "../../public/bronze-medal.png";
+import { Grid, useMediaQuery } from "@mui/material";
 
-const DUMMY_NAME = 'محمد علی محمدی';
+const DUMMY_NAME = "محمد علی محمدی";
 
 // Student name and image must be passed to this component
 export default function MostTab({ names, avatar }) {
-  const phone = useMediaQuery('(max-width:900px)');
+  const phone = useMediaQuery("(max-width:900px)");
 
   const gold = (
     <Grid item lg={4} md={4} xs={12}>

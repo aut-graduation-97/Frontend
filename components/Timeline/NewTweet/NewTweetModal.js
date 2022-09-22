@@ -6,21 +6,21 @@ import {
   TextField,
   IconButton,
   CircularProgress,
-} from '@mui/material';
+} from "@mui/material";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import NewTweetButton from './NewTweetButton';
-import ProgressBar from './ProgressBar';
-import SendTweetButton from './SendTweetButton';
+import NewTweetButton from "./NewTweetButton";
+import ProgressBar from "./ProgressBar";
+import SendTweetButton from "./SendTweetButton";
 
-export default function NewTweetModal({shift}) {
+export default function NewTweetModal({ shift }) {
   // TODO: change according to backend
   const tweetLengthLimit = 10;
   const [show, setShow] = useState(false);
   const [lengthIsValid, setLengthIsValid] = useState(true);
-  const [tweetContent, setTweetContent] = useState('');
-  const [helperText, setHelperText] = useState('');
+  const [tweetContent, setTweetContent] = useState("");
+  const [helperText, setHelperText] = useState("");
 
   const inputChangeHandler = (e) => {
     const text = e.target.value;
@@ -32,7 +32,7 @@ export default function NewTweetModal({shift}) {
       return;
     }
     if (text.length === 0) {
-      setHelperText('توییت خالی است');
+      setHelperText("توییت خالی است");
       setLengthIsValid(false);
       return;
     }
@@ -40,7 +40,7 @@ export default function NewTweetModal({shift}) {
 
   const inputBlurHandler = (e) => {
     if (e.target.value.length === 0) {
-      setHelperText('توییت خالی است');
+      setHelperText("توییت خالی است");
       setLengthIsValid(false);
     }
   };
@@ -51,15 +51,15 @@ export default function NewTweetModal({shift}) {
   const closeModalHandler = () => {
     setShow(false);
     setLengthIsValid(true);
-    setTweetContent('');
-    setHelperText('');
+    setTweetContent("");
+    setHelperText("");
   };
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 600,
     p: 2,
   };
@@ -71,7 +71,7 @@ export default function NewTweetModal({shift}) {
         <Box style={style}>
           <Paper
             rounded={3}
-            sx={{ display: 'flex', flexDirection: 'column', px: 4, py: 6 }}
+            sx={{ display: "flex", flexDirection: "column", px: 4, py: 6 }}
           >
             <Typography variant="h6" component="h4" sx={{ mb: 4 }}>
               اضافه کردن توییت جدید
@@ -82,7 +82,7 @@ export default function NewTweetModal({shift}) {
               onChange={inputChangeHandler}
               error={lengthIsValid ? false : true}
               id="filled-multiline-static"
-              label={lengthIsValid ? 'توییت' : helperText}
+              label={lengthIsValid ? "توییت" : helperText}
               multiline
               rows={4}
               variant="filled"

@@ -1,16 +1,16 @@
-import { Drawer } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import LoadingButton from '@mui/lab/LoadingButton';
-import FormControl from '@mui/material/FormControl';
-import LoginIcon from '@mui/icons-material/Login';
-import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
+import { Drawer } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import LoadingButton from "@mui/lab/LoadingButton";
+import FormControl from "@mui/material/FormControl";
+import LoginIcon from "@mui/icons-material/Login";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-import { signIn } from 'next-auth/react';
-import { useSession } from 'next-auth/react';
+import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function LoginFormDrawer({ show, setShow }) {
   const router = useRouter();
@@ -19,8 +19,8 @@ export default function LoginFormDrawer({ show, setShow }) {
   const [loading, setLoading] = useState(false);
   const [formIsUntouched, setFromIsUntouched] = useState(true);
 
-  const [usernameInput, setUsernameInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
 
   const [userNameIsValid, setUsernameIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
@@ -49,23 +49,23 @@ export default function LoginFormDrawer({ show, setShow }) {
   const loginHandler = async () => {
     setLoading(true);
 
-    await signIn('credentials', {
+    await signIn("credentials", {
       email: usernameInput,
       password: passwordInput,
       redirect: false,
     });
 
     setLoading(false);
-    router.push('/Timeline');
+    router.push("/Timeline");
   };
 
   const guestLoginHandler = () => {};
 
   return (
     <>
-      <Drawer anchor={'right'} open={show} onClose={() => setShow(false)}>
+      <Drawer anchor={"right"} open={show} onClose={() => setShow(false)}>
         <FormControl
-          sx={{ mx: 5, py: 5, display: 'flex', alignItems: 'center' }}
+          sx={{ mx: 5, py: 5, display: "flex", alignItems: "center" }}
         >
           <TextField
             id="outlined-basic"
@@ -74,7 +74,7 @@ export default function LoginFormDrawer({ show, setShow }) {
             autoComplete="current-username"
             onChange={usernameChangeHandler}
             error={!userNameIsValid}
-            sx={{ my: 4, width: '100%' }}
+            sx={{ my: 4, width: "100%" }}
           />
 
           <TextField
@@ -84,7 +84,7 @@ export default function LoginFormDrawer({ show, setShow }) {
             autoComplete="current-password"
             onChange={passwordChangeHandler}
             error={!passwordIsValid}
-            sx={{ mb: 4, width: '100%' }}
+            sx={{ mb: 4, width: "100%" }}
           />
 
           <LoadingButton
@@ -95,7 +95,7 @@ export default function LoginFormDrawer({ show, setShow }) {
             loading={loading}
             loadingPosition="start"
             variant="contained"
-            sx={{ my: 4, width: '70%' }}
+            sx={{ my: 4, width: "70%" }}
           >
             ورود
           </LoadingButton>
@@ -104,7 +104,7 @@ export default function LoginFormDrawer({ show, setShow }) {
           <Button
             variant="text"
             sx={{ mt: 3 }}
-            onClick={(e) => router.push('/')}
+            onClick={(e) => router.push("/")}
           >
             ورود به عنوان مهمان
           </Button>
