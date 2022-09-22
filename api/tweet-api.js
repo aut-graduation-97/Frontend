@@ -11,9 +11,7 @@ export async function getAllTweets() {
   });
   if (!response.ok) throw new Error("error fetching tweets");
 
-  const data = await response.json();
-  console.log("received", data);
-  return data;
+  return await response.json();
 }
 
 // ----------------------- PATCH
@@ -29,8 +27,5 @@ export async function likeTweet(tweetId, isLike) {
   );
   if (!response.ok) throw new Error("error fetching tweets");
 
-  const data = await response.json();
-
-  console.log("received", data);
-  return data;
+  return await response.json();
 }

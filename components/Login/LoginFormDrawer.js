@@ -1,16 +1,14 @@
-import { Drawer } from "@mui/material";
+import { Drawer, FormControl, Divider, Button, Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
-import FormControl from "@mui/material/FormControl";
 import LoginIcon from "@mui/icons-material/Login";
-import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
 
 import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import ForgotPasswordAccordion from "./ForgotPasswordAccordion";
 
 export default function LoginFormDrawer({ show, setShow }) {
   const router = useRouter();
@@ -59,8 +57,6 @@ export default function LoginFormDrawer({ show, setShow }) {
     router.push("/Timeline");
   };
 
-  const guestLoginHandler = () => {};
-
   return (
     <>
       <Drawer anchor={"right"} open={show} onClose={() => setShow(false)}>
@@ -100,14 +96,8 @@ export default function LoginFormDrawer({ show, setShow }) {
             ورود
           </LoadingButton>
           <Divider />
-          {/* TODO: change with actual link */}
-          <Button
-            variant="text"
-            sx={{ mt: 3 }}
-            onClick={(e) => router.push("/")}
-          >
-            ورود به عنوان مهمان
-          </Button>
+
+          <ForgotPasswordAccordion />
 
           <Button
             variant="text"

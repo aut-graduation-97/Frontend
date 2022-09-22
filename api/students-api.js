@@ -10,7 +10,5 @@ export async function getAllStudents() {
   });
   if (!response.ok) throw new Error("error fetching students");
 
-  const data = await response.json();
-  console.log("received", data);
-  return data;
+  return await response.json();
 }
