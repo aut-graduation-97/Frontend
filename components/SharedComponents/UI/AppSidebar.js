@@ -13,6 +13,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import GavelIcon from "@mui/icons-material/Gavel";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import PeopleIcon from "@mui/icons-material/People";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 import Avatar from "../Elements/Avatar";
 import { useSession } from "next-auth/react";
@@ -29,6 +30,8 @@ export default function AppSidebar({ extraButtons, selected }) {
 
   // TODO: fetch current user data from database
   const auth = status === "authenticated";
+  const isAdmin = auth && JSON.parse(localStorage.getItem("user")).super_user;
+
   return (
     <Box
       sx={{
@@ -104,8 +107,23 @@ export default function AppSidebar({ extraButtons, selected }) {
           <Typography variant="h6"> دانشجویان</Typography>
         </ListItemButton>
 
-        {extraButtons ? <Divider /> : null}
-        {extraButtons ? extraButtons() : null}
+        {isAdmin && (
+          <>
+            <Divider />
+            <ListItemButton
+              selected={selected === "ADMIN"}
+              sx={{ py: 1 }}
+              onClick={(event) => router.push("/AdminPanel")}
+            >
+              <ListItemIcon>
+                <AdminPanelSettingsIcon fontSize="large" color={"error"} />
+              </ListItemIcon>
+              <Typography color={"error"} variant="h6">
+                Admin Panel
+              </Typography>
+            </ListItemButton>
+          </>
+        )}
       </List>
     </Box>
   );

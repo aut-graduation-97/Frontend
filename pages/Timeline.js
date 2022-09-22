@@ -16,7 +16,7 @@ export default function Timeline() {
       "user",
       "{\n" +
         '  "student_id": "9731054",\n' +
-        '  "super_user": false,\n' +
+        '  "super_user": true,\n' +
         '  "name": "arefeh kompani",\n' +
         '  "user_id": "6329ed5afb672824e63ab4a3",\n' +
         '  "avatar": null,\n' +
