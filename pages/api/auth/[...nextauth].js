@@ -41,11 +41,12 @@ const authOptions = {
   },
   pages: {
     signIn: "/Login",
-    signOut: "--not-used-yet--",
-    error: "--not-used-yet--",
-    verifyRequest: "--not-used-yet--",
-    newUser: "--not-used-yet--",
+    // signOut: "--not-used-yet--",
+    // error: "--not-used-yet--",
+    // verifyRequest: "--not-used-yet--",
+    // newUser: "--not-used-yet--",
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

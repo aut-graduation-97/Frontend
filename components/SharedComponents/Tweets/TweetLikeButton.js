@@ -7,8 +7,12 @@ import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import { likeTweet } from "../../../api/tweet-api";
 
-export default function TweetLikeButton({ likesCount, tweetId }) {
-  const [liked, setLiked] = useState(false);
+export default function TweetLikeButton({
+  likesCount,
+  tweetId,
+  isLiked = false,
+}) {
+  const [liked, setLiked] = useState(isLiked);
 
   const [count, setCount] = useState(likesCount);
   const { status } = useSession();
@@ -17,42 +21,44 @@ export default function TweetLikeButton({ likesCount, tweetId }) {
     data: likeData,
     error: likeError,
     refetch: fetchLike,
-  } = useQuery(["like-tweet"], likeTweet(tweetId, true), { enabled: false });
+  } = useQuery({
+    queryKey: ["like-tweet"],
+    queryFn: () => likeTweet(tweetId, liked),
+    enabled: false,
+  });
 
   const {
     data: dislikeData,
     error: dislikeError,
     refetch: fetchDislike,
-  } = useQuery(["like-tweet"], likeTweet(tweetId, false), { enabled: false });
-
+  } = useQuery({
+    queryKey: ["dislike-tweet"],
+    queryFn: () => likeTweet(tweetId, liked),
+    enabled: false,
+  });
+  console.log(likeError);
   const likeHandler = async () => {
+    // update state
+    setLiked(!liked);
+    setCount(liked ? count - 1 : count + 1);
+
     if (status !== "authenticated") {
       toast.error("برای لایک کردن باید وارد شوید!");
       return;
     }
 
-    // send to api
-    if (liked) {
-      await fetchLike();
-      if (likeError) {
-        toast.error("خطایی رخ داده است!");
-        return;
-      }
-      toast.dark(likeData.message + "for dev");
-    } else {
-      await fetchDislike();
-      if (dislikeError) {
-        toast.error("خطایی رخ داده است!");
-        return;
-      }
-      toast.dark(dislikeData.message + "for dev");
-    }
-
-    // update state
-    setLiked(!liked);
-    setCount(liked ? count - 1 : count + 1);
+    liked ? fetchDislike() : fetchLike();
   };
 
+  if (likeError || dislikeError) {
+    toast.error("خطایی رخ داده است!");
+    if (process.enc.NODE_ENV === "development") console.log(likeError);
+    setLiked(!liked);
+    setCount(liked ? count + 1 : count - 1);
+  }
+  // ONLINE
+  // toast.dark(likeData.message + "for dev");
+  // toast.dark(dislikeData.message + "for dev");
   return (
     <IconButton
       color="error"
