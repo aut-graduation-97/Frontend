@@ -1,6 +1,12 @@
 import { Alert, Divider, Typography, Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
+/**
+ *
+ * @param errorMessage {string} the error message to be displayed
+ * @param redirectTo {string} the path to redirect to after clicking the button
+ * @returns {JSX.Element} a custom error component
+ */
 export default function CustomError({ errorMessage, redirectTo }) {
   const router = useRouter();
   return (

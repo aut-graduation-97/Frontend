@@ -9,9 +9,17 @@ const DUMMY_TITLE1 = 'مهسا امینی';
 const DUMMY_TITLE2 = ' سید حسام الدین هاتقی نسب';
 const DUMMY_LIKES = 326;
 
-export default function TweetItem({ tmp }) {
+/**
+ *
+ * @param children button for like and delete
+ * @param tmp for dev
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export default function TweetItem({children, tmp}) {
 
   const phone = useMediaQuery('(max-width:600px)');
+
   return (
 
           <Grid container spacing={2}>
@@ -33,7 +41,7 @@ export default function TweetItem({ tmp }) {
                   <Typography variant="p" component="p" sx={{pl:4,}}>
                       {DUMMY_TEXT}
                   </Typography>
-                  <TweetLikeButton likesCount={DUMMY_LIKES} />
+                  {children}
                   <Divider />
               </Grid>
           </Grid>

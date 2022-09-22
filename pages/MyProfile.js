@@ -1,18 +1,17 @@
-import { Grid, useMediaQuery } from '@mui/material';
+import { Grid, useMediaQuery } from "@mui/material";
 
-import HeaderImage from '../components/SharedComponents/UI/HeaderImage';
-import AppToolbar from '../components/SharedComponents/UI/AppToolbar';
-import AppSidebar from '../components/SharedComponents/UI/AppSidebar';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
+import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
+import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function MyProfile() {
-
   const router = useRouter();
   const session = useSession();
-  const tabletOrLower = useMediaQuery('(min-width:900px)');
+  const tabletOrLower = useMediaQuery("(min-width:900px)");
 
-  if (session.status ==='unauthenticated') router.push('/Err/unAuthorized');
+  if (session.status === "unauthenticated") router.push("/Err/unAuthorized");
 
   // for dev
   const extraButtonComponent = () => {
@@ -27,7 +26,7 @@ export default function MyProfile() {
     <>
       <HeaderImage />
       <Grid container spacing={2}>
-        <Grid item lg={3} md={3} sm={3} xs={12} sx={{ mt: '-60px' }}>
+        <Grid item lg={3} md={3} sm={3} xs={12} sx={{ mt: "-60px" }}>
           <AppSidebar extraButtons={extraButtonComponent} selected="PROFILE" />
         </Grid>
 
@@ -38,7 +37,7 @@ export default function MyProfile() {
     </>
   ) : (
     <>
-      //FIXME: where to add extra buttons for AppToolbar?
+      {/* FIXME: where to add extra buttons for AppToolbar?*/}
       <AppToolbar />
       <div> User tweets here with option to remove them.</div>
     </>

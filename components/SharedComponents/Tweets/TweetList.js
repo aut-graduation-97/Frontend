@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import TweetItem from './TweetItem';
 import {useQuery} from "@tanstack/react-query";
 import {getAllTweets} from "../../../api/tweet-api";
+import TweetLikeButton from "./TweetLikeButton";
+import tweetLikeButton from "./TweetLikeButton";
+import TweetDeleteButton from "./TweetDeleteButton";
+
 
 export default function TweetList(tmp) {
 
@@ -17,7 +21,12 @@ export default function TweetList(tmp) {
 
   return (
     <Box sx={{ my: 3 }}>
-      <TweetItem tmp={tmp} />
+        <TweetItem tmp id={'--id-from-server--'}  >
+            <TweetDeleteButton tweetId={'--id-from-sever--'} />
+            <TweetLikeButton likesCount='326' />
+        </TweetItem>
+
+
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
