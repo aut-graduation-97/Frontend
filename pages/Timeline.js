@@ -7,6 +7,8 @@ import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import { useSession } from "next-auth/react";
 import jwt_decode from "jwt-decode";
+import { useQuery } from "@tanstack/react-query";
+import { getAllTweets } from "../api/tweet-api";
 
 export default function Timeline() {
   const session = useSession();
@@ -28,7 +30,8 @@ export default function Timeline() {
     // ONLINE
     // localStorage.setItem("user", JSON.stringify(jwt_decode(session.data.token)));
   }
-
+  const { data } = useQuery(["w"], getAllTweets);
+  console.log(data);
   const tabletOrLower = useMediaQuery("(min-width:900px)");
 
   return tabletOrLower ? (

@@ -9,6 +9,7 @@ export async function getAllTweets() {
     method: "GET",
     headers: getBasicHeaders(),
   });
+  if (!response.ok) throw new Error("error fetching tweets");
 
   const data = await response.json();
   console.log("received", data);
@@ -18,18 +19,15 @@ export async function getAllTweets() {
 // ----------------------- PATCH
 export async function likeTweet(tweetId, isLike) {
   console.log("requesting to", BASE_URL + "/tweets/" + tweetId + "/like");
-  try {
-    const response = await fetch(
-      BASE_URL + "/tweets/" + tweetId + `${isLike ? "/like" : "/dislike"}`,
-      {
-        method: "PATCH",
-        headers: getBasicHeaders(),
-      }
-    );
-  } catch (e) {
-    console.log("catched error", e);
-    throw new Error(e);
-  }
+
+  const response = await fetch(
+    BASE_URL + "/tweets/" + tweetId + `${isLike ? "/like" : "/dislike"}`,
+    {
+      method: "PATCH",
+      headers: getBasicHeaders(),
+    }
+  );
+  if (!response.ok) throw new Error("error fetching tweets");
 
   const data = await response.json();
 
