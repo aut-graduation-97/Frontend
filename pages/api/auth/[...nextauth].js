@@ -17,13 +17,12 @@ const authOptions = {
           },
         });
         const data = await response.json();
-        console.log(data);
+        console.log("data", data);
         // Returning token to set in session
         return {
+          // ONLINE
+          // token: data.token,
           token: data,
-          userData: {
-            field1: "custom user data",
-          },
         };
       },
     }),
@@ -46,7 +45,7 @@ const authOptions = {
     // verifyRequest: "--not-used-yet--",
     // newUser: "--not-used-yet--",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

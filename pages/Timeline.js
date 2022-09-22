@@ -5,10 +5,30 @@ import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
 import TweetList from "../components/SharedComponents/Tweets/TweetList";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
-import test from "../api/tweet-api";
 import { useSession } from "next-auth/react";
+import jwt_decode from "jwt-decode";
 
 export default function Timeline() {
+  const session = useSession();
+  if (session.status === "authenticated") {
+    // for dev
+    localStorage.setItem(
+      "user",
+      "{\n" +
+        '  "student_id": "9731054",\n' +
+        '  "super_user": false,\n' +
+        '  "name": "arefeh kompani",\n' +
+        '  "user_id": "6329ed5afb672824e63ab4a3",\n' +
+        '  "avatar": null,\n' +
+        '  "iat": 1663856309,\n' +
+        '  "exp": 1664461109\n' +
+        "}"
+    );
+
+    // ONLINE
+    // localStorage.setItem("user", JSON.stringify(jwt_decode(session.data.token)));
+  }
+
   const tabletOrLower = useMediaQuery("(min-width:900px)");
 
   return tabletOrLower ? (
