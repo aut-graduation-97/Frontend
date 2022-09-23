@@ -12,6 +12,9 @@ import {
 } from "@tanstack/react-query";
 import axios from "axios";
 
+{
+  /* FIXME: override TextField label css to move label to right  */
+}
 const theme = createTheme({
   typography: {
     fontFamily: "Vazirmatn, sans-serif",

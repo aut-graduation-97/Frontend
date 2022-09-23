@@ -13,18 +13,20 @@ import { useState } from "react";
 import NewTweetButton from "./NewTweetButton";
 import ProgressBar from "./ProgressBar";
 import SendTweetButton from "./SendTweetButton";
+import { PhotoCamera } from "@mui/icons-material";
 
 export default function NewTweetModal({ shift }) {
   // TODO: change according to backend
   const tweetLengthLimit = 10;
   const [show, setShow] = useState(false);
   const [lengthIsValid, setLengthIsValid] = useState(true);
-  const [tweetContent, setTweetContent] = useState("");
+  const [tweetText, setTweetText] = useState("");
+  const [tweetImages, setTweetImages] = useState("");
   const [helperText, setHelperText] = useState("");
 
   const inputChangeHandler = (e) => {
     const text = e.target.value;
-    setTweetContent(text);
+    setTweetText(text);
 
     if (text.length > tweetLengthLimit) {
       setHelperText(`تعداد کاراکترها باید از ${tweetLengthLimit} کم تر باشه`);
@@ -34,7 +36,6 @@ export default function NewTweetModal({ shift }) {
     if (text.length === 0) {
       setHelperText("توییت خالی است");
       setLengthIsValid(false);
-      return;
     }
   };
 
@@ -51,8 +52,12 @@ export default function NewTweetModal({ shift }) {
   const closeModalHandler = () => {
     setShow(false);
     setLengthIsValid(true);
-    setTweetContent("");
+    setTweetText("");
     setHelperText("");
+  };
+  const selectFileHandler = (e) => {
+    setTweetImages(Array.from(e.target.files));
+    console.log("files:", tweetImages);
   };
 
   const style = {
@@ -76,7 +81,7 @@ export default function NewTweetModal({ shift }) {
             <Typography variant="h6" component="h4" sx={{ mb: 4 }}>
               اضافه کردن توییت جدید
             </Typography>
-            {/* FIXME: override TextField label css to move label to right  */}
+
             <TextField
               onBlur={inputBlurHandler}
               onChange={inputChangeHandler}
@@ -89,13 +94,43 @@ export default function NewTweetModal({ shift }) {
               sx={{ mb: 2 }}
             />
 
-            {tweetContent.length > 0 && (
+            {tweetText.length > 0 && (
               <ProgressBar
-                progress={(tweetContent.length / tweetLengthLimit) * 100}
+                progress={(tweetText.length / tweetLengthLimit) * 100}
               />
             )}
 
-            <SendTweetButton tweetContent={tweetContent} />
+            <Box sx={{ m: "auto" }}>
+              <SendTweetButton
+                tweetText={tweetText}
+                tweetImages={tweetImages}
+              />
+              <IconButton
+                color="primary"
+                aria-label="upload picture"
+                component="label"
+                sx={{ mx: 3 }}
+              >
+                {tweetImages ? (
+                  <Typography variant="caption" component="p">
+                    {tweetImages.length} عکس انتخاب شده است
+                  </Typography>
+                ) : (
+                  <Typography variant="caption" component="p">
+                    افزودن عکس
+                  </Typography>
+                )}
+                <input
+                  accept="image/*"
+                  multiple
+                  hidden
+                  type="file"
+                  onChange={selectFileHandler}
+                />
+
+                <PhotoCamera />
+              </IconButton>
+            </Box>
           </Paper>
         </Box>
       </Modal>
