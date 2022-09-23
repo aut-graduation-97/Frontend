@@ -58,7 +58,6 @@ export default function NewTweetModal({ shift }) {
   const selectFileHandler = (e) => {
     setTweetImages(Array.from(e.target.files));
   };
-
   const style = {
     position: "absolute",
     top: "50%",

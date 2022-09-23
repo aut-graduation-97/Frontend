@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Box from "@mui/material/Box";
 
-export default function Avatar({ size }) {
-  // TODO: check if this way is compatible with SSR and backend
+export default function Avatar({ size, src = "https://i.pravatar.cc/300" }) {
   return (
     <Box
       sx={{
@@ -15,7 +14,7 @@ export default function Avatar({ size }) {
       style={{ border: "solid 5px white" }}
     >
       <Image
-        src="https://i.pravatar.cc/300"
+        src={src}
         alt="avatar"
         width={150}
         height={150}

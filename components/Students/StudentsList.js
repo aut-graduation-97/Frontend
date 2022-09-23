@@ -7,18 +7,19 @@ import { toast } from "react-toastify";
 const DUMMY_NAME = " جمشید نوروزی اصل ایذه تبار";
 
 export default function StudentsList() {
-  const {
-    data: students,
-    error,
-    isLoading,
-  } = useQuery(["students"], getAllStudents);
-
-  if (isLoading) {
-    return <div>SPINNER</div>;
-  }
-  if (error) {
-    toast.error("خطا در دریافت اطلاعات دانشجویان");
-  }
+  // ONLINE
+  // const {
+  //   data: students,
+  //   error,
+  //   isLoading,
+  // } = useQuery(["students"], getAllStudents);
+  //
+  // if (isLoading) {
+  //   return <div>SPINNER</div>;
+  // }
+  // if (error) {
+  //   toast.error("خطا در دریافت اطلاعات دانشجویان");
+  // }
 
   const returnCardsArray = () => {
     let tmp = [];

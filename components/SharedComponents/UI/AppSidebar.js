@@ -56,7 +56,10 @@ export default function AppSidebar({ extraButtons, selected }) {
     >
       {auth && (
         <Box sx={{ pb: 3 }}>
-          <Avatar size="128px" />
+          <Avatar
+            size="128px"
+            src={JSON.parse(localStorage.getItem("user")).avatar}
+          />
         </Box>
       )}
 

@@ -20,7 +20,7 @@ export default function Timeline() {
         '  "super_user": true,\n' +
         '  "name": "arefeh kompani",\n' +
         '  "user_id": "6329ed5afb672824e63ab4a3",\n' +
-        '  "avatar": null,\n' +
+        '  "avatar": "https://i.pravatar.cc/300",\n' +
         '  "iat": 1663856309,\n' +
         '  "exp": 1664461109\n' +
         "}"
