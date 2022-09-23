@@ -13,3 +13,11 @@ export async function likeTweet(tweetId, isLike) {
   );
   return response.data;
 }
+
+// ----------------------- POST
+export async function postTweet(payload) {
+  const response = await axios.post("/tweets", payload, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return response.data;
+}

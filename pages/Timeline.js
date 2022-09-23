@@ -6,7 +6,6 @@ import TweetList from "../components/SharedComponents/Tweets/TweetList";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import { useSession } from "next-auth/react";
-import { forgotPassword } from "../api/auth-api";
 
 export default function Timeline() {
   const tabletOrLower = useMediaQuery("(min-width:900px)");

@@ -21,7 +21,7 @@ export default function NewTweetModal({ shift }) {
   const [show, setShow] = useState(false);
   const [lengthIsValid, setLengthIsValid] = useState(true);
   const [tweetText, setTweetText] = useState("");
-  const [tweetImages, setTweetImages] = useState("");
+  const [tweetImages, setTweetImages] = useState([]);
   const [helperText, setHelperText] = useState("");
 
   const inputChangeHandler = (e) => {
@@ -57,7 +57,6 @@ export default function NewTweetModal({ shift }) {
   };
   const selectFileHandler = (e) => {
     setTweetImages(Array.from(e.target.files));
-    console.log("files:", tweetImages);
   };
 
   const style = {

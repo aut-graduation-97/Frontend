@@ -1,9 +1,7 @@
 # Graduation Website - Frontend
 
-*JSX TODOs*
-1. 
-2. desiging theme
-3.
+* DO NOT FORGET *
+1. Check error messages 
 
 *Logic TODOs*
 1. adding login (nextJS way) 
