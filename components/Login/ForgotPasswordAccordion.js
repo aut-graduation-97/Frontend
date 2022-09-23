@@ -2,14 +2,13 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Button,
   Typography,
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useRef } from "react";
-import { forgotPassword } from "../../api/login-api";
+import { forgotPassword } from "../../api/auth-api";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 

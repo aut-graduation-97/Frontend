@@ -12,6 +12,8 @@ import { getAllTweets } from "../api/tweet-api";
 
 export default function Timeline() {
   const session = useSession();
+
+  // FIXME: i dont think this part should be done in this component, but i dont know where to put it
   if (session.status === "authenticated") {
     // for dev
     localStorage.setItem(

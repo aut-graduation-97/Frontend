@@ -14,9 +14,12 @@ import GavelIcon from "@mui/icons-material/Gavel";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import PeopleIcon from "@mui/icons-material/People";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 import Avatar from "../Elements/Avatar";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { deActiveToken } from "../../../api/auth-api";
+import { toast } from "react-toastify";
 
 /**
  *
@@ -32,6 +35,18 @@ export default function AppSidebar({ extraButtons, selected }) {
   const auth = status === "authenticated";
   const isAdmin = auth && JSON.parse(localStorage.getItem("user")).super_user;
 
+  const logoutHandler = async (e) => {
+    e.preventDefault();
+    // ONLINE - uncomment
+    // try{
+    //   await deActiveToken();
+    // }catch (e){
+    //   toast.error("خطایی رخ داده است");
+    // }
+
+    // ONLINE - change address
+    await signOut({ callbackUrl: "http://localhost:3000/Login" });
+  };
   return (
     <Box
       sx={{
@@ -107,9 +122,10 @@ export default function AppSidebar({ extraButtons, selected }) {
           <Typography variant="h6"> دانشجویان</Typography>
         </ListItemButton>
 
+        <Divider />
+
         {isAdmin && (
           <>
-            <Divider />
             <ListItemButton
               selected={selected === "ADMIN"}
               sx={{ py: 1 }}
@@ -124,6 +140,13 @@ export default function AppSidebar({ extraButtons, selected }) {
             </ListItemButton>
           </>
         )}
+
+        <ListItemButton sx={{ py: 1 }} onClick={logoutHandler}>
+          <ListItemIcon>
+            <LogoutIcon color={"error"} />
+          </ListItemIcon>
+          <Typography variant="h6"> خروج</Typography>
+        </ListItemButton>
       </List>
     </Box>
   );

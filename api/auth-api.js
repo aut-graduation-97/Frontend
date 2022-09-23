@@ -16,3 +16,10 @@ export async function forgotPassword(payload) {
 
   return await response.json();
 }
+
+export async function deActiveToken() {
+  const response = await fetch(BASE_URL + "logout", {
+    method: "POST",
+    headers: getBasicHeaders(),
+  });
+}
