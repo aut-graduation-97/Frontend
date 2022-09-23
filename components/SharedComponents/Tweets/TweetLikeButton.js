@@ -1,40 +1,34 @@
-import {useState} from "react";
+import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import {useSession} from "next-auth/react";
-import {toast} from "react-toastify";
-import {useQuery} from "@tanstack/react-query";
-import {likeTweet} from "../../../api/tweet-api";
+import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
+import { useQuery } from "@tanstack/react-query";
+import { likeTweet } from "../../../api/tweet-api";
 
 export default function TweetLikeButton({
-                                          likesCount,
-                                          tweetId,
-                                          isLiked = false,
-                                        }) {
+  likesCount,
+  tweetId,
+  isLiked = false,
+}) {
   const [liked, setLiked] = useState(isLiked);
 
   const [count, setCount] = useState(likesCount);
-  const {status} = useSession();
+  const { status } = useSession();
 
-  const {
-    error: likeError,
-    refetch: fetchLike,
-  } = useQuery({
+  const { error: likeError, refetch: fetchLike } = useQuery({
     queryKey: ["like-tweet"],
     queryFn: () => likeTweet(tweetId, liked),
     enabled: false,
   });
 
-  const {
-    error: dislikeError,
-    refetch: fetchDislike,
-  } = useQuery({
+  const { error: dislikeError, refetch: fetchDislike } = useQuery({
     queryKey: ["dislike-tweet"],
     queryFn: () => likeTweet(tweetId, liked),
     enabled: false,
   });
-  console.log(likeError);
+
   const likeHandler = async () => {
     // update state
     setLiked(!liked);
@@ -58,13 +52,13 @@ export default function TweetLikeButton({
   // toast.dark(likeData.message + "for dev");
   // toast.dark(dislikeData.message + "for dev");
   return (
-      <IconButton
-          color="error"
-          onClick={likeHandler}
-          sx={{position: "relative", right: "80%"}}
-      >
-        <p style={{fontSize: "12px", paddingLeft: ".3rem"}}>{count}</p>
-        {liked ? <FavoriteIcon/> : <FavoriteBorderIcon/>}
-      </IconButton>
+    <IconButton
+      color="error"
+      onClick={likeHandler}
+      sx={{ position: "relative", right: "80%" }}
+    >
+      <p style={{ fontSize: "12px", paddingLeft: ".3rem" }}>{count}</p>
+      {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+    </IconButton>
   );
 }

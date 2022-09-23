@@ -80,7 +80,7 @@ export default function NewTweetModal({ shift }) {
             <TextField
               onBlur={inputBlurHandler}
               onChange={inputChangeHandler}
-              error={lengthIsValid ? false : true}
+              error={!lengthIsValid}
               id="filled-multiline-static"
               label={lengthIsValid ? "توییت" : helperText}
               multiline

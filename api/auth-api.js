@@ -1,25 +1,13 @@
-import getBasicHeaders from "./auth-headers";
-
-const BASE_URL = "https://our-api-url.com/api/v1/";
+import axios from "axios";
 
 export async function forgotPassword(payload) {
-  const response = await fetch(BASE_URL + "forgot_password", {
-    method: "POST",
-    headers: getBasicHeaders(),
-    body: JSON.stringify(payload),
-  });
-
-  if (response.status === 404) {
-    throw new Error("کاربری با شماره دانشجویی وارد شده یافت نشد");
-  }
-  if (!response.ok) throw new Error("error adding user");
-
-  return await response.json();
+  const response = await axios.post(
+    "/forgot_password",
+    JSON.stringify(payload)
+  );
+  return await response.data;
 }
 
 export async function deActiveToken() {
-  const response = await fetch(BASE_URL + "logout", {
-    method: "POST",
-    headers: getBasicHeaders(),
-  });
+  const response = await axios.post("/logout");
 }

@@ -6,14 +6,12 @@ import TweetList from "../components/SharedComponents/Tweets/TweetList";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import { useSession } from "next-auth/react";
-import jwt_decode from "jwt-decode";
-import { useQuery } from "@tanstack/react-query";
-import { getAllTweets } from "../api/tweet-api";
+import { forgotPassword } from "../api/auth-api";
 
 export default function Timeline() {
+  const tabletOrLower = useMediaQuery("(min-width:900px)");
+  // FIXME: not sure if this has to be here but, i don't know where else to move it
   const session = useSession();
-
-  // FIXME: i dont think this part should be done in this component, but i dont know where to put it
   if (session.status === "authenticated") {
     // for dev
     localStorage.setItem(
@@ -32,9 +30,6 @@ export default function Timeline() {
     // ONLINE
     // localStorage.setItem("user", JSON.stringify(jwt_decode(session.data.token)));
   }
-  const { data } = useQuery(["w"], getAllTweets);
-  console.log(data);
-  const tabletOrLower = useMediaQuery("(min-width:900px)");
 
   return tabletOrLower ? (
     <>

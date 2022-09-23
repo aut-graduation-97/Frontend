@@ -10,24 +10,16 @@ export default function MyProfile() {
   const router = useRouter();
   const session = useSession();
   const tabletOrLower = useMediaQuery("(min-width:900px)");
+  console.log("router", router);
 
   if (session.status === "unauthenticated") router.push("/Err/unAuthorized");
 
-  // for dev
-  const extraButtonComponent = () => {
-    return (
-      <>
-        <div>extra button 1</div>
-        <div>extra button 2</div>
-      </>
-    );
-  };
   return tabletOrLower ? (
     <>
       <HeaderImage />
       <Grid container spacing={2}>
         <Grid item lg={3} md={3} sm={3} xs={12} sx={{ mt: "-60px" }}>
-          <AppSidebar extraButtons={extraButtonComponent} selected="PROFILE" />
+          <AppSidebar selected="PROFILE" />
         </Grid>
 
         <Grid item lg={9} md={9} sm={9} xs={12}>

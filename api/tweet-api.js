@@ -1,31 +1,15 @@
-import getBasicHeaders from "./auth-headers";
-
-const BASE_URL = "https://our-api-url.com/api/v1/";
+import axios from "axios";
 
 // ----------------------- GET
 export async function getAllTweets() {
-  console.log("requesting to", BASE_URL + "/tweets");
-  const response = await fetch(BASE_URL + "/tweets", {
-    method: "GET",
-    headers: getBasicHeaders(),
-  });
-  if (!response.ok) throw new Error("error fetching tweets");
-
-  return await response.json();
+  const response = await axios.get("tweets");
+  return response.data;
 }
 
 // ----------------------- PATCH
 export async function likeTweet(tweetId, isLike) {
-  console.log("requesting to", BASE_URL + "/tweets/" + tweetId + "/like");
-
-  const response = await fetch(
-    BASE_URL + "/tweets/" + tweetId + `${isLike ? "/like" : "/dislike"}`,
-    {
-      method: "PATCH",
-      headers: getBasicHeaders(),
-    }
+  const response = await axios.patch(
+    "/tweets/" + tweetId + `${isLike ? "/like" : "/dislike"}`
   );
-  if (!response.ok) throw new Error("error fetching tweets");
-
-  return await response.json();
+  return response.data;
 }
