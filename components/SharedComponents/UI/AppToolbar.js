@@ -33,14 +33,14 @@ export default function AppToolbar() {
 
           <IconButton
             sx={{ py: 1, color: "white" }}
-            onClick={(event) => router.push("/")}
+            onClick={(event) => router.push("/Gallery")}
           >
             <CollectionsIcon fontSize="large" />
           </IconButton>
           <IconButton
             selected
             sx={{ py: 1 }}
-            onClick={(event) => router.push("/")}
+            onClick={(event) => router.push("/Timeline")}
           >
             <HomeIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
@@ -49,7 +49,10 @@ export default function AppToolbar() {
           </IconButton>
 
           {status === "authenticated" && (
-            <IconButton sx={{ py: 1, color: "white" }}>
+            <IconButton
+              onClick={(event) => router.push("/MyProfile")}
+              sx={{ py: 1, color: "white" }}
+            >
               <Avatar
                 size="32px"
                 src={JSON.parse(localStorage.getItem("user")).avatar}

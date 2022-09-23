@@ -144,12 +144,14 @@ export default function AppSidebar({ extraButtons, selected }) {
           </>
         )}
 
-        <ListItemButton sx={{ py: 1 }} onClick={logoutHandler}>
-          <ListItemIcon>
-            <LogoutIcon color={"error"} />
-          </ListItemIcon>
-          <Typography variant="h6"> خروج</Typography>
-        </ListItemButton>
+        {auth && (
+          <ListItemButton sx={{ py: 1 }} onClick={logoutHandler}>
+            <ListItemIcon>
+              <LogoutIcon color={"error"} />
+            </ListItemIcon>
+            <Typography variant="h6"> خروج</Typography>
+          </ListItemButton>
+        )}
       </List>
     </Box>
   );

@@ -5,9 +5,9 @@ import MostsList from "../components/Mosts/MostsList";
 import { Box, useMediaQuery, Grid } from "@mui/material";
 
 export default function Mosts() {
-  const tabletOrLower = useMediaQuery("(min-width:900px)");
+  const wideScreen = useMediaQuery("(min-width:900px)");
 
-  return tabletOrLower ? (
+  return wideScreen ? (
     <>
       <HeaderImage />
       <Grid container spacing={2}>
@@ -24,7 +24,7 @@ export default function Mosts() {
     </>
   ) : (
     <>
-      <div> mosts rankings result here</div>
+      <MostsList />
       <AppToolbar />
     </>
   );

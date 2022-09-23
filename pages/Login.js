@@ -6,12 +6,12 @@ import { useRouter } from "next/router";
 export default function Login() {
   const [showDrawer, setShowDrawer] = useState(false);
   const router = useRouter();
-  const phone = useMediaQuery("(max-width:600px)");
+  const wideScreen = useMediaQuery("(min-width:900px)");
 
   const styles = {
     display: "flex",
-    justifyContent: phone ? "center" : "space-between",
-    flexDirection: phone ? "column" : "row",
+    justifyContent: wideScreen ? "space-between" : "center",
+    flexDirection: wideScreen ? "row" : "column",
     alignItems: "center",
     height: "100vh",
     width: "80vw",

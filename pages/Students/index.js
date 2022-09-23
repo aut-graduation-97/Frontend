@@ -6,9 +6,9 @@ import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";
 import AppSidebar from "../../components/SharedComponents/UI/AppSidebar";
 
 export default function MyProfile() {
-  const tabletOrLower = useMediaQuery("(min-width:900px)");
+  const wideScreen = useMediaQuery("(min-width:900px)");
 
-  return tabletOrLower ? (
+  return wideScreen ? (
     <>
       <HeaderImage />
       <Grid container spacing={2}>
@@ -26,7 +26,7 @@ export default function MyProfile() {
   ) : (
     <>
       <AppToolbar />
-      <div> User tweets here with option to remove them.</div>
+      <StudentsList />
     </>
   );
 }

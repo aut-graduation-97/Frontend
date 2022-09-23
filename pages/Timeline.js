@@ -8,7 +8,7 @@ import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import { useSession } from "next-auth/react";
 
 export default function Timeline() {
-  const tabletOrLower = useMediaQuery("(min-width:900px)");
+  const wideScreen = useMediaQuery("(min-width:900px)");
   // FIXME: not sure if this has to be here but, i don't know where else to move it
   const session = useSession();
   if (session.status === "authenticated") {
@@ -27,10 +27,13 @@ export default function Timeline() {
     );
 
     // ONLINE
-    // localStorage.setItem("user", JSON.stringify(jwt_decode(session.data.token)));
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify(jwt_decode(session.data.token))
+    // );
   }
 
-  return tabletOrLower ? (
+  return wideScreen ? (
     <>
       <HeaderImage />
       <Grid container spacing={2}>

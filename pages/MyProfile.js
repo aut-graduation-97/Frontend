@@ -9,12 +9,12 @@ import { useRouter } from "next/router";
 export default function MyProfile() {
   const router = useRouter();
   const session = useSession();
-  const tabletOrLower = useMediaQuery("(min-width:900px)");
+  const wideScreen = useMediaQuery("(min-width:900px)");
   console.log("router", router);
 
   if (session.status === "unauthenticated") router.push("/Err/unAuthorized");
 
-  return tabletOrLower ? (
+  return wideScreen ? (
     <>
       <HeaderImage />
       <Grid container spacing={2}>

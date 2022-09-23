@@ -16,6 +16,7 @@ const authOptions = {
             "Content-Type": "application/json",
           },
         });
+        // FIXME: there is no toast for wrong username or password u fucking idiot
         const data = await response.json();
         console.log("data", data);
         // Returning token to set in session
@@ -41,7 +42,7 @@ const authOptions = {
   pages: {
     signIn: "/Login",
     // signOut: "--not-used-yet--",
-    // error: "--not-used-yet--",
+    error: "/Err/",
     // verifyRequest: "--not-used-yet--",
     // newUser: "--not-used-yet--",
   },
