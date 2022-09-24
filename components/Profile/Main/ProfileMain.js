@@ -1,8 +1,13 @@
 import { Typography, Button } from "@mui/material";
 
 import MainTabs from "./MainTabs";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function ProfileMain() {
+  // edit info
+  // delete Tweet
+
   return (
     <>
       <Typography variant="h5">

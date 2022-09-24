@@ -13,6 +13,16 @@ body {
     font-family: 'Vazirmatn', sans-serif !important;
 }
 
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 20px;
+}
+
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 6px;

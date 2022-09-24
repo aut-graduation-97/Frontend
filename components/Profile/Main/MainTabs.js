@@ -7,7 +7,6 @@ import TweetList from "../../SharedComponents/Tweets/TweetList";
 
 export default function MainTabs() {
   const [tabContent, setTabContent] = useState("1");
-  const phone = useMediaQuery("(max-width:600px)");
 
   const handleChange = (event, newValue) => {
     setTabContent(newValue);
@@ -18,8 +17,8 @@ export default function MainTabs() {
       <TabContext value={tabContent}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="توییت ها" sx={{ width: "50%" }} value="1" />
-            <Tab label="نظرات بقیه" sx={{ width: "50%" }} value="2" />
+            <Tab sx={{ width: "100%" }} label="توییت ها" value="1" />
+            <Tab sx={{ width: "100%" }} label="نظرات بقیه" value="2" />
           </TabList>
         </Box>
 
