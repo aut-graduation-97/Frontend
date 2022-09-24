@@ -28,13 +28,17 @@ export default function EditContactTableModal({
     }
   });
 
-  const { data, error, isFetching, refetch } = useQuery(
+  const { data, error, isFetching, refetch, isSuccess } = useQuery(
     ["update-contact"],
     () => updateContact(JSON.stringify(toPut)),
     { enabled: false }
   );
 
   if (error) toast.error(error.message);
+
+  if (isSuccess) {
+    setOpen(false);
+  }
 
   // TODO: put this modal information in a table
   return (
