@@ -75,10 +75,12 @@ export default function ContactTable({ isEditable }) {
         {isEditing && (
           <Button
             variant="contained"
+            size="small"
             onClick={() => setOpenEditModal(true)}
             sx={{ mr: 4 }}
+            color={"error"}
           >
-            ذخیره
+            ذخیره تغییرات
           </Button>
         )}
       </Box>

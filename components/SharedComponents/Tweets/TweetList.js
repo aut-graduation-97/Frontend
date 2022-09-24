@@ -4,7 +4,7 @@ import TweetItem from "./TweetItem";
 import TweetDeleteButton from "./TweetDeleteButton";
 import TweetLikeButton from "./TweetLikeButton";
 
-export default function TweetList(tmp) {
+export default function TweetList({ tmp, isEditable }) {
   // const { isLoading, isError, data, error } = useQuery(
   //   ["all-tweets"],
   //   getAllTweets
@@ -20,7 +20,7 @@ export default function TweetList(tmp) {
   return (
     <Box sx={{ my: 3 }}>
       <TweetItem tmp id={"--id-from-server--"}>
-        <TweetDeleteButton tweetId={"--id-from-sever--"} />
+        {isEditable && <TweetDeleteButton tweetId={"--id-from-sever--"} />}
         <TweetLikeButton likesCount={45} />
       </TweetItem>
 

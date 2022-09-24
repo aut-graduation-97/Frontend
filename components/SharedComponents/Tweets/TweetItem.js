@@ -33,7 +33,7 @@ export default function TweetItem({ children, tmp }) {
           component="h5"
           sx={{ mt: phone ? 3 : 2, pb: 1, fontWeight: "600" }}
         >
-          {tmp.tmp === "1" ? DUMMY_TITLE1 : DUMMY_TITLE2}
+          {tmp === "1" ? DUMMY_TITLE1 : DUMMY_TITLE2}
         </Typography>
         <Typography variant="p" component="p" sx={{ pl: 4 }}>
           {DUMMY_TEXT}

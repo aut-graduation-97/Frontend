@@ -1,4 +1,10 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
@@ -11,6 +17,7 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
     bio: null,
   });
   const [openEditModal, setOpenEditModal] = useState(false);
+  const isPortrait = useMediaQuery("(min-width: 900px)");
 
   return (
     <>
@@ -19,7 +26,11 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
         setOpen={setOpenEditModal}
         changedValues={changedInfo}
       />
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box
+        sx={
+          isPortrait ? { display: "flex", justifyContent: "space-between" } : {}
+        }
+      >
         {isEditing ? (
           <TextField
             sx={{ mt: 2 }}
@@ -48,7 +59,7 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
             sx={{ mx: 2, my: 2, borderRadius: "30px" }}
             onClick={() => router.push("/")}
           >
-            مشاهده ترین
+            ثبت رای ترین
           </Button>
           {isEditable && (
             <IconButton

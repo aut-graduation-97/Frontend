@@ -5,12 +5,13 @@ import { useState } from "react";
 
 import TweetList from "../../SharedComponents/Tweets/TweetList";
 
-export default function ProfileMainTabs() {
+export default function ProfileMainTabs({ isEditable }) {
   const [tabContent, setTabContent] = useState("1");
 
   const handleChange = (event, newValue) => {
     setTabContent(newValue);
   };
+  console.log(isEditable, "isEditable");
 
   return (
     <Box sx={{ width: "100%", mt: 4 }}>
@@ -20,13 +21,13 @@ export default function ProfileMainTabs() {
             onChange={(e, newValue) => setTabContent(newValue)}
             aria-label="lab API tabs example"
           >
-            <Tab sx={{ width: "100%" }} label="توییت ها" value="1" />
-            <Tab sx={{ width: "100%" }} label="نظرات بقیه" value="2" />
+            <Tab sx={{ width: "50%" }} label="توییت ها" value="1" />
+            <Tab sx={{ width: "50%" }} label="نظرات بقیه" value="2" />
           </TabList>
         </Box>
 
         <TabPanel value="1">
-          <TweetList tmp="1" />
+          <TweetList tmp="1" isEditable={isEditable} />
         </TabPanel>
 
         <TabPanel value="2">
