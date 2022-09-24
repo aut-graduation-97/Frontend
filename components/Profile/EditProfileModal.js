@@ -1,30 +1,15 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  Modal,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import ProgressBar from "../../Timeline/NewTweet/ProgressBar";
-import SendTweetButton from "../../Timeline/NewTweet/SendTweetButton";
-import { PhotoCamera } from "@mui/icons-material";
+import { Box, Modal, Paper, Typography } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SendIcon from "@mui/icons-material/Send";
+
 import { useQuery } from "@tanstack/react-query";
-import { updateContact } from "../../../api/students-api";
+import { updateContact } from "../../api/students-api";
 import { toast } from "react-toastify";
 
-export default function EditContactTableModal({
-  open,
-  changedContact,
-  setOpen,
-}) {
+export default function EditProfileModal({ open, changedValues, setOpen }) {
   const toPut = {};
-  Object.keys(changedContact).forEach((key) => {
-    if (changedContact[key] !== null) {
-      toPut[key] = changedContact[key];
+  Object.keys(changedValues).forEach((key) => {
+    if (changedValues[key] !== null) {
+      toPut[key] = changedValues[key];
     }
   });
 

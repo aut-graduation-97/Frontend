@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import TweetList from "../../SharedComponents/Tweets/TweetList";
 
-export default function MainTabs() {
+export default function ProfileMainTabs() {
   const [tabContent, setTabContent] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -16,7 +16,10 @@ export default function MainTabs() {
     <Box sx={{ width: "100%", mt: 4 }}>
       <TabContext value={tabContent}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList
+            onChange={(e, newValue) => setTabContent(newValue)}
+            aria-label="lab API tabs example"
+          >
             <Tab sx={{ width: "100%" }} label="توییت ها" value="1" />
             <Tab sx={{ width: "100%" }} label="نظرات بقیه" value="2" />
           </TabList>

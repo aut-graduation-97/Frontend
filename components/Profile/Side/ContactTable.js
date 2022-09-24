@@ -6,7 +6,6 @@ import {
   TableRow,
   Paper,
   Chip,
-  useMediaQuery,
   TextField,
   Typography,
   Button,
@@ -22,7 +21,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
-import EditContactTableModal from "./EditContactTableModal";
+import EditProfileModal from "../EditProfileModal";
 
 export default function ContactTable({ isEditable }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -55,10 +54,10 @@ export default function ContactTable({ isEditable }) {
 
   return (
     <>
-      <EditContactTableModal
+      <EditProfileModal
         open={openEditModal}
         setOpen={setOpenEditModal}
-        changedContact={changedContact}
+        changedValues={changedContact}
       />
       <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between" }}>
         {isEditable && (

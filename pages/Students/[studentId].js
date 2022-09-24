@@ -27,7 +27,7 @@ export default function Profile() {
         </Grid>
 
         <Grid item lg={9} md={9} sm={12} xs={12}>
-          <ProfileMain />
+          <ProfileMain isEditable={isMyProfile} />
         </Grid>
       </Grid>
     </>
