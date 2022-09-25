@@ -4,8 +4,11 @@ import { useRouter } from "next/router";
 
 import Avatar from "../SharedComponents/Elements/Avatar";
 
-export default function StudentCard({ name, avatar, shift, sid }) {
+export default function StudentCard({ name, avatar, sid, index }) {
   const router = useRouter();
+
+  const shift = index % 2 === 0 ? { my: 4 } : { my: 0 };
+
   return (
     <>
       <Grid item xs={6} md={4} lg={3} key={sid}>

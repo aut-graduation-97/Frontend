@@ -21,13 +21,15 @@ export default function CustomError({ errorMessage, redirectTo }) {
       }}
     >
       <Alert variant="outlined" severity="error">
-        <Typography variant="h5">{errorMessage}</Typography>
+        <Typography variant="h5">
+          {errorMessage ? errorMessage : "خطایی رخ داده است 😔💔"}
+        </Typography>
       </Alert>
       <Divider />
       <Button
         variant="contained"
         sx={{ my: 5 }}
-        onClick={() => router.push(redirectTo)}
+        onClick={() => router.push(redirectTo ? redirectTo : "/Timeline")}
       >
         بازگشت
       </Button>

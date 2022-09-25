@@ -34,7 +34,7 @@ export default function TweetLikeButton({
       toast.error("برای لایک کردن باید وارد شوید!");
       return;
     }
-
+    س;
     // update state
     setLiked(!liked);
     setCount(liked ? count - 1 : count + 1);
