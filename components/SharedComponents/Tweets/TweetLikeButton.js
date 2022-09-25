@@ -30,21 +30,21 @@ export default function TweetLikeButton({
   });
 
   const likeHandler = async () => {
-    // update state
-    setLiked(!liked);
-    setCount(liked ? count - 1 : count + 1);
-
     if (status !== "authenticated") {
       toast.error("برای لایک کردن باید وارد شوید!");
       return;
     }
+
+    // update state
+    setLiked(!liked);
+    setCount(liked ? count - 1 : count + 1);
 
     liked ? fetchDislike() : fetchLike();
   };
 
   if (likeError || dislikeError) {
     toast.error("خطایی رخ داده است!");
-    if (process.enc.NODE_ENV === "development") console.log(likeError);
+
     setLiked(!liked);
     setCount(liked ? count + 1 : count - 1);
   }
