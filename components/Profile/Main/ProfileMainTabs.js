@@ -4,6 +4,7 @@ import TabContext from "@mui/lab/TabContext";
 import { useState } from "react";
 
 import TweetList from "../../SharedComponents/Tweets/TweetList";
+import CommentList from "./Comments/CommentList";
 
 export default function ProfileMainTabs({ isEditable }) {
   const [tabContent, setTabContent] = useState("1");
@@ -22,7 +23,7 @@ export default function ProfileMainTabs({ isEditable }) {
             aria-label="lab API tabs example"
           >
             <Tab sx={{ width: "50%" }} label="توییت ها" value="1" />
-            <Tab sx={{ width: "50%" }} label="نظرات بقیه" value="2" />
+            <Tab sx={{ width: "50%" }} label="نظرات " value="2" />
           </TabList>
         </Box>
 
@@ -31,7 +32,7 @@ export default function ProfileMainTabs({ isEditable }) {
         </TabPanel>
 
         <TabPanel value="2">
-          <TweetList tmp="2" />
+          <CommentList />
         </TabPanel>
       </TabContext>
     </Box>
