@@ -1,10 +1,7 @@
-import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
 import Avatar from "../../../SharedComponents/Elements/Avatar";
-import ExpandableImage from "../../../SharedComponents/Elements/ExpandableImage";
-import TweetDeleteButton from "../../../SharedComponents/Tweets/TweetDeleteButton";
-import TweetLikeButton from "../../../SharedComponents/Tweets/TweetLikeButton";
 
-export default function CommentItem() {
+export default function CommentItem({ title, text, date }) {
   const phone = useMediaQuery("(max-width:600px)");
   return (
     <>
@@ -18,7 +15,7 @@ export default function CommentItem() {
         }}
       >
         <Box sx={{ ml: 1 }}>
-          <Avatar size={"50px"} />
+          <Avatar size={"50px"} useDefault={true} />
         </Box>
 
         <Typography
@@ -31,7 +28,7 @@ export default function CommentItem() {
             height: "auto",
           }}
         >
-          ناصر عبدالهی محسنی
+          ناشناس
         </Typography>
       </Box>
 

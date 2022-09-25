@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Box from "@mui/material/Box";
+import defaultImage from "../../../public/profile-picture.jpg";
 
-export default function Avatar({ size, src = "https://i.pravatar.cc/300" }) {
+export default function Avatar({
+  size,
+  src = "https://i.pravatar.cc/300",
+  useDefault,
+}) {
   return (
     <Box
       sx={{
@@ -14,7 +19,7 @@ export default function Avatar({ size, src = "https://i.pravatar.cc/300" }) {
       style={{ border: "solid 5px white" }}
     >
       <Image
-        src={src}
+        src={useDefault ? defaultImage : src}
         alt="avatar"
         width={150}
         height={150}

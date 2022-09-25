@@ -13,7 +13,6 @@ export default function ProfileMainTabs({ isEditable }) {
   const handleChange = (event, newValue) => {
     setTabContent(newValue);
   };
-  console.log(isEditable, "isEditable");
 
   return (
     <Box sx={{ width: "100%", mt: 4 }}>

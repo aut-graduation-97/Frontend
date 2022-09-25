@@ -50,7 +50,6 @@ export default function ContactTable({ isEditable }) {
       />
     );
   };
-  console.log(openEditModal);
 
   return (
     <>
