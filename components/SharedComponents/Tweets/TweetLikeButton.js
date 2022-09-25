@@ -13,8 +13,8 @@ export default function TweetLikeButton({
   isLiked = false,
 }) {
   const [liked, setLiked] = useState(isLiked);
-
   const [count, setCount] = useState(likesCount);
+
   const { status } = useSession();
 
   const { error: likeError, refetch: fetchLike } = useQuery({
@@ -34,23 +34,29 @@ export default function TweetLikeButton({
       toast.error("برای لایک کردن باید وارد شوید!");
       return;
     }
-    س;
+
     // update state
     setLiked(!liked);
-    setCount(liked ? count - 1 : count + 1);
+    setCount((prev) => (liked ? prev - 1 : prev + 1));
 
     liked ? fetchDislike() : fetchLike();
   };
 
+  // FIXME: Infinite loop
+  // if useQuery makes an error, we update the state in this if block
+  // and then the state changes and the if block runs again and again
+  // somehow the errors must be null again after we update the state
   if (likeError || dislikeError) {
     toast.error("خطایی رخ داده است!");
 
     setLiked(!liked);
-    setCount(liked ? count + 1 : count - 1);
+    console.log("should do it now");
+    setCount((prev) => (liked ? prev + 1 : prev - 1));
   }
   // ONLINE
   // toast.dark(likeData.message + "for dev");
   // toast.dark(dislikeData.message + "for dev");
+  console.log("before return", count);
   return (
     <IconButton
       color="error"
