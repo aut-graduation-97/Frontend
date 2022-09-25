@@ -2,7 +2,7 @@ import { Box, Modal, Paper, Typography } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 import { useQuery } from "@tanstack/react-query";
-import { updateContact } from "../../api/students-api";
+import { updateContact, updatePersonalInfo } from "../../api/students-api";
 import { toast } from "react-toastify";
 
 export default function EditProfileModal({ open, changedValues, setOpen }) {
@@ -15,13 +15,14 @@ export default function EditProfileModal({ open, changedValues, setOpen }) {
 
   const { data, error, isFetching, refetch, isSuccess } = useQuery(
     ["update-contact"],
-    () => updateContact(JSON.stringify(toPut)),
+    () => updatePersonalInfo(toPut),
     { enabled: false }
   );
 
   if (error) toast.error(error.message);
 
   if (isSuccess) {
+    toast.success("اطلاعات با موفقیت به روز شد");
     setOpen(false);
   }
 

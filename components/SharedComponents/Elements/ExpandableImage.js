@@ -37,7 +37,7 @@ export default function ExpandableImage({ src }) {
       <Paper
         sx={{
           m: "auto",
-          my: 1,
+          mt: 3,
           width: 300,
           height: 200,
         }}
@@ -45,7 +45,7 @@ export default function ExpandableImage({ src }) {
         onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
         onMouseLeave={(e) => setAnchorEl(null)}
       >
-        {isPortrait && (
+        {!isPortrait && (
           <Popover
             id="mouse-over-popover"
             sx={{

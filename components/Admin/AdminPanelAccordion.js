@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddUserForm from "./AddUserForm";
+import AddImage from "./GalleryManagement/AddImage";
 
 export default function AdminPanelAccordion() {
   return (
@@ -29,10 +30,10 @@ export default function AdminPanelAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>کارای دیگه ادمین </Typography>
+          <Typography>مدیریت گالری </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>Get lost</Typography>
+          <AddImage />
         </AccordionDetails>
       </Accordion>
     </Box>
