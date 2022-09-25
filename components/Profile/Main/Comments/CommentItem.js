@@ -1,7 +1,7 @@
 import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
 import Avatar from "../../../SharedComponents/Elements/Avatar";
 
-export default function CommentItem({ title, text, date }) {
+export default function CommentItem({ text, date }) {
   const phone = useMediaQuery("(max-width:600px)");
   return (
     <>
@@ -33,11 +33,11 @@ export default function CommentItem({ title, text, date }) {
       </Box>
 
       <Typography variant="p" component="p" sx={{ px: 3 }}>
-        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
-        متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی د
+        {text}
       </Typography>
+      <Box textAlign={"left"}>
+        <Typography variant={"caption"}>{date}</Typography>
+      </Box>
 
       <Divider sx={{ my: 2 }} />
     </>

@@ -6,9 +6,11 @@ import { useState } from "react";
 import TweetList from "../../SharedComponents/Tweets/TweetList";
 import CommentList from "./Comments/CommentList";
 import AddComment from "./Comments/AddComment";
+import { useRouter } from "next/router";
 
 export default function ProfileMainTabs({ isEditable }) {
   const [tabContent, setTabContent] = useState("1");
+  const router = useRouter();
 
   const handleChange = (event, newValue) => {
     setTabContent(newValue);
@@ -32,8 +34,8 @@ export default function ProfileMainTabs({ isEditable }) {
         </TabPanel>
 
         <TabPanel value="2">
-          <AddComment />
-          <CommentList />
+          <AddComment sid={router.query.studentId} />
+          <CommentList sid={router.query.studentId} />
         </TabPanel>
       </TabContext>
     </Box>

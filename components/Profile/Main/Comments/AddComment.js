@@ -8,15 +8,13 @@ import { useQuery } from "@tanstack/react-query";
 import { postComment } from "../../../../api/students-api";
 import { toast } from "react-toastify";
 
-export default function AddComment() {
+export default function AddComment({ sid }) {
   const [writingStarted, setWritingStarted] = useState(false);
   const commentRef = useRef();
-  const router = useRouter();
 
   const { data, isSuccess, refetch, error, isFetching } = useQuery(
     ["add-comment"],
-    () =>
-      postComment({ text: commentRef.current.value }, router.query.studentId),
+    () => postComment({ text: commentRef.current.value }, sid),
     {
       enabled: false,
     }
