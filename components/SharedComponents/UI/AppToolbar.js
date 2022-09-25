@@ -50,7 +50,12 @@ export default function AppToolbar() {
 
           {status === "authenticated" && (
             <IconButton
-              onClick={(event) => router.push("/MyProfile")}
+              onClick={(event) =>
+                router.push(
+                  "/Students/" +
+                    JSON.parse(localStorage.getItem("user")).student_id
+                )
+              }
               sx={{ py: 1, color: "white" }}
             >
               <Avatar

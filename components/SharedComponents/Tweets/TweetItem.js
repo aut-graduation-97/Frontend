@@ -1,6 +1,9 @@
 import Avatar from "../Elements/Avatar";
 
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
+import TweetDeleteButton from "./TweetDeleteButton";
+import TweetLikeButton from "./TweetLikeButton";
+import ExpandableImage from "../Elements/ExpandableImage";
 
 const DUMMY_TEXT =
   "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجلبا استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجلبا استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که ";
@@ -15,7 +18,7 @@ const DUMMY_LIKES = 326;
  * @returns {JSX.Element}
  * @constructor
  */
-export default function TweetItem({ children, tmp }) {
+export default function TweetItem({ isEditable, tmp }) {
   const phone = useMediaQuery("(max-width:600px)");
 
   return (
@@ -38,7 +41,10 @@ export default function TweetItem({ children, tmp }) {
         <Typography variant="p" component="p" sx={{ pl: 4 }}>
           {DUMMY_TEXT}
         </Typography>
-        {children}
+
+        <ExpandableImage src="https://picsum.photos/3000" />
+        {isEditable && <TweetDeleteButton tweetId={"--id-from-sever--"} />}
+        <TweetLikeButton likesCount={45} />
         <Divider />
       </Grid>
     </Grid>

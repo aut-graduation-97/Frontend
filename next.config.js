@@ -3,7 +3,7 @@
 const nextConfig = {
   // TODO: remove later
   images: {
-    domains: ["i.pravatar.cc"],
+    domains: ["i.pravatar.cc", "picsum.photos"],
   },
   reactStrictMode: true,
   swcMinify: true,

@@ -83,7 +83,12 @@ export default function AppSidebar({ extraButtons, selected }) {
           <ListItemButton
             selected={selected === "PROFILE"}
             sx={{ py: 1 }}
-            onClick={(event) => router.push("/MyProfile")}
+            onClick={(event) =>
+              router.push(
+                "/Students/" +
+                  JSON.parse(localStorage.getItem("user")).student_id
+              )
+            }
           >
             <ListItemIcon>
               <AccountCircleIcon fontSize="large" />
