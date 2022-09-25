@@ -16,3 +16,11 @@ export async function updatePersonalInfo(payload) {
   const response = await axios.put("/users/" + sid, JSON.stringify(payload));
   return response.data;
 }
+
+export async function postComment(payload, sid) {
+  const response = await axios.post(
+    "/comments/" + sid,
+    JSON.stringify(payload)
+  );
+  return response.data;
+}

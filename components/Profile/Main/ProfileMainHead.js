@@ -26,6 +26,7 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
         setOpen={setOpenEditModal}
         changedValues={changedInfo}
       />
+
       <Box
         sx={
           isPortrait ? { display: "flex", justifyContent: "space-between" } : {}

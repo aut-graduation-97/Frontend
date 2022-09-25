@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import TweetList from "../../SharedComponents/Tweets/TweetList";
 import CommentList from "./Comments/CommentList";
+import AddComment from "./Comments/AddComment";
 
 export default function ProfileMainTabs({ isEditable }) {
   const [tabContent, setTabContent] = useState("1");
@@ -32,6 +33,7 @@ export default function ProfileMainTabs({ isEditable }) {
         </TabPanel>
 
         <TabPanel value="2">
+          <AddComment />
           <CommentList />
         </TabPanel>
       </TabContext>
