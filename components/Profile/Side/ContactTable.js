@@ -23,7 +23,9 @@ import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import EditProfileModal from "../EditProfileModal";
 
-export default function ContactTable({ isEditable }) {
+export default function ContactTable({ isEditable, data }) {
+  // ONLINE - check the data prop and just feed it to the JSX
+
   const [isEditing, setIsEditing] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [changedContact, setChangedContact] = useState({

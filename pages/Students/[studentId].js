@@ -8,8 +8,9 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";
 import { useMediaQuery } from "@mui/material";
+import Profile from "../../components/Profile/Profile";
 
-export default function Profile() {
+export default function ProfilePage() {
   const session = useSession();
   const router = useRouter();
   const wideScreen = useMediaQuery("(min-width:900px)");
@@ -20,20 +21,12 @@ export default function Profile() {
       router.query.studentId ===
       JSON.parse(localStorage.getItem("user")).student_id;
   }
+
   return (
     <>
       {!wideScreen && <AppToolbar />}
       <HeaderImage />
-      <Grid container spacing={2}>
-        <Grid item lg={3} md={3} sm={12} xs={12} sx={{ mt: "-60px" }}>
-          <Avatar size="150px" />
-          <ContactTable isEditable={isMyProfile} />
-        </Grid>
-
-        <Grid item lg={9} md={9} sm={12} xs={12}>
-          <ProfileMain isEditable={isMyProfile} />
-        </Grid>
-      </Grid>
+      <Profile isMyProfile={isMyProfile} sid={router.query.studentId} />
     </>
   );
 }
