@@ -3,6 +3,9 @@ import { TabPanel, TabList } from "@mui/lab";
 import TabContext from "@mui/lab/TabContext";
 import { useState } from "react";
 import MostTab from "./MostTab";
+import { useQuery } from "@tanstack/react-query";
+import { getInitMosts } from "../../api/mosts-api";
+import CustomError from "../SharedComponents/Elements/CustomError";
 
 const DUMMY_NAMES1 = ["محمد علی محمدی", "محمد علی محمدی", "محمد علی محمدی"];
 const DUMMY_NAMES2 = ["علی نوروزی", "علی نوروزی", "علی نوروزی"];
@@ -11,19 +14,16 @@ const DUMMY_NAMES3 = ["محمدحمدی", "محمد  محمدی", "محمد  م�
 export default function MostsList() {
   const [tabContent, setTabContent] = useState("1");
 
-  const handleChange = (event, newValue) => {
-    setTabContent(newValue);
-  };
-  // TODO:
-  // Fetch all mosts data from db. all of them.
-  // create a <MostTab /> for each one of them.
-
+  // ONLINE - remove this return
   return (
     <>
       <Box sx={{ width: "100%", my: 5 }}>
         <TabContext value={tabContent}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <TabList
+              onChange={(e, newValue) => setTabContent(newValue)}
+              aria-label="Mosts"
+            >
               <Tab label="خنگ ترین" value="1" />
               <Tab label="باحال ترین " value="2" />
               <Tab label="تیز ترین" value="3" />
@@ -45,4 +45,36 @@ export default function MostsList() {
       </Box>
     </>
   );
+
+  const { data, isLoading, error } = useQuery(["mosts"], getInitMosts);
+
+  if (isLoading) return <div>Spinner</div>;
+  if (error) return <CustomError errorMessage={error.message} />;
+
+  if (data) {
+    return (
+      <>
+        <Box sx={{ width: "100%", my: 5 }}>
+          <TabContext value={tabContent}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <TabList
+                onChange={(e, newValue) => setTabContent(newValue)}
+                aria-label="Mosts"
+              >
+                {data.map((el, i) => (
+                  <Tab label={el.name} value={i + 1} key={i} />
+                ))}
+              </TabList>
+            </Box>
+
+            {data.map((el, i) => (
+              <TabPanel value={i + 1} key={i}>
+                <MostTab key={i} id={el.id} />
+              </TabPanel>
+            ))}
+          </TabContext>
+        </Box>
+      </>
+    );
+  }
 }
