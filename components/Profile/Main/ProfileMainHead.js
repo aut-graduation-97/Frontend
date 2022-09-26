@@ -13,11 +13,13 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import EditProfileModal from "../EditProfileModal";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import VotingModal from "./Voting/VotingModal";
 
 export default function ProfileMainHead({
   isEditable,
   name,
   bio,
+  sid,
   expanded,
   setExpanded,
 }) {
@@ -27,23 +29,15 @@ export default function ProfileMainHead({
     bio: null,
   });
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openVotingModal, setOpenVotingModal] = useState(false);
   const isPortrait = useMediaQuery("(min-width: 900px)");
 
   return (
     <>
-      <EditProfileModal
-        open={openEditModal}
-        setOpen={setOpenEditModal}
-        changedValues={changedInfo}
-      />
       {/* TODO: this accordion looks like shit. fix it*/}
-      <Accordion
-        sx={{ mt: 2 }}
-        expanded={expanded}
-        onClick={() => setExpanded(!expanded)}
-      >
+      <Accordion sx={{ mt: 2 }} expanded={expanded}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -77,7 +71,7 @@ export default function ProfileMainHead({
                 variant="contained"
                 size="small"
                 sx={{ mx: 2, borderRadius: "30px" }}
-                onClick={() => router.push("/")}
+                onClick={() => setOpenVotingModal(true)}
               >
                 ثبت رای ترین
               </Button>
@@ -137,6 +131,17 @@ export default function ProfileMainHead({
           )}
         </AccordionDetails>
       </Accordion>
+
+      <EditProfileModal
+        open={openEditModal}
+        setOpen={setOpenEditModal}
+        changedValues={changedInfo}
+      />
+      <VotingModal
+        open={openVotingModal}
+        setOpen={setOpenVotingModal}
+        sid={sid}
+      />
     </>
   );
 }

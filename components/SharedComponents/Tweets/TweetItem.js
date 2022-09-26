@@ -22,11 +22,11 @@ export default function TweetItem({ isEditable, tmp }) {
   const phone = useMediaQuery("(max-width:600px)");
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={0} sx={{ pl: 3 }}>
       {/*FIXME: this grid item causes a thin white line in appbar for some reason*/}
-      <Grid item xs={2} sx={{ pl: "33px" }}>
+      <Grid item xs={2}>
         <Box sx={{ py: 1 }}>
-          <Avatar size={phone ? "60px" : "75px"} />
+          <Avatar size={phone ? "60px" : "100px"} sx={{ m: "auto" }} />
         </Box>
       </Grid>
 

@@ -19,6 +19,7 @@ export default function ProfileMain({ isEditable, data }) {
         // ONLINE
         // name={data.name}
         // bio={data.bio}
+        //sid={data.sid}
         name={DUMMY_DATA.name}
         bio={DUMMY_DATA.bio}
         isEditable={isEditable}

@@ -19,7 +19,6 @@ export default function TweetList({ tmp, isEditable }) {
   return (
     <Box sx={{ my: 3 }}>
       <TweetItem tmp id={"--id-from-server--"} isEditable={isEditable} />
-
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
       <TweetItem tmp={tmp} />
