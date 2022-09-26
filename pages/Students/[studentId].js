@@ -6,10 +6,13 @@ import ContactTable from "../../components/Profile/Side/ContactTable";
 import HeaderImage from "../../components/SharedComponents/UI/HeaderImage";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";
+import { useMediaQuery } from "@mui/material";
 
 export default function Profile() {
   const session = useSession();
   const router = useRouter();
+  const wideScreen = useMediaQuery("(min-width:900px)");
   let isMyProfile = false;
 
   if (session.status === "authenticated") {
@@ -19,6 +22,7 @@ export default function Profile() {
   }
   return (
     <>
+      {!wideScreen && <AppToolbar />}
       <HeaderImage />
       <Grid container spacing={2}>
         <Grid item lg={3} md={3} sm={12} xs={12} sx={{ mt: "-60px" }}>

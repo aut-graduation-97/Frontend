@@ -50,13 +50,11 @@ export default function TweetLikeButton({
     toast.error("خطایی رخ داده است!");
 
     setLiked(!liked);
-    console.log("should do it now");
     setCount((prev) => (liked ? prev + 1 : prev - 1));
   }
   // ONLINE
   // toast.dark(likeData.message + "for dev");
   // toast.dark(dislikeData.message + "for dev");
-  console.log("before return", count);
   return (
     <IconButton
       color="error"

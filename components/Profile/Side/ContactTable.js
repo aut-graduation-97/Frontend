@@ -58,7 +58,7 @@ export default function ContactTable({ isEditable }) {
         setOpen={setOpenEditModal}
         changedValues={changedContact}
       />
-      <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         {isEditable && (
           <IconButton
             aria-label="delete"
@@ -92,10 +92,10 @@ export default function ContactTable({ isEditable }) {
           <Table aria-label="simple table">
             <TableBody>
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <AlternateEmailIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip("folani@yahoo.com")}
                   {isEditing && (
                     <TextField
@@ -116,10 +116,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <PhoneAndroidIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip("0910 600 8858")}
                   {isEditing && (
                     <TextField
@@ -139,10 +139,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <TwitterIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip(
                     "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
                   )}
@@ -164,10 +164,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <TelegramIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip(
                     "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
                   )}
@@ -189,10 +189,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <InstagramIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip("t.me/fnsdjgnskngkjds")}
                   {isEditing && (
                     <TextField
@@ -212,10 +212,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <GitHubIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip(
                     "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
                   )}
@@ -237,10 +237,10 @@ export default function ContactTable({ isEditable }) {
               </TableRow>
 
               <TableRow>
-                <TableCell align="right">
+                <TableCell align="right" sx={{ py: 1 }}>
                   <LinkedInIcon />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{ py: 1 }}>
                   {getChip(
                     "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
                   )}

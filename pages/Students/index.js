@@ -23,6 +23,7 @@ export default function MyProfile() {
         <Grid item lg={9} md={9} sm={9} xs={12}>
           <Box sx={{ overflowY: "scroll", height: "75vh" }}>
             <StudentsList />
+            <AppToolbar />
           </Box>
         </Grid>
       </Grid>

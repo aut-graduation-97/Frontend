@@ -8,7 +8,7 @@ import CommentList from "./Comments/CommentList";
 import AddComment from "./Comments/AddComment";
 import { useRouter } from "next/router";
 
-export default function ProfileMainTabs({ isEditable }) {
+export default function ProfileMainTabs({ isEditable, onScroll }) {
   const [tabContent, setTabContent] = useState("1");
   const router = useRouter();
 
@@ -17,7 +17,10 @@ export default function ProfileMainTabs({ isEditable }) {
   };
 
   return (
-    <Box sx={{ width: "100%", mt: 4 }}>
+    <Box
+      sx={{ width: "100%", mt: 1, overflowY: "scroll", height: "65vh" }}
+      onScroll={onScroll}
+    >
       <TabContext value={tabContent}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList
@@ -29,7 +32,7 @@ export default function ProfileMainTabs({ isEditable }) {
           </TabList>
         </Box>
 
-        <TabPanel value="1">
+        <TabPanel value="1" sx={{ pt: 0 }}>
           <TweetList tmp="1" isEditable={isEditable} />
         </TabPanel>
 

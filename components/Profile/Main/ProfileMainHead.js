@@ -1,4 +1,7 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Button,
   TextField,
@@ -9,8 +12,15 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import EditProfileModal from "../EditProfileModal";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function ProfileMainHead({ isEditable, name, bio }) {
+export default function ProfileMainHead({
+  isEditable,
+  name,
+  bio,
+  expanded,
+  setExpanded,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [changedInfo, setChangedInfo] = useState({
     name: null,
@@ -26,42 +36,83 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
         setOpen={setOpenEditModal}
         changedValues={changedInfo}
       />
-
-      <Box
-        sx={
-          isPortrait ? { display: "flex", justifyContent: "space-between" } : {}
-        }
+      {/* TODO: this accordion looks like shit. fix it*/}
+      <Accordion
+        sx={{ mt: 2 }}
+        expanded={expanded}
+        onClick={() => setExpanded(!expanded)}
       >
-        {isEditing ? (
-          <TextField
-            sx={{ mt: 2 }}
-            id="standard-basic"
-            label="نام و نام خانوادگی"
-            variant="standard"
-            defaultValue={name}
-            onChange={(e) =>
-              setChangedInfo((prev) => ({
-                ...prev,
-                name: e.target.value,
-              }))
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Box
+            sx={
+              isPortrait
+                ? { display: "flex", justifyContent: "space-between" }
+                : {}
             }
-            inputProps={{ style: { fontSize: 23 } }}
-          />
-        ) : (
-          <Typography variant="h5" sx={{ my: 2 }}>
-            {name}
-          </Typography>
-        )}
-
-        <Box>
-          <Button
-            variant="contained"
-            size="small"
-            sx={{ mx: 2, my: 2, borderRadius: "30px" }}
-            onClick={() => router.push("/")}
           >
-            ثبت رای ترین
-          </Button>
+            {isEditing ? (
+              <TextField
+                id="standard-basic"
+                label="نام و نام خانوادگی"
+                variant="standard"
+                defaultValue={name}
+                onChange={(e) =>
+                  setChangedInfo((prev) => ({
+                    ...prev,
+                    name: e.target.value,
+                  }))
+                }
+                inputProps={{ style: { fontSize: 23 } }}
+              />
+            ) : (
+              <Typography variant="h5">{name}</Typography>
+            )}
+
+            <Box>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ mx: 2, borderRadius: "30px" }}
+                onClick={() => router.push("/")}
+              >
+                ثبت رای ترین
+              </Button>
+            </Box>
+          </Box>
+        </AccordionSummary>
+        <AccordionDetails>
+          {isEditing ? (
+            <TextField
+              sx={{ my: 2, width: "100%" }}
+              id="outlined-multiline-static"
+              label="بیوگرافی"
+              multiline
+              rows={4}
+              defaultValue={bio}
+              inputProps={{ style: { fontSize: 14 } }}
+              onChange={(e) =>
+                setChangedInfo((prev) => ({
+                  ...prev,
+                  bio: e.target.value,
+                }))
+              }
+            />
+          ) : (
+            <Typography
+              variant="body2"
+              sx={{
+                overflowY: "scroll",
+                maxHeight: "100px",
+                position: "relative",
+              }}
+            >
+              {bio}
+            </Typography>
+          )}
           {isEditable && (
             <IconButton
               aria-label="delete"
@@ -73,44 +124,19 @@ export default function ProfileMainHead({ isEditable, name, bio }) {
               <Typography variant={"caption"}> ویرایش معرفی</Typography>
             </IconButton>
           )}
-        </Box>
-      </Box>
 
-      {isEditing ? (
-        <TextField
-          sx={{ my: 2, width: "100%" }}
-          id="outlined-multiline-static"
-          label="بیوگرافی"
-          multiline
-          rows={4}
-          defaultValue={bio}
-          inputProps={{ style: { fontSize: 14 } }}
-          onChange={(e) =>
-            setChangedInfo((prev) => ({
-              ...prev,
-              bio: e.target.value,
-            }))
-          }
-        />
-      ) : (
-        <Typography
-          variant="body2"
-          sx={{ overflowY: "scroll", maxHeight: "100px", position: "relative" }}
-        >
-          {bio}
-        </Typography>
-      )}
-
-      {isEditing && (
-        <Button
-          variant="contained"
-          size="small"
-          color="error"
-          onClick={() => setOpenEditModal(true)}
-        >
-          دخیره تغییرات
-        </Button>
-      )}
+          {isEditing && (
+            <Button
+              variant="contained"
+              size="small"
+              color="error"
+              onClick={() => setOpenEditModal(true)}
+            >
+              دخیره تغییرات
+            </Button>
+          )}
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 }
