@@ -2,11 +2,9 @@
 
 * DO NOT FORGET *
 1. Check error messages 
+2. add empty response 
 
-*Logic TODOs*
-1. adding login (nextJS way) 
-2. creating auth headers by redux ? 
-2. fetchin data, and pass to components
+
 
 *// Performance TODOs ...*
 

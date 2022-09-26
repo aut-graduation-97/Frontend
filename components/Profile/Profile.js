@@ -50,6 +50,7 @@ export default function Profile({ isMyProfile, sid }) {
     return (
       <Grid container spacing={2}>
         <Grid item lg={3} md={3} sm={12} xs={12} sx={{ mt: "-60px" }}>
+          {/*<Avatar size="150px" src={data.user.avatar}/>*/}
           <Avatar size="150px" />
           <ContactTable
             data={data}

@@ -12,10 +12,6 @@ export default function ProfileMainTabs({ isEditable, onScroll }) {
   const [tabContent, setTabContent] = useState("1");
   const router = useRouter();
 
-  const handleChange = (event, newValue) => {
-    setTabContent(newValue);
-  };
-
   return (
     <Box sx={{ width: "100%", mt: 1 }}>
       <TabContext value={tabContent}>

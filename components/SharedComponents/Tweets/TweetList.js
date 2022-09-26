@@ -14,7 +14,6 @@ export default function TweetList({ tmp, isEditable }) {
   // if (isError) console.log(error);
   // if (data) console.log("data", data);
 
-  // TODO: fetch tweets from database.
   // TODO: implement fetch more on scroll / show more on scroll
 
   return (
