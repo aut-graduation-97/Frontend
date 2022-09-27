@@ -23,23 +23,25 @@ const DUMMY_IMAGES = [
   },
 ];
 
-export default function Gallery() {
+export default function Gallery({ isAdmin }) {
   // ONLINE - remove this return
   return (
     <>
       <Box sx={{ p: 4 }}>
-        <LoadingButton
-          color={"error"}
-          // loading={isFetching}
-          variant="contained"
-          endIcon={<SendIcon sx={{ mx: 1 }} />}
-          // onClick={() => refetch()}
-          sx={{
-            zIndex: 1000,
-          }}
-        >
-          حذف این عکس
-        </LoadingButton>
+        {isAdmin && (
+          <LoadingButton
+            color={"error"}
+            // loading={isFetching}
+            variant="contained"
+            endIcon={<SendIcon sx={{ mx: 1 }} />}
+            // onClick={() => refetch()}
+            sx={{
+              zIndex: 1000,
+            }}
+          >
+            حذف این عکس
+          </LoadingButton>
+        )}
         <Box sx={{ mt: -5 }}>
           <ImageGallery items={DUMMY_IMAGES} />
         </Box>

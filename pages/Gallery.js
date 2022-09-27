@@ -5,9 +5,13 @@ import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
 import Gallery from "../components/Gallery/Gallery";
+import { useSession } from "next-auth/react";
 
 export default function GalleryPage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
+  const { status } = useSession();
+  const auth = status === "authenticated";
+  const isAdmin = auth && JSON.parse(localStorage.getItem("user")).super_user;
 
   return wideScreen ? (
     <>
@@ -21,7 +25,7 @@ export default function GalleryPage() {
           <Box
             sx={{ overflowY: "scroll", height: "80vh", overflowX: "hidden" }}
           >
-            <Gallery />
+            <Gallery isAdmin={isAdmin} />
           </Box>
         </Grid>
       </Grid>
@@ -29,7 +33,7 @@ export default function GalleryPage() {
   ) : (
     <>
       <AppToolbar />
-      <Gallery />
+      <Gallery isAdmin={isAdmin} />
     </>
   );
 }

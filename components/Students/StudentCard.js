@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, Typography } from "@mui/material";
+import { Button, Grid, Paper, Typography, useMediaQuery } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
 
@@ -6,7 +6,7 @@ import Avatar from "../SharedComponents/Elements/Avatar";
 
 export default function StudentCard({ name, avatar, sid, index }) {
   const router = useRouter();
-
+  const phone = useMediaQuery("(max-width:600px)");
   const shift = index % 2 === 0 ? { my: 4 } : { my: 0 };
 
   return (
@@ -26,7 +26,12 @@ export default function StudentCard({ name, avatar, sid, index }) {
           </Typography>
 
           <Button
-            sx={{ display: "flex", width: "70%", m: "auto", mt: 2 }}
+            sx={{
+              display: "flex",
+              width: phone ? "100%" : "70%",
+              m: "auto",
+              mt: 2,
+            }}
             startIcon={<AccountCircleIcon sx={{ ml: 0.4 }} />}
             size="small"
             variant="outlined"
