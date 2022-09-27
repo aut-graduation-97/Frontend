@@ -10,6 +10,7 @@ import {
   Typography,
   Button,
   Box,
+  useMediaQuery,
 } from "@mui/material";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
@@ -38,6 +39,8 @@ export default function ContactTable({ isEditable, data }) {
     linkedin: null,
   });
 
+  const wideScreen = useMediaQuery("(min-width:900px) and (min-width:1100px)");
+
   const getChip = (text) => {
     if (isEditing) return;
     return (
@@ -47,8 +50,7 @@ export default function ContactTable({ isEditable, data }) {
         size="small"
         clickable
         color="primary"
-        //FIXME: width most not be hardcoded
-        sx={{ width: "180px", direction: "ltr" }}
+        sx={{ width: wideScreen ? 180 : 100, direction: "ltr" }}
       />
     );
   };

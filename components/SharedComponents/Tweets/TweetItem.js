@@ -23,7 +23,6 @@ export default function TweetItem({ isEditable, tmp }) {
 
   return (
     <Grid container spacing={0}>
-      {/*FIXME: this grid item causes a thin white line in appbar for some reason*/}
       <Grid item xs={2}>
         <Box sx={{ py: 1, mr: phone ? -3 : 0 }}>
           <Avatar size={phone ? "60px" : "100px"} sx={{ m: "auto" }} />

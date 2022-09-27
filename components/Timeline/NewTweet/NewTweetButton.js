@@ -1,10 +1,11 @@
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
-import MapsUgcIcon from "@mui/icons-material/MapsUgc";
+import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
+import { Fab } from "@mui/material";
 
 export default function NewTweetButton({ onClick, shift }) {
   return (
-    // FIXME: change the icon and maybe position ???
     <Box
       sx={{
         position: "fixed",
@@ -13,14 +14,10 @@ export default function NewTweetButton({ onClick, shift }) {
         zIndex: 1000,
       }}
     >
-      <IconButton
-        color="primary"
-        aria-label="new-tweet"
-        component="label"
-        onClick={onClick}
-      >
-        <MapsUgcIcon sx={{ fontSize: "50px" }} />
-      </IconButton>
+      <Fab color={"primary"} aria-label="like" onClick={onClick}>
+        <EditIcon />
+        <AddIcon sx={{ mr: -1, mb: 1, p: 0 }} />
+      </Fab>
     </Box>
   );
 }

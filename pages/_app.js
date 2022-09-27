@@ -13,7 +13,6 @@ import {
 import axios from "axios";
 
 {
-  /* FIXME: override TextField label css to move label to right  */
 }
 const theme = createTheme({
   typography: {
@@ -26,6 +25,7 @@ const theme = createTheme({
       fontSize: "14px",
     },
   },
+  components: {},
 });
 
 const queryClient = new QueryClient();
