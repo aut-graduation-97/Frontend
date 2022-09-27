@@ -6,7 +6,7 @@ import NewTweetModal from "../components/Timeline/NewTweet/NewTweetModal";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import AdminPanelAccordion from "../components/Admin/AdminPanelAccordion";
 
-export default function AdminPanel() {
+export default function AdminPanelPage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
 
   return wideScreen ? (

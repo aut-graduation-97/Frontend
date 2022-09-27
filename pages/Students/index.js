@@ -5,7 +5,7 @@ import HeaderImage from "../../components/SharedComponents/UI/HeaderImage";
 import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";
 import AppSidebar from "../../components/SharedComponents/UI/AppSidebar";
 
-export default function MyProfile() {
+export default function Students() {
   const wideScreen = useMediaQuery("(min-width:900px)");
 
   return wideScreen ? (

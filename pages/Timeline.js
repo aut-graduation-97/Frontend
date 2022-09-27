@@ -7,7 +7,7 @@ import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
 import { useSession } from "next-auth/react";
 
-export default function Timeline() {
+export default function TimelinePage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
   // FIXME: not sure if this has to be here but, i don't know where else to move it
   const session = useSession();

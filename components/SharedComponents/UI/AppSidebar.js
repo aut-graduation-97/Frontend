@@ -111,7 +111,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         <ListItemButton
           selected={selected === "GALLERY"}
           sx={{ py: 1 }}
-          onClick={(event) => router.push("/")}
+          onClick={(event) => router.push("/Gallery")}
         >
           <ListItemIcon>
             <CollectionsIcon fontSize="large" />

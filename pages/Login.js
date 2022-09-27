@@ -3,7 +3,7 @@ import { useState } from "react";
 import LoginFormDrawer from "../components/Login/LoginFormDrawer";
 import { useRouter } from "next/router";
 
-export default function Login() {
+export default function LoginPage() {
   const [showDrawer, setShowDrawer] = useState(false);
   const router = useRouter();
   const wideScreen = useMediaQuery("(min-width:900px)");
