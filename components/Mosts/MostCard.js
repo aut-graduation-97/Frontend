@@ -1,12 +1,20 @@
-import { Typography, Grid, Paper, Box, useMediaQuery } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Paper,
+  Box,
+  useMediaQuery,
+  Button,
+} from "@mui/material";
 import Image from "next/image";
 
 import Avatar from "../SharedComponents/Elements/Avatar";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useRouter } from "next/router";
 
 export default function MostCard({ avatar, name, sid, medal }) {
-  console.log(medal);
   const phone = useMediaQuery("(max-width: 600px)");
-  console.log("phone", phone);
+  const router = useRouter();
   return (
     <>
       <Paper
@@ -27,11 +35,20 @@ export default function MostCard({ avatar, name, sid, medal }) {
           />
           <Box sx={{ my: "auto", mx: 3 }}>
             <Typography variant="h6">{name}</Typography>
-            <Typography variant="body2" sx={{ mt: 2 }}>
+            <Typography variant="body2" sx={{ mt: 1 }}>
               {/*ONLINE*/}
               {/*{sid}*/}
               9931077
             </Typography>
+            <Button
+              sx={{ display: "flex", mt: 2 }}
+              startIcon={<AccountCircleIcon sx={{ ml: 0.4 }} />}
+              size="small"
+              variant="outlined"
+              onClick={(e) => router.push(`/Students/${sid}`)}
+            >
+              پروفایل
+            </Button>
           </Box>
         </Box>
 
