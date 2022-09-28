@@ -36,3 +36,10 @@ export async function postComment(payload, sid) {
   );
   return response.data;
 }
+export async function postProfilePicture(payload) {
+  const sid = JSON.parse(localStorage.getItem("user")).student_id;
+  const response = await axios.post("/user/" + sid, payload, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return response.data;
+}

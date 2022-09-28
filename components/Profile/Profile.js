@@ -6,13 +6,14 @@ import { useQuery } from "@tanstack/react-query";
 import { getProfileInfo } from "../../api/students-api";
 import { toast } from "react-toastify";
 import CustomError from "../SharedComponents/Elements/CustomError";
+import ProfileAvatar from "./Side/ProfileAvatar";
 
 export default function Profile({ isMyProfile, sid }) {
   if (true) {
     return (
       <Grid container spacing={2}>
         <Grid item lg={3} md={3} sm={12} xs={12} sx={{ mt: "-60px" }}>
-          <Avatar size="150px" />
+          <ProfileAvatar size={"150px"} />
           <ContactTable isEditable={isMyProfile} />
         </Grid>
 
