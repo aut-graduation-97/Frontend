@@ -64,7 +64,7 @@ export default function LoginFormDrawer({ show, setShow }) {
           sx={{ mx: 5, py: 5, display: "flex", alignItems: "center" }}
         >
           <TextField
-            id="outlined-basic"
+            id="username"
             label="شماره دانشجویی"
             type="username"
             autoComplete="current-username"
@@ -74,7 +74,7 @@ export default function LoginFormDrawer({ show, setShow }) {
           />
 
           <TextField
-            id="outlined-password-input"
+            id="password"
             label="رمز عبور"
             type="password"
             autoComplete="current-password"

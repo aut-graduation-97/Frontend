@@ -30,7 +30,9 @@ export default function ForgotPasswordAccordion() {
   }
 
   return (
-    <Accordion sx={{ width: "300px", boxShadow: "none" }}>
+    <Accordion
+      sx={{ width: "300px", boxShadow: "none", backgroundColor: "#22354e" }}
+    >
       <AccordionSummary
         sx={{ alignItems: "center", justifyContent: "center" }}
         aria-controls="panel1a-content"
@@ -43,7 +45,10 @@ export default function ForgotPasswordAccordion() {
           فراموشی رمز عبور
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ display: "flex", flexDirection: "column" }}>
+      <AccordionDetails
+        sx={{ display: "flex", flexDirection: "column" }}
+        color={"primary"}
+      >
         <TextField
           inputRef={sidRef}
           id="outlined-basic"

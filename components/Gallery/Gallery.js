@@ -1,7 +1,7 @@
 import ImageGallery from "react-image-gallery";
 import { Box } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SendIcon from "@mui/icons-material/Send";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { deleteImage, getAllImages } from "../../api/gallery-api";
@@ -33,14 +33,13 @@ export default function Gallery({ isAdmin }) {
             color={"error"}
             // loading={isFetching}
             variant="contained"
-            endIcon={<SendIcon sx={{ mx: 1 }} />}
+            endIcon={<DeleteForeverIcon sx={{ mr: 1 }} />}
             // onClick={() => refetch()}
             sx={{
               zIndex: 1000,
+              mr: 2,
             }}
-          >
-            حذف این عکس
-          </LoadingButton>
+          />
         )}
         <Box sx={{ mt: -5 }}>
           <ImageGallery items={DUMMY_IMAGES} />
@@ -95,16 +94,15 @@ export default function Gallery({ isAdmin }) {
         <Box sx={{ p: 4 }}>
           <LoadingButton
             color={"error"}
-            loading={isFetching}
+            // loading={isFetching}
             variant="contained"
-            endIcon={<SendIcon sx={{ mx: 1 }} />}
-            onClick={() => refetch()}
+            endIcon={<DeleteForeverIcon sx={{ mr: 1 }} />}
+            // onClick={() => refetch()}
             sx={{
               zIndex: 1000,
+              mr: 2,
             }}
-          >
-            حذف این عکس
-          </LoadingButton>
+          />
           <Box sx={{ mt: -5 }}>
             <ImageGallery items={images} onMouseOver={selectImageHandler} />
           </Box>

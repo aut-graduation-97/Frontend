@@ -11,6 +11,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import axios from "axios";
+import { CssBaseline } from "@mui/material";
 
 {
 }
@@ -25,6 +26,29 @@ const theme = createTheme({
       fontSize: "14px",
     },
   },
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#8254ce",
+      light: "#b085f5",
+      dark: "#6a3b9a",
+    },
+    secondary: {
+      main: "#E94560",
+      light: "#ff7b93",
+      dark: "#b61827",
+    },
+
+    background: {
+      default: "#16213E",
+      paper: "#081d3a",
+    },
+    text: {
+      primary: "#d3d3d3",
+      secondary: "#b4b4b4",
+    },
+  },
+
   components: {},
 });
 
@@ -39,6 +63,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <SessionProvider session={session}>
         <QueryClientProvider client={queryClient}>
           <ToastContainer

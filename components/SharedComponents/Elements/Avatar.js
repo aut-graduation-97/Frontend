@@ -16,7 +16,7 @@ export default function Avatar({
         height: size,
         margin: "auto",
       }}
-      style={{ border: "solid 5px white" }}
+      style={{ border: "solid 5px #533483" }}
     >
       <Image
         src={useDefault ? defaultImage : src}
