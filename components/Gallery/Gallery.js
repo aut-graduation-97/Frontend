@@ -43,7 +43,7 @@ export default function Gallery({ isAdmin }) {
             }}
           />
         )}
-        <Box sx={{ mt: -5 }}>
+        <Box sx={{ mt: isAdmin ? -5 : 1 }}>
           <ImageGallery items={DUMMY_IMAGES} />
         </Box>
       </Box>
