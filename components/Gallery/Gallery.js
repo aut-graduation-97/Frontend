@@ -1,5 +1,5 @@
 import ImageGallery from "react-image-gallery";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useState } from "react";
@@ -24,6 +24,8 @@ const DUMMY_IMAGES = [
 ];
 
 export default function Gallery({ isAdmin }) {
+  const phone = useMediaQuery("(max-width:600px)");
+
   // ONLINE - remove this return
   return (
     <>
