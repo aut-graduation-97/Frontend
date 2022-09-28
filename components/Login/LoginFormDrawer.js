@@ -65,6 +65,7 @@ export default function LoginFormDrawer({ show, setShow }) {
         >
           <TextField
             id="username"
+            variant={"filled"}
             label="شماره دانشجویی"
             type="username"
             autoComplete="current-username"
@@ -75,6 +76,7 @@ export default function LoginFormDrawer({ show, setShow }) {
 
           <TextField
             id="password"
+            variant={"filled"}
             label="رمز عبور"
             type="password"
             autoComplete="current-password"

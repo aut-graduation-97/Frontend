@@ -14,6 +14,8 @@ import { useState } from "react";
 import EditProfileModal from "../EditProfileModal";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import VotingModal from "./Voting/VotingModal";
+import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 export default function ProfileMainHead({
   isEditable,
@@ -31,7 +33,16 @@ export default function ProfileMainHead({
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openVotingModal, setOpenVotingModal] = useState(false);
   const isPortrait = useMediaQuery("(min-width: 900px)");
+  const session = useSession();
 
+  const openVotingModalHandler = () => {
+    if (session.status !== "authenticated") {
+      toast.error("فقط اعضای سایت می توانند رای دهند");
+      return;
+    }
+
+    setOpenVotingModal(true);
+  };
   return (
     <>
       {/* TODO: this accordion looks like shit. fix it*/}
@@ -71,7 +82,7 @@ export default function ProfileMainHead({
                 variant="contained"
                 size="small"
                 sx={{ mx: 2, borderRadius: "30px" }}
-                onClick={() => setOpenVotingModal(true)}
+                onClick={openVotingModalHandler}
               >
                 ثبت رای ترین
               </Button>
@@ -82,7 +93,8 @@ export default function ProfileMainHead({
           {isEditing ? (
             <TextField
               sx={{ my: 2, width: "100%" }}
-              id="outlined-multiline-static"
+              id="bio"
+              variant="filled"
               label="بیوگرافی"
               multiline
               rows={4}

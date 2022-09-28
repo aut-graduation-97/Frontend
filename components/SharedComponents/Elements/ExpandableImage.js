@@ -11,29 +11,12 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function ExpandableImage({ src }) {
-  const [openOriginal, setOpenOriginal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const router = useRouter();
   const isPortrait = useMediaQuery("(max-width: 900px)");
-
-  const imageClickHandler = () => {
-    isPortrait ? router.replace(src) : setOpenOriginal(true);
-  };
 
   const open = Boolean(anchorEl);
   return (
     <>
-      <Modal
-        open={openOriginal}
-        onClose={() => setOpenOriginal(false)}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Paper className={"modal"}>
-          <Image src={src} alt="image" width={"1920"} height={"1080"} />
-        </Paper>
-      </Modal>
-
       <Paper
         sx={{
           m: "auto",
@@ -76,7 +59,7 @@ export default function ExpandableImage({ src }) {
           height="200"
           layout="responsive"
           style={{ cursor: "pointer", margin: "auto", borderRadius: 3 }}
-          onClick={imageClickHandler}
+          onClick={() => window.open(src, "_blank")}
         />
       </Paper>
     </>

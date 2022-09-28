@@ -47,6 +47,11 @@ const theme = createTheme({
       primary: "#d3d3d3",
       secondary: "#b4b4b4",
     },
+    common: {
+      primary: {
+        main: "#8254ce",
+      },
+    },
   },
 
   components: {},

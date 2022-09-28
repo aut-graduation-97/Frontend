@@ -15,7 +15,7 @@ export default function ProfileMainTabs({ isEditable, onScroll }) {
   return (
     <Box sx={{ width: "100%", mt: 1 }}>
       <TabContext value={tabContent}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "#452c77", mx: 2 }}>
           <TabList
             onChange={(e, newValue) => setTabContent(newValue)}
             aria-label="lab API tabs example"
