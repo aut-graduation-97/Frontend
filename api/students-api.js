@@ -16,15 +16,8 @@ export async function getProfileInfo(sid) {
   return response.data;
 }
 
-// export async function updateContact(payload) {
-//   const sid = JSON.parse(localStorage.getItem("user")).student_id;
-//   const response = await axios.put("/users/" + sid, JSON.stringify(payload));
-//   return response.data;
-// }
-
 // -------------------------------- Post
-export async function updatePersonalInfo(payload) {
-  const sid = JSON.parse(localStorage.getItem("user")).student_id;
+export async function updatePersonalInfo(payload, sid) {
   const response = await axios.put("/users/" + sid, JSON.stringify(payload));
   return response.data;
 }
@@ -36,8 +29,7 @@ export async function postComment(payload, sid) {
   );
   return response.data;
 }
-export async function postProfilePicture(payload) {
-  const sid = JSON.parse(localStorage.getItem("user")).student_id;
+export async function postProfilePicture(payload, sid) {
   const response = await axios.post("/user/" + sid, payload, {
     headers: { "Content-Type": "multipart/form-data" },
   });

@@ -17,11 +17,11 @@ export default function ExpandableImage({ src }) {
   const open = Boolean(anchorEl);
   return (
     <>
-      <Paper
+      <Box
         sx={{
           m: "auto",
           mt: 3,
-          width: 300,
+          width: isPortrait ? 250 : 300,
           height: 200,
         }}
         elevation={3}
@@ -61,7 +61,7 @@ export default function ExpandableImage({ src }) {
           style={{ cursor: "pointer", margin: "auto", borderRadius: 3 }}
           onClick={() => window.open(src, "_blank")}
         />
-      </Paper>
+      </Box>
     </>
   );
 }

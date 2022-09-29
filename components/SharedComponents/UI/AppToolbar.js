@@ -13,7 +13,7 @@ import { useSession } from "next-auth/react";
  */
 export default function AppToolbar() {
   const router = useRouter();
-  const { status } = useSession();
+  const { status, data } = useSession();
 
   return (
     <>
@@ -51,17 +51,11 @@ export default function AppToolbar() {
           {status === "authenticated" && (
             <IconButton
               onClick={(event) =>
-                router.push(
-                  "/Students/" +
-                    JSON.parse(localStorage.getItem("user")).student_id
-                )
+                router.push(`/Student/${data.user.student_id}`)
               }
               sx={{ py: 1, color: "white" }}
             >
-              <Avatar
-                size="32px"
-                src={JSON.parse(localStorage.getItem("user")).avatar}
-              />
+              <Avatar size="32px" src={data.user.avatar} />
             </IconButton>
           )}
         </Toolbar>

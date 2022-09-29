@@ -28,12 +28,12 @@ import { toast } from "react-toastify";
  * @returns {JSX.Element} a sidebar component
  */
 export default function AppSidebar({ extraButtons, selected }) {
-  const { status } = useSession();
+  const { data, status } = useSession();
   const router = useRouter();
 
   // TODO: fetch current user data from database
   const auth = status === "authenticated";
-  const isAdmin = auth && JSON.parse(localStorage.getItem("user")).super_user;
+  const isAdmin = auth && data.user.super_user;
 
   const logoutHandler = async (e) => {
     e.preventDefault();
@@ -56,10 +56,7 @@ export default function AppSidebar({ extraButtons, selected }) {
     >
       {auth && (
         <Box sx={{ pb: 3 }}>
-          <Avatar
-            size="128px"
-            src={JSON.parse(localStorage.getItem("user")).avatar}
-          />
+          <Avatar size="128px" src={data.user.avatar} />
         </Box>
       )}
 
@@ -84,10 +81,7 @@ export default function AppSidebar({ extraButtons, selected }) {
             selected={selected === "PROFILE"}
             sx={{ py: 1 }}
             onClick={(event) =>
-              router.push(
-                "/Students/" +
-                  JSON.parse(localStorage.getItem("user")).student_id
-              )
+              router.push(`/Students/${data.user.student_id}`)
             }
           >
             <ListItemIcon>

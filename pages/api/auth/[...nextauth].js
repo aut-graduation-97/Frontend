@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import jwtDecode from "jwt-decode";
 
 const apiEnd =
   "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDyv5g4w6QhxD-TvUuXjesci6Tmv_6Y9II";
@@ -35,7 +36,21 @@ const authOptions = {
       return token;
     },
     session: async ({ session, token }) => {
-      session.user = token.user; // Setting token in session
+      // session.user = token.user; // Setting token in session
+
+      // -------------------------------m ONLINE: decode the jwt and set:
+      // session.user = jwtDecode(--token-from-server--);
+      // session.token = "--raw-jwt--;
+
+      // -------------------------- FOR DEV
+
+      // super_user: true,
+      session.user = jwtDecode(
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiOTczMTA1NCIsInN1cGVyX3VzZXIiOnRydWUsIm5hbWUiOiJhcmVmZWgga29tcGFuaSIsInVzZXJfaWQiOiI2MzI5ZWQ1YWZiNjcyODI0ZTYzYWI0YTMiLCJhdmF0YXIiOiJodHRwczovL2kucHJhdmF0YXIuY2MvMzAwIiwiaWF0IjoxNjYzODU2MzA5LCJleHAiOjE2NjQ0NjExMDl9.1piHh6vxoU7HCZ_Is1No7nFK1mQoxZsO5MXlNPgysHg"
+      );
+      session.token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiOTczMTA1NCIsInN1cGVyX3VzZXIiOmZhbHNlLCJuYW1lIjoiYXJlZmVoIGtvbXBhbmkiLCJ1c2VyX2lkIjoiNjMyOWVkNWFmYjY3MjgyNGU2M2FiNGEzIiwiYXZhdGFyIjpudWxsLCJpYXQiOjE2NjM4NTYzMDksImV4cCI6MTY2NDQ2MTEwOX0.A4j7rZY6RkVspt6411aWZAA9IjmSLjD5ZgrxOHd-bVA";
+
       return session;
     },
   },

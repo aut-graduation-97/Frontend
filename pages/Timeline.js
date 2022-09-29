@@ -11,27 +11,28 @@ export default function TimelinePage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
   // FIXME: not sure if this has to be here but, i don't know where else to move it
   const session = useSession();
-  if (session.status === "authenticated") {
-    // for dev
-    localStorage.setItem(
-      "user",
-      "{\n" +
-        '  "student_id": "9731054",\n' +
-        '  "super_user": true,\n' +
-        '  "name": "arefeh kompani",\n' +
-        '  "user_id": "6329ed5afb672824e63ab4a3",\n' +
-        '  "avatar": "https://i.pravatar.cc/300",\n' +
-        '  "iat": 1663856309,\n' +
-        '  "exp": 1664461109\n' +
-        "}"
-    );
-
-    // ONLINE
-    // localStorage.setItem(
-    //   "user",
-    //   JSON.stringify(jwt_decode(session.data.token))
-    // );
-  }
+  // Not gonna be needing this with new auth method
+  // if (session.status === "authenticated") {
+  //   // for dev
+  //   localStorage.setItem(
+  //     "user",
+  //     "{\n" +
+  //       '  "student_id": "9731054",\n' +
+  //       '  "super_user": true,\n' +
+  //       '  "name": "arefeh kompani",\n' +
+  //       '  "user_id": "6329ed5afb672824e63ab4a3",\n' +
+  //       '  "avatar": "https://i.pravatar.cc/300",\n' +
+  //       '  "iat": 1663856309,\n' +
+  //       '  "exp": 1664461109\n' +
+  //       "}"
+  //   );
+  //
+  //   // ONLINE
+  //   // localStorage.setItem(
+  //   //   "user",
+  //   //   JSON.stringify(jwt_decode(session.data.token))
+  //   // );
+  // }
 
   return wideScreen ? (
     <>

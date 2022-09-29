@@ -9,9 +9,9 @@ import { useSession } from "next-auth/react";
 
 export default function GalleryPage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
-  const { status } = useSession();
+  const { status, data } = useSession();
   const auth = status === "authenticated";
-  const isAdmin = auth && JSON.parse(localStorage.getItem("user")).super_user;
+  const isAdmin = auth && data.user.super_user;
 
   return wideScreen ? (
     <>

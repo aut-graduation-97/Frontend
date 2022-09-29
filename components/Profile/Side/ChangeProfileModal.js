@@ -6,13 +6,15 @@ import { useQuery } from "@tanstack/react-query";
 
 import { toast } from "react-toastify";
 import { postProfilePicture } from "../../../api/students-api";
+import { useSession } from "next-auth/react";
 
 export default function ChangeProfileModal({ open, setOpen, chosenImage }) {
   const [formData, setFormData] = useState(new FormData());
+  const session = useSession();
 
   const { isSuccess, error, isFetching, refetch } = useQuery(
     ["update-profile-image"],
-    () => postProfilePicture(formData),
+    () => postProfilePicture(formData, session.data.user.student_id),
     {
       enabled: false,
     }

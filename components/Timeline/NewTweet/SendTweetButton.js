@@ -5,10 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { postTweet } from "../../../api/tweet-api";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
 export default function SendTweetButton({ disabled, tweetText, tweetImages }) {
   // For keeping modal component thinner, we can send the data to  backend from here. not a usual practice but it's
   // ok for now
+  const session = useSession();
   let formData = new FormData();
   const { data, error, isFetching, refetch } = useQuery(
     ["sendTweet"],
@@ -24,7 +26,7 @@ export default function SendTweetButton({ disabled, tweetText, tweetImages }) {
     tweetImages.forEach((image) => {
       formData.append("images", image);
     });
-    formData.append("userId", JSON.parse(localStorage.getItem("user")).user_id);
+    formData.append("userId", session.data.user.user_id);
 
     refetch();
   };

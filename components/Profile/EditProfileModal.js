@@ -4,8 +4,10 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { useQuery } from "@tanstack/react-query";
 import { updateContact, updatePersonalInfo } from "../../api/students-api";
 import { toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
 export default function EditProfileModal({ open, changedValues, setOpen }) {
+  const session = useSession();
   const toPut = {};
   Object.keys(changedValues).forEach((key) => {
     if (changedValues[key] !== null) {
@@ -15,7 +17,7 @@ export default function EditProfileModal({ open, changedValues, setOpen }) {
 
   const { data, error, isFetching, refetch, isSuccess } = useQuery(
     ["update-contact"],
-    () => updatePersonalInfo(toPut),
+    () => updatePersonalInfo(toPut, session.data.user.student_id),
     { enabled: false }
   );
 

@@ -49,8 +49,9 @@ export default function TweetItem({ isEditable, tmp }) {
         >
           {DUMMY_TEXT}
         </Typography>
-
-        <ExpandableImage src="https://picsum.photos/1080" />
+        <Box sx={{ pl: 3 }}>
+          <ExpandableImage src="https://picsum.photos/1080" />
+        </Box>
         {isEditable && <TweetDeleteButton tweetId={"--id-from-sever--"} />}
         <TweetLikeButton likesCount={45} />
         <Divider />
