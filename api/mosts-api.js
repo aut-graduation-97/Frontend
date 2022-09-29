@@ -11,10 +11,8 @@ export async function getMosts(id) {
 }
 
 // TODO: update this to send array
-export async function putMostsVote(checkedId, sid) {
-  const response = await axios.put("/" + sid + "/tarin", {
-    tarin_id: checkedId,
-  });
+export async function putMostsVote(payload, sid) {
+  const response = await axios.put("/" + sid + "/tarin", payload);
   // Body:
   // {
   //   tarin_id: ['--ID1--', '--ID2--', '--ID3--']

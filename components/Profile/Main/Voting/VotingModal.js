@@ -14,27 +14,18 @@ import CustomError from "../../../SharedComponents/Elements/CustomError";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 
-const DUMMY_FORM = (checkedId, checkHandler) => (
-  <FormGroup>
+const DUMMY_FORM = (checkHandler) => (
+  <FormGroup onChange={checkHandler}>
     <FormControlLabel
-      checked={checkedId === "1"}
-      control={
-        <Checkbox inputProps={{ accessKey: "1" }} onClick={checkHandler} />
-      }
+      control={<Checkbox inputProps={{ accessKey: "1" }} />}
       label="بهترین"
     />
     <FormControlLabel
-      checked={checkedId === "2"}
-      control={
-        <Checkbox inputProps={{ accessKey: "2" }} onClick={checkHandler} />
-      }
+      control={<Checkbox inputProps={{ accessKey: "2" }} />}
       label="بدترین"
     />
     <FormControlLabel
-      checked={checkedId === "3"}
-      control={
-        <Checkbox inputProps={{ accessKey: "3" }} onClick={checkHandler} />
-      }
+      control={<Checkbox inputProps={{ accessKey: "3" }} />}
       label="خوب ترین"
     />
     <FormControlLabel control={<Checkbox />} label="1" />
@@ -42,14 +33,11 @@ const DUMMY_FORM = (checkedId, checkHandler) => (
 );
 
 export default function VotingModal({ open, setOpen, name, sid }) {
-  const [checkedId, setCheckedId] = useState("");
-
-  const checkHandler = (event) => {
-    setCheckedId(event.target.accessKey);
-  };
+  const [checkedIds, setCheckedIds] = useState([]);
 
   const { data, error, isFetching } = useQuery(["voting"], getInitMosts, {
-    enabled: open,
+    enabled: false,
+    // enabled: open,
   });
 
   const {
@@ -58,9 +46,35 @@ export default function VotingModal({ open, setOpen, name, sid }) {
     isSuccess: responseIsSuccess,
     refetch: responseRefetch,
     isFetching: responseIsFetching,
-  } = useQuery(["voting-result"], () => putMostsVote(checkedId, sid), {
-    enabled: false,
-  });
+  } = useQuery(
+    ["voting-result"],
+    () =>
+      putMostsVote(
+        JSON.stringify({
+          tarin_id: checkedIds,
+        }),
+        sid
+      ),
+    {
+      enabled: false,
+    }
+  );
+
+  const checkHandler = (event) => {
+    const id = event.target.accessKey;
+    if (event.target.checked) {
+      if (checkedIds.includes(id)) return;
+      setCheckedIds((prev) => [...prev, id]);
+    } else {
+      setCheckedIds(checkedIds.filter((item) => item !== id));
+    }
+  };
+
+  const submitHandler = () => {
+    if (checkedIds.length === 0)
+      toast.error("لطفا حداقل یک مورد را انتخاب کنید");
+    responseRefetch();
+  };
 
   // ONLINE - replace this warning with spinner and backdrop
   // if (isFetching) return <div>Spinner</div>;
@@ -88,18 +102,13 @@ export default function VotingModal({ open, setOpen, name, sid }) {
               {`رای خود را برای ${name} ثبت کنید`}
             </Typography>
 
-            {DUMMY_FORM(checkedId, checkHandler)}
-            {/*<FormGroup>*/}
+            {DUMMY_FORM(checkHandler)}
+            {/*<FormGroup onClick={checkHandler}>*/}
             {/*  {data.map((el, i) => (*/}
             {/*    <FormControlLabel*/}
             {/*      key={i}*/}
             {/*      checked={checkedId === el.id}*/}
-            {/*      control={*/}
-            {/*        <Checkbox*/}
-            {/*          inputProps={{ accessKey: el.id }}*/}
-            {/*          onClick={checkHandler}*/}
-            {/*        />*/}
-            {/*      }*/}
+            {/*      control={<Checkbox inputProps={{ accessKey: el.id }} />}*/}
             {/*      label={el.name}*/}
             {/*    />*/}
             {/*  ))}*/}
