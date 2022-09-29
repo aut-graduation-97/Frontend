@@ -11,6 +11,7 @@ export const theme = createTheme({
       fontSize: "14px",
     },
   },
+  // TODO: add gradient
   palette: {
     mode: "dark",
     primary: {

@@ -1,4 +1,4 @@
-import { Box, Modal, Paper, Typography } from "@mui/material";
+import { Box, Divider, Modal, Paper, Typography } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 import { useQuery } from "@tanstack/react-query";
@@ -6,14 +6,8 @@ import { updateContact, updatePersonalInfo } from "../../api/students-api";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 
-export default function EditProfileModal({ open, changedValues, setOpen }) {
+export default function EditProfileModal({ open, toPut, setOpen }) {
   const session = useSession();
-  const toPut = {};
-  Object.keys(changedValues).forEach((key) => {
-    if (changedValues[key] !== null) {
-      toPut[key] = changedValues[key];
-    }
-  });
 
   const { data, error, isFetching, refetch, isSuccess } = useQuery(
     ["update-contact"],
@@ -46,7 +40,23 @@ export default function EditProfileModal({ open, changedValues, setOpen }) {
               آیا می خواهید اطلااعات زیر را ویرایش کنید ؟
             </Typography>
 
-            <Box sx={{ m: "auto" }}>{JSON.stringify(toPut)}</Box>
+            <Box sx={{ m: "auto", width: "80%" }}>
+              {Object.keys(toPut).map((key) => (
+                <>
+                  <Typography
+                    variant="h6"
+                    component="h6"
+                    sx={{ direction: "ltr", mt: 3 }}
+                  >
+                    {key}:
+                  </Typography>
+                  <Typography variant="body1" component="p">
+                    {toPut[key]}
+                  </Typography>
+                  <Divider />
+                </>
+              ))}
+            </Box>
 
             <LoadingButton
               loading={isFetching}

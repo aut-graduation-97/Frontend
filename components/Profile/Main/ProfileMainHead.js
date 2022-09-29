@@ -26,10 +26,7 @@ export default function ProfileMainHead({
   setExpanded,
 }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [changedInfo, setChangedInfo] = useState({
-    name: null,
-    bio: null,
-  });
+  const [changedInfo, setChangedInfo] = useState({});
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openVotingModal, setOpenVotingModal] = useState(false);
   const isPortrait = useMediaQuery("(min-width: 900px)");
@@ -43,6 +40,16 @@ export default function ProfileMainHead({
 
     setOpenVotingModal(true);
   };
+
+  const submitHandler = (e) => {
+    if (Object.keys(changedInfo).length === 0) {
+      toast.warn("هیچ فیلدی تغییر نکرده است");
+      return;
+    }
+
+    setOpenEditModal(true);
+  };
+
   return (
     <>
       {/* TODO: this accordion looks like shit. fix it*/}
@@ -136,7 +143,7 @@ export default function ProfileMainHead({
               variant="contained"
               size="small"
               color="error"
-              onClick={() => setOpenEditModal(true)}
+              onClick={submitHandler}
             >
               دخیره تغییرات
             </Button>
@@ -147,7 +154,7 @@ export default function ProfileMainHead({
       <EditProfileModal
         open={openEditModal}
         setOpen={setOpenEditModal}
-        changedValues={changedInfo}
+        toPut={changedInfo}
       />
       <VotingModal
         open={openVotingModal}

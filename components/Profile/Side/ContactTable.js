@@ -23,23 +23,16 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import EditProfileModal from "../EditProfileModal";
+import { toast } from "react-toastify";
 
 export default function ContactTable({ isEditable, data }) {
   // ONLINE - check the data prop and just feed it to the JSX
 
   const [isEditing, setIsEditing] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
-  const [changedContact, setChangedContact] = useState({
-    email: null,
-    phone: null,
-    twitter: null,
-    telegram: null,
-    instagram: null,
-    github: null,
-    linkedin: null,
-  });
+  const [changedContact, setChangedContact] = useState({});
 
-  const wideScreen = useMediaQuery("(min-width:900px) and (min-width:1100px)");
+  const tablet = useMediaQuery("(min-width:900px) and (max-width:1100px)");
 
   const getChip = (text) => {
     if (isEditing) return;
@@ -50,9 +43,18 @@ export default function ContactTable({ isEditable, data }) {
         size="small"
         clickable
         color="primary"
-        sx={{ width: wideScreen ? 180 : 100, direction: "ltr" }}
+        sx={{ width: tablet ? 100 : 180, direction: "ltr" }}
       />
     );
+  };
+
+  const submitHandler = (e) => {
+    if (Object.keys(changedContact).length === 0) {
+      toast.warn("هیچ فیلدی تغییر نکرده است");
+      return;
+    }
+
+    setOpenEditModal(true);
   };
 
   return (
@@ -60,7 +62,7 @@ export default function ContactTable({ isEditable, data }) {
       <EditProfileModal
         open={openEditModal}
         setOpen={setOpenEditModal}
-        changedValues={changedContact}
+        toPut={changedContact}
       />
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         {isEditable && (
@@ -79,7 +81,7 @@ export default function ContactTable({ isEditable, data }) {
           <Button
             variant="contained"
             size="small"
-            onClick={() => setOpenEditModal(true)}
+            onClick={submitHandler}
             sx={{ mr: 4 }}
             color={"error"}
           >
