@@ -11,6 +11,38 @@ const nextConfig = {
     SITE: "http://localhost:3000",
     NEXTAUTH_URL: "http://localhost:3000",
   },
+  async redirects() {
+    return [
+      // Uncomment this to redirect at maintenance
+      // {
+      //   source: "/:path*",
+      //   destination: "/Err/UnderMaintenance",
+      //   permanent: false,
+      // },
+      {
+        source: "/",
+        destination: "/Timeline",
+        permanent: false,
+      },
+      // {
+      //   source: "/AdminPanel",
+      //   has: [
+      //     {
+      //       type: "cookie",
+      //       key: "admin",
+      //       value: "false",
+      //     },
+      //     {
+      //       type: "cookie",
+      //       key: "authenticated",
+      //       value: "true",
+      //     },
+      //   ],
+      //   permanent: false,
+      //   destination: "/Err/notAdmin",
+      // },
+    ];
+  },
 };
 
 module.exports = nextConfig;

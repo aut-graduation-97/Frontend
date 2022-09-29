@@ -36,6 +36,7 @@ export default function ContactTable({ isEditable, data }) {
 
   const getChip = (text) => {
     if (isEditing) return;
+
     return (
       <Chip
         label={text}
@@ -44,6 +45,7 @@ export default function ContactTable({ isEditable, data }) {
         clickable
         color="primary"
         sx={{ width: tablet ? 100 : 180, direction: "ltr" }}
+        onClick={() => window.open(text, "_blank")}
       />
     );
   };

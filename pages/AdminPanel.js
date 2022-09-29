@@ -5,6 +5,8 @@ import TweetList from "../components/SharedComponents/Tweets/TweetList";
 import NewTweetModal from "../components/Timeline/NewTweet/NewTweetModal";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import AdminPanelAccordion from "../components/Admin/AdminPanelAccordion";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function AdminPanelPage() {
   const wideScreen = useMediaQuery("(min-width:900px)");
