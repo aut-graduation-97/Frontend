@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import ForgotPasswordAccordion from "./ForgotPasswordAccordion";
+import { toast } from "react-toastify";
 
 export default function LoginFormDrawer({ show, setShow }) {
   const router = useRouter();
@@ -47,12 +48,23 @@ export default function LoginFormDrawer({ show, setShow }) {
   const loginHandler = async () => {
     setLoading(true);
 
-    await signIn("credentials", {
+    const response = await signIn("credentials", {
       email: usernameInput,
       password: passwordInput,
       redirect: false,
     });
 
+    if (response.error) {
+      toast.error("نام کاربری یا رمز عبور اشتباه است");
+    }
+
+    // ONLINE
+    // if (response.ok) {
+    //   setLoading(false);
+    //   router.push("/Timeline");
+    // }
+
+    // For dev
     setLoading(false);
     router.push("/Timeline");
   };

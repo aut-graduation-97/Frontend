@@ -32,7 +32,6 @@ export default function AppSidebar({ extraButtons, selected }) {
   const { data, status } = useSession();
   const router = useRouter();
 
-  // TODO: fetch current user data from database
   const auth = status === "authenticated";
   const isAdmin = auth && data.user.super_user;
 

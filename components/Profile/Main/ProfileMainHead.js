@@ -52,7 +52,6 @@ export default function ProfileMainHead({
 
   return (
     <>
-      {/* TODO: this accordion looks like shit. fix it*/}
       <Accordion sx={{ mt: 2 }} expanded={expanded}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}

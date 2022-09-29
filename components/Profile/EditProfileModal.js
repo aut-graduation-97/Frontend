@@ -22,7 +22,6 @@ export default function EditProfileModal({ open, toPut, setOpen }) {
     setOpen(false);
   }
 
-  // TODO: put this modal information in a table
   return (
     <>
       <Modal

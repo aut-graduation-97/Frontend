@@ -14,8 +14,6 @@ export default function TweetList({ tmp, isEditable }) {
   // if (isError) console.log(error);
   // if (data) console.log("data", data);
 
-  // TODO: implement fetch more on scroll / show more on scroll
-
   return (
     <Box sx={{ my: 3 }}>
       <TweetItem tmp id={"--id-from-server--"} isEditable={isEditable} />
