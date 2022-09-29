@@ -15,6 +15,7 @@ import CollectionsIcon from "@mui/icons-material/Collections";
 import PeopleIcon from "@mui/icons-material/People";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 
 import Avatar from "../Elements/Avatar";
 import { signOut, useSession } from "next-auth/react";
@@ -143,12 +144,22 @@ export default function AppSidebar({ extraButtons, selected }) {
           </>
         )}
 
-        {auth && (
+        {auth ? (
           <ListItemButton sx={{ py: 1 }} onClick={logoutHandler}>
             <ListItemIcon>
               <LogoutIcon color={"error"} />
             </ListItemIcon>
             <Typography variant="h6"> خروج</Typography>
+          </ListItemButton>
+        ) : (
+          <ListItemButton
+            sx={{ py: 1 }}
+            onClick={(event) => router.push("/Login")}
+          >
+            <ListItemIcon>
+              <LoginIcon color={"error"} />
+            </ListItemIcon>
+            <Typography variant="h6"> ورود</Typography>
           </ListItemButton>
         )}
       </List>
