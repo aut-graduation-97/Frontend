@@ -4,7 +4,7 @@ import NewTweetModal from "../components/Timeline/NewTweet/NewTweetModal";
 import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
 import TweetList from "../components/SharedComponents/Tweets/TweetList";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
-import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from "../components/SharedComponents/Elements/HeaderImage";
 import { useSession } from "next-auth/react";
 import Cookies from "universal-cookie";
 

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import ProfileMain from "../../components/Profile/Main/ProfileMain";
 import Avatar from "../../components/SharedComponents/Elements/Avatar";
 import ContactTable from "../../components/Profile/Side/ContactTable";
-import HeaderImage from "../../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from "../../components/SharedComponents/Elements/HeaderImage";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";

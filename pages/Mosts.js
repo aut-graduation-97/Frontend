@@ -1,4 +1,4 @@
-import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from "../components/SharedComponents/Elements/HeaderImage";
 import AppToolbar from "../components/SharedComponents/UI/AppToolbar";
 import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
 import MostsList from "../components/Mosts/MostsList";

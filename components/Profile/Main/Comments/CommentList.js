@@ -6,6 +6,7 @@ import { getAllComments } from "../../../../api/students-api";
 import { toast } from "react-toastify";
 import { LinearProgress } from "@mui/material";
 import CustomError from "../../../SharedComponents/Elements/CustomError";
+import LoadingProgress from "../../../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_TEXT =
   "        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از\n" +
@@ -31,7 +32,7 @@ export default function CommentList({ sid }) {
     return <CustomError />;
   }
 
-  if (isLoading) return;
+  if (isLoading) return <LoadingProgress />;
 
   if (data && data.length === 0)
     return <Box sx={{ textAlign: "center" }}>نظری ثبت نشده است</Box>;

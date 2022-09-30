@@ -1,4 +1,4 @@
-import HeaderImage from "../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from "../components/SharedComponents/Elements/HeaderImage";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import AppSidebar from "../components/SharedComponents/UI/AppSidebar";
 import TweetList from "../components/SharedComponents/Tweets/TweetList";

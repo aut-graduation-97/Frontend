@@ -1,7 +1,7 @@
 import { Grid, useMediaQuery, Box } from "@mui/material";
 
 import StudentsList from "../../components/Students/StudentsList";
-import HeaderImage from "../../components/SharedComponents/UI/HeaderImage";
+import HeaderImage from "../../components/SharedComponents/Elements/HeaderImage";
 import AppToolbar from "../../components/SharedComponents/UI/AppToolbar";
 import AppSidebar from "../../components/SharedComponents/UI/AppSidebar";
 
