@@ -2,6 +2,7 @@
 import axios from "axios";
 
 export async function addUser(payload) {
+  console.log(payload);
   const response = await axios.post("/register", JSON.stringify(payload));
   return response.data;
 }

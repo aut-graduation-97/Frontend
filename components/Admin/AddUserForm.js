@@ -15,7 +15,8 @@ export default function AddUserForm() {
   const {
     data,
     refetch: send,
-    status,
+    error,
+    isSuccess,
     isFetching,
   } = useQuery({
     queryKey: ["addUser"],
@@ -35,14 +36,8 @@ export default function AddUserForm() {
     send();
   };
 
-  if (status !== "loading" && status !== "idle") {
-  }
-  if (status === "success") {
-    toast.success("کاربر با موفقیت اضافه شد!");
-  }
-  if (status === "error") {
-    toast.error(data?.message ? data.message : "خطا در افزودن کاربر جدید! ");
-  }
+  if (isSuccess) toast.success("کاربر با موفقیت اضافه شد!");
+  if (error) toast.error(error.message);
 
   return (
     <Box>

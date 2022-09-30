@@ -4,6 +4,8 @@ import CommentItem from "./CommentItem";
 import { useQuery } from "@tanstack/react-query";
 import { getAllComments } from "../../../../api/students-api";
 import { toast } from "react-toastify";
+import { LinearProgress } from "@mui/material";
+import CustomError from "../../../SharedComponents/Elements/CustomError";
 
 const DUMMY_TEXT =
   "        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از\n" +
@@ -12,13 +14,13 @@ const DUMMY_TEXT =
   "        متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی د";
 export default function CommentList({ sid }) {
   // ONLINE - just remove this return
-  return (
-    <Box sx={{ my: 3 }}>
-      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-    </Box>
-  );
+  // return (
+  //   <Box sx={{ my: 3 }}>
+  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+  //   </Box>
+  // );
 
   const { data, isLoading, error } = useQuery(["get-comments"], () =>
     getAllComments(sid)
@@ -26,9 +28,10 @@ export default function CommentList({ sid }) {
 
   if (error) {
     toast.error(error.message);
+    return <CustomError />;
   }
 
-  if (isLoading) return <>--spinner loading</>;
+  if (isLoading) return;
 
   if (data && data.length === 0)
     return <Box sx={{ textAlign: "center" }}>نظری ثبت نشده است</Box>;

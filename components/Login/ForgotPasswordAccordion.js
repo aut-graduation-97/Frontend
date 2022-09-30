@@ -15,17 +15,17 @@ import { toast } from "react-toastify";
 export default function ForgotPasswordAccordion() {
   const sidRef = useRef();
 
-  const { data, error, isFetching, refetch, status } = useQuery({
+  const { data, error, isFetching, refetch, isSuccess } = useQuery({
     queryKey: ["forgotPassword"],
     queryFn: () => forgotPassword({ student_id: sidRef.current.value }),
     enabled: false,
   });
 
   if (error) {
-    toast.error("خطایی رخ داده است.");
+    toast.error(error.message);
   }
 
-  if (data && status === "success") {
+  if (isSuccess) {
     toast.success("عملیات موفقیت آمیز بود. ایمیل خود را چک کنید.");
   }
 

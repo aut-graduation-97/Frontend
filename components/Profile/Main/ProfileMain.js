@@ -1,8 +1,4 @@
-import { Typography, Button, Box } from "@mui/material";
-
 import ProfileMainTabs from "./ProfileMainTabs";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import ProfileMainHead from "./ProfileMainHead";
 import { useState } from "react";
 
@@ -13,6 +9,7 @@ const DUMMY_DATA = {
 export default function ProfileMain({ isEditable, data }) {
   const [expandedBio, setExpandedBio] = useState(true);
 
+  // FIXME: this component is not showing properly in mobile view
   return (
     <>
       <ProfileMainHead

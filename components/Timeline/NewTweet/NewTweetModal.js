@@ -15,7 +15,7 @@ import SendTweetButton from "./SendTweetButton";
 import { PhotoCamera } from "@mui/icons-material";
 
 export default function NewTweetModal({ shift }) {
-  const tweetLengthLimit = 10;
+  const tweetLengthLimit = 280;
   const [show, setShow] = useState(false);
   const [lengthIsValid, setLengthIsValid] = useState(true);
   const [tweetText, setTweetText] = useState("");

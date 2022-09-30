@@ -9,8 +9,7 @@ import { postComment } from "../../../../api/students-api";
 import { toast } from "react-toastify";
 
 export default function AddComment({ sid }) {
-  const [writingStarted, setWritingStarted] = useState(false);
-  const commentRef = useRef();
+  const [comment, setComment] = useState("");
 
   const { data, isSuccess, refetch, error, isFetching } = useQuery(
     ["add-comment"],
@@ -25,9 +24,8 @@ export default function AddComment({ sid }) {
 
   return (
     <Grid container justifyContent="center" alignItems="center">
-      <Grid item xs={10}>
+      <Grid item xs={12} sm={10}>
         <TextField
-          inputRef={commentRef}
           sx={{ width: "100%" }}
           multiline
           rows={2}
@@ -35,15 +33,15 @@ export default function AddComment({ sid }) {
           label="نظر خود را بنویسید"
           variant="filled"
           inputProps={{ style: { fontSize: 14 } }}
-          onChange={(e) => setWritingStarted(true)}
+          onChange={(e) => setComment(e.target.value)}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2}>
         <LoadingButton
-          sx={{ mr: 3 }}
+          sx={{ mr: 3, mt: 2 }}
           loading={isFetching}
           variant="contained"
-          disabled={!writingStarted}
+          disabled={comment === ""}
           onClick={() => refetch()}
         >
           ثبت نظر

@@ -2,7 +2,6 @@ import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
 import Avatar from "../../../SharedComponents/Elements/Avatar";
 
 export default function CommentItem({ text, date }) {
-  const phone = useMediaQuery("(max-width:600px)");
   return (
     <>
       <Box
@@ -22,7 +21,10 @@ export default function CommentItem({ text, date }) {
           variant="h6"
           component="h5"
           sx={{
-            mt: phone ? 1.5 : 2,
+            mt: {
+              xs: 1.5,
+              lg: 2,
+            },
             pb: 1,
             fontWeight: "600",
             height: "auto",

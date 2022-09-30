@@ -9,7 +9,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddUserForm from "./AddUserForm";
 import AddImage from "./GalleryManagement/AddImage";
 import { useSession } from "next-auth/react";
-
 import CustomError from "../SharedComponents/Elements/CustomError";
 
 export default function AdminPanelAccordion() {
