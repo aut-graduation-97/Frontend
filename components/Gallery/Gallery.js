@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { deleteImage, getAllImages } from "../../api/gallery-api";
 import { toast } from "react-toastify";
 import CustomError from "../SharedComponents/Elements/CustomError";
+import LoadingProgress from "../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_IMAGES = [
   {
@@ -78,7 +79,7 @@ export default function Gallery({ isAdmin }) {
   if (responseError) toast.error(responseError.message);
   if (responseIsSuccess) toast.success(responseData.message);
 
-  if (isLoading) return <div>SPINNER</div>;
+  if (isLoading) return <LoadingProgress />;
   if (error) return <CustomError errorMessage={error.message} />;
 
   if (data && data.length !== 0) {

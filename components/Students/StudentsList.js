@@ -4,6 +4,7 @@ import { getAllStudents } from "../../api/students-api";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import CustomError from "../SharedComponents/Elements/CustomError";
+import LoadingProgress from "../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_NAME = " جمشید نوروزی اصل ایذه تبار";
 
@@ -35,9 +36,8 @@ export default function StudentsList() {
     isLoading,
   } = useQuery(["students"], getAllStudents);
 
-  if (isLoading) {
-    return <div>SPINNER</div>;
-  }
+  if (isLoading) return <LoadingProgress />;
+
   if (error) {
     toast.error("خطا در دریافت اطلاعات دانشجویان");
     return (

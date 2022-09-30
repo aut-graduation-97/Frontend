@@ -13,6 +13,7 @@ import { getInitMosts, putMostsVote } from "../../../../api/mosts-api";
 import CustomError from "../../../SharedComponents/Elements/CustomError";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
+import LoadingProgress from "../../../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_FORM = (checkHandler) => (
   <FormGroup onChange={checkHandler}>
@@ -35,7 +36,7 @@ const DUMMY_FORM = (checkHandler) => (
 export default function VotingModal({ open, setOpen, name, sid }) {
   const [checkedIds, setCheckedIds] = useState([]);
 
-  const { data, error, isFetching } = useQuery(["voting"], getInitMosts, {
+  const { data, error, isLoading } = useQuery(["voting"], getInitMosts, {
     enabled: false,
     // enabled: open,
   });
@@ -76,9 +77,7 @@ export default function VotingModal({ open, setOpen, name, sid }) {
     responseRefetch();
   };
 
-  // ONLINE - replace this warning with spinner and backdrop
-  // if (isFetching) return <div>Spinner</div>;
-  if (isFetching) toast.warn("در حال بارگذاری");
+  if (isLoading) return <LoadingProgress />;
   if (error) toast.error(error.message);
 
   // -------

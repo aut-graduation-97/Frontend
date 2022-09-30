@@ -7,6 +7,7 @@ import { Box, Grid, useMediaQuery } from "@mui/material";
 import { getMosts } from "../../api/mosts-api";
 import { useQuery } from "@tanstack/react-query";
 import CustomError from "../SharedComponents/Elements/CustomError";
+import LoadingProgress from "../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_NAME = "محمد علی محمدی";
 
@@ -32,7 +33,7 @@ export default function MostTab({ id, names }) {
     getMosts(id)
   );
 
-  if (isLoading) return <div>Spinner</div>;
+  if (isLoading) return <LoadingProgress />;
   if (error) return <CustomError errorMessage={error.message} />;
   // TODO: check for empty data on server
   if (data) {

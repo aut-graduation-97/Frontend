@@ -6,6 +6,7 @@ import MostTab from "./MostTab";
 import { useQuery } from "@tanstack/react-query";
 import { getInitMosts } from "../../api/mosts-api";
 import CustomError from "../SharedComponents/Elements/CustomError";
+import LoadingProgress from "../SharedComponents/UI/LoadingProgress";
 
 const DUMMY_NAMES1 = ["محمد علی محمدی", "محمد علی محمدی", "محمد علی محمدی"];
 const DUMMY_NAMES2 = ["علی نوروزی", "علی نوروزی", "علی نوروزی"];
@@ -48,7 +49,7 @@ export default function MostsList() {
 
   const { data, isLoading, error } = useQuery(["mosts"], getInitMosts);
 
-  if (isLoading) return <div>Spinner</div>;
+  if (isLoading) return <LoadingProgress />;
   if (error) return <CustomError errorMessage={error.message} />;
 
   if (data) {

@@ -7,6 +7,7 @@ import { getProfileInfo } from "../../api/students-api";
 import { toast } from "react-toastify";
 import CustomError from "../SharedComponents/Elements/CustomError";
 import ProfileAvatar from "./Side/ProfileAvatar";
+import LoadingProgress from "../SharedComponents/UI/LoadingProgress";
 
 export default function Profile({ isMyProfile, sid }) {
   if (true) {
@@ -36,7 +37,7 @@ export default function Profile({ isMyProfile, sid }) {
     }
   );
 
-  if (isLoading) return <div>SPINNER</div>;
+  if (isLoading) return <LoadingProgress />;
 
   if (error) {
     toast.error(error.message);
