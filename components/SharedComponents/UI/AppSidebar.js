@@ -21,6 +21,7 @@ import Avatar from "../Elements/Avatar";
 import { signOut, useSession } from "next-auth/react";
 import { deActiveToken } from "../../../api/auth-api";
 import { toast } from "react-toastify";
+import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 
 /**
  *
@@ -146,7 +147,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         {auth ? (
           <ListItemButton sx={{ py: 1 }} onClick={logoutHandler}>
             <ListItemIcon>
-              <LogoutIcon color={"error"} />
+              <PowerSettingsNewIcon color={"error"} />
             </ListItemIcon>
             <Typography variant="h6"> خروج</Typography>
           </ListItemButton>
