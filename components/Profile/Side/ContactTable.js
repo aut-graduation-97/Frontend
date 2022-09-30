@@ -20,35 +20,67 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EditIcon from "@mui/icons-material/Edit";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import EditProfileModal from "../EditProfileModal";
 import { toast } from "react-toastify";
 
 export default function ContactTable({ isEditable, data }) {
   // ONLINE - check the data prop and just feed it to the JSX
-
   const [isEditing, setIsEditing] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [changedContact, setChangedContact] = useState({});
 
   const tablet = useMediaQuery("(min-width:900px) and (max-width:1100px)");
 
-  const getChip = (text) => {
-    if (isEditing) return;
+  const getChip = useCallback(
+    (text) => {
+      if (isEditing) return;
+      return (
+        <Chip
+          label={text}
+          variant="outlined"
+          size="small"
+          clickable
+          color="primary"
+          sx={{ width: tablet ? 100 : 180, direction: "ltr" }}
+          onClick={() => window.open(text, "_blank")}
+        />
+      );
+    },
+    [isEditing, tablet]
+  );
 
-    return (
-      <Chip
-        label={text}
-        variant="outlined"
-        size="small"
-        clickable
-        color="primary"
-        sx={{ width: tablet ? 100 : 180, direction: "ltr" }}
-        onClick={() => window.open(text, "_blank")}
-      />
-    );
-  };
+  const getTextField = useCallback(
+    (prevValue, label) => {
+      if (isEditing) {
+        return (
+          <TextField
+            sx={{ width: "100%" }}
+            id="standard-basic"
+            label={label}
+            variant="standard"
+            defaultValue={prevValue}
+            // changing state object safely
+            onChange={(e) =>
+              setChangedContact((prev) => ({
+                ...prev,
+                [label]: e.target.value,
+              }))
+            }
+            inputProps={{
+              style: {
+                fontSize: 12,
+                direction: "ltr",
+              },
+            }}
+            InputLabelProps={{ style: { fontSize: 13 } }}
+          />
+        );
+      }
+    },
+    [isEditing]
+  );
 
   const submitHandler = (e) => {
     if (Object.keys(changedContact).length === 0) {
@@ -105,21 +137,7 @@ export default function ContactTable({ isEditable, data }) {
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
                   {getChip("folani@yahoo.com")}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="Email"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      // changing state object safely
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          email: e.target.value,
-                        }))
-                      }
-                    />
-                  )}
+                  {getTextField("folani@yahoo.com", "email")}
                 </TableCell>
               </TableRow>
 
@@ -129,20 +147,7 @@ export default function ContactTable({ isEditable, data }) {
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
                   {getChip("0910 600 8858")}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="Phone Number"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          phone: e.target.value,
-                        }))
-                      }
-                    />
-                  )}
+                  {getTextField("0910 600 8858", "phone")}
                 </TableCell>
               </TableRow>
 
@@ -151,22 +156,10 @@ export default function ContactTable({ isEditable, data }) {
                   <TwitterIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip(
-                    "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
-                  )}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="Tweeter"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          twitter: e.target.value,
-                        }))
-                      }
-                    />
+                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getTextField(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "twitter"
                   )}
                 </TableCell>
               </TableRow>
@@ -176,22 +169,10 @@ export default function ContactTable({ isEditable, data }) {
                   <TelegramIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip(
-                    "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
-                  )}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="Telegram"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          telegram: e.target.value,
-                        }))
-                      }
-                    />
+                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getTextField(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "telegram"
                   )}
                 </TableCell>
               </TableRow>
@@ -201,20 +182,10 @@ export default function ContactTable({ isEditable, data }) {
                   <InstagramIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("t.me/fnsdjgnskngkjds")}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="Instagram"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          instagram: e.target.value,
-                        }))
-                      }
-                    />
+                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getTextField(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "instagram"
                   )}
                 </TableCell>
               </TableRow>
@@ -224,22 +195,10 @@ export default function ContactTable({ isEditable, data }) {
                   <GitHubIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip(
-                    "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
-                  )}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="GitHub"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          github: e.target.value,
-                        }))
-                      }
-                    />
+                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getTextField(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "github"
                   )}
                 </TableCell>
               </TableRow>
@@ -249,22 +208,10 @@ export default function ContactTable({ isEditable, data }) {
                   <LinkedInIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip(
-                    "https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div"
-                  )}
-                  {isEditing && (
-                    <TextField
-                      id="standard-basic"
-                      label="LinkedIn"
-                      variant="standard"
-                      defaultValue={"--previous value--"}
-                      onChange={(e) =>
-                        setChangedContact((prev) => ({
-                          ...prev,
-                          linkedin: e.target.value,
-                        }))
-                      }
-                    />
+                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getTextField(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "linkedin"
                   )}
                 </TableCell>
               </TableRow>

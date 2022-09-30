@@ -15,7 +15,6 @@ export default function ProfilePage() {
   const router = useRouter();
   const wideScreen = useMediaQuery("(min-width:900px)");
   let isMyProfile = false;
-
   if (session.status === "authenticated") {
     isMyProfile =
       router.query.studentId === session.data.user.student_id.toString();

@@ -65,6 +65,7 @@ export default function LoginFormDrawer({ show, setShow }) {
     // }
 
     // For dev
+    toast.dark("you are logged in because of dev");
     setLoading(false);
     router.push("/Timeline");
   };

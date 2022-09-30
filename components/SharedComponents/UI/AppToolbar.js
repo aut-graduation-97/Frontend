@@ -51,7 +51,7 @@ export default function AppToolbar() {
           {status === "authenticated" && (
             <IconButton
               onClick={(event) =>
-                router.push(`/Student/${data.user.student_id}`)
+                router.push(`/Students/${data.user.student_id}`)
               }
               sx={{ py: 1, color: "white" }}
             >
