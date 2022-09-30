@@ -14,7 +14,7 @@ export default function NewTweetButton({ onClick, shift }) {
         zIndex: 1000,
       }}
     >
-      <Fab color={"primary"} aria-label="like" onClick={onClick}>
+      <Fab color={"secondary"} aria-label="like" onClick={onClick}>
         <EditIcon />
         <AddIcon sx={{ mr: -1, mb: 1, p: 0 }} />
       </Fab>

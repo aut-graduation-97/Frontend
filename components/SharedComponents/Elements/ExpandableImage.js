@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import logo from "../../../public/1.webp";
 
 export default function ExpandableImage({ src }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -19,10 +19,10 @@ export default function ExpandableImage({ src }) {
     <>
       <Box
         sx={{
-          m: "auto",
-          mt: 3,
-          width: isPortrait ? 250 : 300,
-          height: 200,
+          mt: 1,
+          p: 0.5,
+          width: 200,
+          height: isPortrait ? 100 : 200,
         }}
         elevation={3}
         onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
@@ -52,12 +52,14 @@ export default function ExpandableImage({ src }) {
             </Typography>
           </Popover>
         )}
+
         <Image
-          src={src}
+          src={logo}
           alt="image"
-          width="300"
-          height="200"
+          width="200"
+          height={isPortrait ? 100 : 200}
           layout="responsive"
+          objectFit="cover"
           style={{ cursor: "pointer", margin: "auto", borderRadius: 3 }}
           onClick={() => window.open(src, "_blank")}
         />

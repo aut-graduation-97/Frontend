@@ -43,7 +43,11 @@ export default function ContactTable({ isEditable, data }) {
           size="small"
           clickable
           color="primary"
-          sx={{ width: tablet ? 100 : 180, direction: "ltr" }}
+          sx={{
+            width: tablet ? 100 : 180,
+            direction: "ltr",
+            borderColor: "#9a2c42 ",
+          }}
           onClick={() => window.open(text, "_blank")}
         />
       );

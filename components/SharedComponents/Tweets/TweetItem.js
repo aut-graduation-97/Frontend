@@ -1,6 +1,14 @@
 import Avatar from "../Elements/Avatar";
 
-import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  ImageList,
+  ImageListItem,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import TweetDeleteButton from "./TweetDeleteButton";
 import TweetLikeButton from "./TweetLikeButton";
 import ExpandableImage from "../Elements/ExpandableImage";
@@ -49,9 +57,27 @@ export default function TweetItem({ isEditable, tmp }) {
         >
           {DUMMY_TEXT}
         </Typography>
-        <Box sx={{ pl: 3 }}>
+        <Box
+          sx={{
+            height: {
+              xs: "auto",
+              sm: 210,
+            },
+            pl: 3,
+            display: "flex",
+            flexDirection: {
+              xs: "column",
+              sm: "row",
+            },
+            justifyContent: "space-evenly",
+            verticalAlign: "middle",
+            my: "auto",
+          }}
+        >
+          <ExpandableImage src="https://picsum.photos/1080" />
           <ExpandableImage src="https://picsum.photos/1080" />
         </Box>
+
         {isEditable && <TweetDeleteButton tweetId={"--id-from-sever--"} />}
         <TweetLikeButton likesCount={45} />
         <Divider />

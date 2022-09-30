@@ -72,7 +72,7 @@ export default function AppSidebar({ extraButtons, selected }) {
           onClick={(event) => router.push("/Timeline")}
         >
           <ListItemIcon>
-            <HomeIcon fontSize="large" />
+            <HomeIcon fontSize="large" color={"secondary"} />
           </ListItemIcon>
           <Typography variant="h6">تایم لاین</Typography>
         </ListItemButton>
@@ -86,7 +86,7 @@ export default function AppSidebar({ extraButtons, selected }) {
             }
           >
             <ListItemIcon>
-              <AccountCircleIcon fontSize="large" />
+              <AccountCircleIcon fontSize="large" color={"secondary"} />
             </ListItemIcon>
             <Typography variant="h6"> پروفایل</Typography>
           </ListItemButton>
@@ -98,7 +98,7 @@ export default function AppSidebar({ extraButtons, selected }) {
           onClick={(event) => router.push("/Mosts")}
         >
           <ListItemIcon>
-            <GavelIcon fontSize="large" />
+            <GavelIcon fontSize="large" color={"secondary"} />
           </ListItemIcon>
           <Typography variant="h6">ترین ها</Typography>
         </ListItemButton>
@@ -109,7 +109,7 @@ export default function AppSidebar({ extraButtons, selected }) {
           onClick={(event) => router.push("/Gallery")}
         >
           <ListItemIcon>
-            <CollectionsIcon fontSize="large" />
+            <CollectionsIcon fontSize="large" color={"secondary"} />
           </ListItemIcon>
           <Typography variant="h6"> گالری</Typography>
         </ListItemButton>
@@ -120,7 +120,7 @@ export default function AppSidebar({ extraButtons, selected }) {
           onClick={(event) => router.push("/Students")}
         >
           <ListItemIcon>
-            <PeopleIcon fontSize="large" />
+            <PeopleIcon fontSize="large" color={"secondary"} />
           </ListItemIcon>
           <Typography variant="h6"> دانشجویان</Typography>
         </ListItemButton>

@@ -29,12 +29,8 @@ export default function Profile({ isMyProfile, sid }) {
     );
   }
 
-  const { data, error, isLoading, refetch } = useQuery(
-    ["profile"],
-    () => getProfileInfo(sid),
-    {
-      enabled: true,
-    }
+  const { data, error, isLoading, refetch } = useQuery(["profile"], () =>
+    getProfileInfo(sid)
   );
 
   if (isLoading) return <LoadingProgress />;

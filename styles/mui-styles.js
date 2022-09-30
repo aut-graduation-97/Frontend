@@ -11,6 +11,19 @@ export const theme = createTheme({
       fontSize: "14px",
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          backgroundColor: "#E94560",
+          "&:hover": {
+            backgroundColor: "#9a2c42",
+          },
+        },
+      },
+    },
+  },
+
   // TODO: add gradient
   palette: {
     mode: "dark",
@@ -39,6 +52,4 @@ export const theme = createTheme({
       },
     },
   },
-
-  components: {},
 });

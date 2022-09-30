@@ -36,7 +36,7 @@ const DUMMY_FORM = (checkHandler) => (
 export default function VotingModal({ open, setOpen, name, sid }) {
   const [checkedIds, setCheckedIds] = useState([]);
 
-  const { data, error, isLoading } = useQuery(["voting"], getInitMosts, {
+  const { data, error, isFetching } = useQuery(["voting"], getInitMosts, {
     enabled: false,
     // enabled: open,
   });
@@ -79,7 +79,7 @@ export default function VotingModal({ open, setOpen, name, sid }) {
     responseRefetch();
   };
 
-  if (isLoading) return <LoadingProgress />;
+  if (isFetching) return <LoadingProgress />;
   if (error) toast.error(error.message);
 
   // -------
