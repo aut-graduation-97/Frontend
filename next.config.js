@@ -19,11 +19,25 @@ const nextConfig = {
       //   destination: "/Err/UnderMaintenance",
       //   permanent: false,
       // },
+      // {
+      //   source: "/",
+      //   has: [
+      //     {
+      //       type: "cookie",
+      //       key: "authenticated",
+      //       value: "true",
+      //     },
+      //   ],
+      //   destination: "/Timeline",
+      //   permanent: false,
+      // },
+      // FIXME: for some fucking reason this doesn't work. it redirects to /Timeline :|||||
       {
         source: "/",
-        destination: "/Timeline",
+        destination: "/Login",
         permanent: false,
       },
+
       // {
       //   source: "/AdminPanel",
       //   has: [

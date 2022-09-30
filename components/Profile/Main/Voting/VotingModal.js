@@ -72,8 +72,10 @@ export default function VotingModal({ open, setOpen, name, sid }) {
   };
 
   const submitHandler = () => {
-    if (checkedIds.length === 0)
+    if (checkedIds.length === 0) {
       toast.error("لطفا حداقل یک مورد را انتخاب کنید");
+      return;
+    }
     responseRefetch();
   };
 

@@ -14,10 +14,10 @@ export default function TimelinePage() {
   const session = useSession();
 
   // Setting custom cookies
-  // const cookies = new Cookies();
-  // if (session.status === "authenticated") {
-  //   cookies.set("authenthicated", "true", { path: "/" });
-  //
+  const cookies = new Cookies();
+  if (session.status === "authenticated")
+    cookies.set("authenticated", "true", { path: "/" });
+
   //   if (session.data.user.super_user)
   //     cookies.set("admin", "true", { path: "/" });
   //   else cookies.set("admin", "false", { path: "/" });
