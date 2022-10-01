@@ -20,7 +20,7 @@ export default function MostsList() {
     <>
       <Box sx={{ width: "100%", my: 5 }}>
         <TabContext value={tabContent}>
-          <Box sx={{ borderBottom: 1, borderColor: "#452c77", mx: 2 }}>
+          <Box sx={styles.tabWrapper}>
             <TabList
               onChange={(e, newValue) => setTabContent(newValue)}
               aria-label="Mosts"
@@ -57,7 +57,7 @@ export default function MostsList() {
       <>
         <Box sx={{ width: "100%", my: 5 }}>
           <TabContext value={tabContent}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box sx={styles.tabWrapper}>
               <TabList
                 onChange={(e, newValue) => setTabContent(newValue)}
                 aria-label="Mosts"
@@ -79,3 +79,7 @@ export default function MostsList() {
     );
   }
 }
+
+const styles = {
+  tabWrapper: { borderBottom: 1, borderColor: "#452c77", mx: 2 },
+};

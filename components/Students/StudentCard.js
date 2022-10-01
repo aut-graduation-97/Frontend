@@ -26,12 +26,7 @@ export default function StudentCard({ name, avatar, sid, index }) {
           </Typography>
 
           <Button
-            sx={{
-              display: "flex",
-              width: phone ? "100%" : "70%",
-              m: "auto",
-              mt: 2,
-            }}
+            sx={styles.button}
             startIcon={<AccountCircleIcon sx={{ ml: 0.4 }} />}
             size="small"
             variant="outlined"
@@ -44,3 +39,12 @@ export default function StudentCard({ name, avatar, sid, index }) {
     </>
   );
 }
+
+const styles = {
+  button: {
+    display: "flex",
+    width: phone ? "100%" : "70%",
+    m: "auto",
+    mt: 2,
+  },
+};

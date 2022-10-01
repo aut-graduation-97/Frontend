@@ -95,11 +95,7 @@ export default function Gallery({ isAdmin }) {
     // FIXME: need mt for mobile
     return (
       <>
-        <Box
-          sx={{
-            p: 4,
-          }}
-        >
+        <Box sx={{ p: 4 }}>
           <LoadingButton
             color={"error"}
             // loading={isFetching}

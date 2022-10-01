@@ -17,15 +17,7 @@ export default function MostCard({ avatar, name, sid, medal }) {
   const router = useRouter();
   return (
     <>
-      <Paper
-        elevation={7}
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          p: 2,
-          my: 2,
-        }}
-      >
+      <Paper elevation={7} sx={styles.wrapper}>
         <Box sx={{ display: "flex" }}>
           <Avatar
             size={phone ? "65px" : "100px"}
@@ -53,7 +45,7 @@ export default function MostCard({ avatar, name, sid, medal }) {
         </Box>
 
         {medal && (
-          <Box sx={{ width: "50px", my: "auto", p: 1 }}>
+          <Box sx={styles.imageWrapper}>
             <Image src={medal} alt="medal" />
           </Box>
         )}
@@ -61,3 +53,13 @@ export default function MostCard({ avatar, name, sid, medal }) {
     </>
   );
 }
+
+const styles = {
+  wrapper: {
+    display: "flex",
+    justifyContent: "space-between",
+    p: 2,
+    my: 2,
+  },
+  imageWrapper: { width: "50px", my: "auto", p: 1 },
+};

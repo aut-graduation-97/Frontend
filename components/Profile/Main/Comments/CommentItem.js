@@ -4,32 +4,12 @@ import Avatar from "../../../SharedComponents/Elements/Avatar";
 export default function CommentItem({ text, date }) {
   return (
     <>
-      <Box
-        sx={{
-          py: 1,
-          px: 2,
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "right",
-        }}
-      >
+      <Box sx={styles.wrapper}>
         <Box sx={{ ml: 1 }}>
           <Avatar size={"50px"} useDefault={true} />
         </Box>
 
-        <Typography
-          variant="h6"
-          component="h5"
-          sx={{
-            mt: {
-              xs: 1.5,
-              lg: 2,
-            },
-            pb: 1,
-            fontWeight: "600",
-            height: "auto",
-          }}
-        >
+        <Typography variant="h6" component="h5" sx={styles.title}>
           ناشناس
         </Typography>
       </Box>
@@ -45,3 +25,22 @@ export default function CommentItem({ text, date }) {
     </>
   );
 }
+
+const styles = {
+  wrapper: {
+    py: 1,
+    px: 2,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "right",
+  },
+  title: {
+    mt: {
+      xs: 1.5,
+      lg: 2,
+    },
+    pb: 1,
+    fontWeight: "600",
+    height: "auto",
+  },
+};

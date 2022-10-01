@@ -6,7 +6,6 @@ import {
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useRef } from "react";
 import { forgotPassword } from "../../api/auth-api";
 import { useQuery } from "@tanstack/react-query";
@@ -30,11 +29,9 @@ export default function ForgotPasswordAccordion() {
   }
 
   return (
-    <Accordion
-      sx={{ width: "300px", boxShadow: "none", backgroundColor: "#22354e" }}
-    >
+    <Accordion sx={styles.accordion}>
       <AccordionSummary
-        sx={{ alignItems: "center", justifyContent: "center" }}
+        sx={styles.accordionSummary}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -45,10 +42,7 @@ export default function ForgotPasswordAccordion() {
           فراموشی رمز عبور
         </Typography>
       </AccordionSummary>
-      <AccordionDetails
-        sx={{ display: "flex", flexDirection: "column" }}
-        color={"primary"}
-      >
+      <AccordionDetails sx={styles.accordionDetails} color={"primary"}>
         <TextField
           inputRef={sidRef}
           id="outlined-basic"
@@ -67,3 +61,9 @@ export default function ForgotPasswordAccordion() {
     </Accordion>
   );
 }
+
+const styles = {
+  accordion: { width: "300px", boxShadow: "none", backgroundColor: "#22354e" },
+  accordionSummary: { alignItems: "center", justifyContent: "center" },
+  accordionDetails: { display: "flex", flexDirection: "column" },
+};

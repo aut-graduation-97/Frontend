@@ -37,7 +37,6 @@ export default function ProfileMainHead({
       toast.error("فقط اعضای سایت می توانند رای دهند");
       return;
     }
-
     setOpenVotingModal(true);
   };
 
@@ -46,7 +45,6 @@ export default function ProfileMainHead({
       toast.warn("هیچ فیلدی تغییر نکرده است");
       return;
     }
-
     setOpenEditModal(true);
   };
 
@@ -60,9 +58,7 @@ export default function ProfileMainHead({
         >
           <Box
             sx={
-              isPortrait
-                ? { display: "flex", justifyContent: "space-between" }
-                : {}
+              isPortrait && { display: "flex", justifyContent: "space-between" }
             }
           >
             {isEditing ? (
@@ -114,14 +110,7 @@ export default function ProfileMainHead({
               }
             />
           ) : (
-            <Typography
-              variant="body2"
-              sx={{
-                overflowY: "scroll",
-                maxHeight: "100px",
-                position: "relative",
-              }}
-            >
+            <Typography variant="body2" sx={styles.bio}>
               {bio}
             </Typography>
           )}
@@ -163,3 +152,11 @@ export default function ProfileMainHead({
     </>
   );
 }
+
+const styles = {
+  bio: {
+    overflowY: "scroll",
+    maxHeight: "100px",
+    position: "relative",
+  },
+};

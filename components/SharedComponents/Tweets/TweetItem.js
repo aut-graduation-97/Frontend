@@ -32,60 +32,23 @@ export default function TweetItem({ isEditable, tmp }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={2}>
-        <Box sx={{ py: 1, mr: phone ? -3 : 0 }}>
+        <Box sx={styles.avatarWrapper}>
           <Avatar size={phone ? "60px" : "100px"} sx={{ m: "auto" }} />
         </Box>
       </Grid>
 
       <Grid item xs={10}>
-        <Typography
-          variant="h6"
-          component="h5"
-          sx={{
-            mt: phone ? 3 : 2,
-            pb: 1,
-            fontWeight: "600",
-            pr: phone ? 1 : 0,
-          }}
-        >
+        <Typography variant="h6" component="h5" sx={styles.title}>
           {tmp === "1" ? DUMMY_TITLE1 : DUMMY_TITLE2}
         </Typography>
-        <Typography
-          variant="p"
-          component="p"
-          sx={{ pl: phone ? 1 : 4, pr: phone ? 1 : 0 }}
-        >
+        <Typography variant="p" component="p" sx={styles.text}>
           {DUMMY_TEXT}
         </Typography>
-        <Box
-          sx={{
-            height: {
-              xs: "auto",
-              sm: 210,
-            },
-            pl: 3,
-            display: "flex",
-            flexDirection: {
-              xs: "column",
-              sm: "row",
-            },
-            justifyContent: "space-evenly",
-            verticalAlign: "middle",
-            my: "auto",
-          }}
-        >
+        <Box sx={styles.imageList}>
           <ExpandableImage src="https://picsum.photos/1080" />
           <ExpandableImage src="https://picsum.photos/1080" />
         </Box>
-        <Box
-          sx={{
-            ml: {
-              xs: 4,
-              sm: 4,
-              md: 0,
-            },
-          }}
-        >
+        <Box sx={styles.buttonWrapper}>
           {isEditable && <TweetDeleteButton tweetId={"--id-from-sever--"} />}
           <TweetLikeButton likesCount={45} />
         </Box>
@@ -95,3 +58,58 @@ export default function TweetItem({ isEditable, tmp }) {
     </Grid>
   );
 }
+
+const styles = {
+  avatarWrapper: {
+    py: 1,
+    mr: {
+      xs: -3,
+      sm: -3,
+      md: -5,
+    },
+  },
+  title: {
+    mt: 3,
+    pb: 1,
+    fontWeight: "600",
+    pr: {
+      xs: 1,
+      sm: 1,
+      md: 0,
+    },
+  },
+  text: {
+    pl: {
+      xs: 1,
+      sm: 1,
+      md: 4,
+    },
+    pr: {
+      xs: 1,
+      sm: 1,
+      md: 0,
+    },
+  },
+  imageList: {
+    height: {
+      xs: "auto",
+      sm: 210,
+    },
+    pl: 3,
+    display: "flex",
+    flexDirection: {
+      xs: "column",
+      sm: "row",
+    },
+    justifyContent: "space-evenly",
+    verticalAlign: "middle",
+    my: "auto",
+  },
+  buttonWrapper: {
+    ml: {
+      xs: 4,
+      sm: 4,
+      md: 0,
+    },
+  },
+};

@@ -95,10 +95,7 @@ export default function VotingModal({ open, setOpen, name, sid }) {
         aria-describedby="modal-modal-description"
       >
         <Box className={"modal"}>
-          <Paper
-            rounded={3}
-            sx={{ display: "flex", flexDirection: "column", px: 4, py: 6 }}
-          >
+          <Paper rounded={3} sx={styles.modalPaper}>
             <Typography variant="h6" component="h4" sx={{ mb: 4 }}>
               {`رای خود را برای ${name} ثبت کنید`}
             </Typography>
@@ -129,3 +126,7 @@ export default function VotingModal({ open, setOpen, name, sid }) {
     </div>
   );
 }
+
+const styles = {
+  modalPaper: { display: "flex", flexDirection: "column", px: 4, py: 6 },
+};

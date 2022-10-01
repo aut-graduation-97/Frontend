@@ -49,12 +49,7 @@ export default function AppSidebar({ extraButtons, selected }) {
     await signOut({ callbackUrl: "http://localhost:3000/Login" });
   };
   return (
-    <Box
-      sx={{
-        pl: 1,
-        width: "100%",
-      }}
-    >
+    <Box sx={{ pl: 1, width: "100%" }}>
       {auth && (
         <Box sx={{ pb: 3 }}>
           <Avatar size="128px" src={data.user.avatar} />

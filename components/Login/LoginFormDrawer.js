@@ -73,9 +73,7 @@ export default function LoginFormDrawer({ show, setShow }) {
   return (
     <>
       <Drawer anchor={"right"} open={show} onClose={() => setShow(false)}>
-        <FormControl
-          sx={{ mx: 5, py: 5, display: "flex", alignItems: "center" }}
-        >
+        <FormControl sx={styles.formControl}>
           <TextField
             id="username"
             variant={"filled"}
@@ -129,3 +127,7 @@ export default function LoginFormDrawer({ show, setShow }) {
     </>
   );
 }
+
+const styles = {
+  formControl: { mx: 5, py: 5, display: "flex", alignItems: "center" },
+};

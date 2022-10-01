@@ -32,14 +32,7 @@ export default function ProfileAvatar({ src, size }) {
         {/*TODO: add transition */}
         {isHovered ? (
           <Box
-            sx={{
-              borderRadius: "50%",
-              overflow: "hidden",
-              width: size,
-              height: size,
-              margin: "auto",
-              backgroundColor: "rgba(0,0,0,0.55)",
-            }}
+            sx={{ ...styles.wrapper, width: size, height: size }}
             style={{ border: "solid 5px #533483" }}
           >
             {isHovered ? (
@@ -47,10 +40,7 @@ export default function ProfileAvatar({ src, size }) {
                 color="primary"
                 aria-label="upload picture"
                 component="label"
-                sx={{
-                  width: "100%",
-                  mt: 4.5,
-                }}
+                sx={{ width: "100%", mt: 4.5 }}
               >
                 <input
                   hidden
@@ -58,9 +48,7 @@ export default function ProfileAvatar({ src, size }) {
                   type="file"
                   onChange={selectImageHandler}
                 />
-                <PhotoCamera
-                  sx={{ fontSize: "50px", my: "auto", verticalAlign: "middle" }}
-                />
+                <PhotoCamera sx={styles.cameraIcon} />
               </IconButton>
             ) : (
               <Image
@@ -79,3 +67,13 @@ export default function ProfileAvatar({ src, size }) {
     </>
   );
 }
+
+const styles = {
+  wrapper: {
+    borderRadius: "50%",
+    overflow: "hidden",
+    margin: "auto",
+    backgroundColor: "rgba(0,0,0,0.55)",
+  },
+  cameraIcon: { fontSize: "50px", my: "auto", verticalAlign: "middle" },
+};

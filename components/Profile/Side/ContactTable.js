@@ -43,11 +43,7 @@ export default function ContactTable({ isEditable, data }) {
           size="small"
           clickable
           color="primary"
-          sx={{
-            width: tablet ? 100 : 180,
-            direction: "ltr",
-            borderColor: "#9a2c42 ",
-          }}
+          sx={styles.chip}
           onClick={() => window.open(text, "_blank")}
         />
       );
@@ -129,10 +125,7 @@ export default function ContactTable({ isEditable, data }) {
       </Box>
 
       <Paper elevation={1}>
-        <TableContainer
-          component={Paper}
-          sx={{ overflowX: "auto", width: "100%", mt: 2 }}
-        >
+        <TableContainer component={Paper} sx={styles.tabContainer}>
           <Table aria-label="simple table">
             <TableBody>
               <TableRow>
@@ -226,3 +219,17 @@ export default function ContactTable({ isEditable, data }) {
     </>
   );
 }
+
+const styles = {
+  chip: {
+    width: {
+      xs: 180,
+      sm: 180,
+      md: 100,
+      lg: 180,
+    },
+    direction: "ltr",
+    borderColor: "#9a2c42 ",
+  },
+  tabContainer: { overflowX: "auto", width: "100%", mt: 2 },
+};

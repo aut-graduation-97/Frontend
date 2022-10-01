@@ -45,10 +45,7 @@ export default function ChangeProfileModal({ open, setOpen, chosenImage }) {
       aria-describedby="modal-modal-description"
     >
       <Box className={"modal"}>
-        <Paper
-          rounded={3}
-          sx={{ display: "flex", flexDirection: "column", px: 4, py: 6 }}
-        >
+        <Paper rounded={3} sx={styles.modalPaper}>
           <Typography variant={"h6"} sx={{ mb: 1 }}>
             این عکس را به عنوان عکس پروفایل خود انتخاب می کنید ؟
           </Typography>
@@ -90,3 +87,7 @@ export default function ChangeProfileModal({ open, setOpen, chosenImage }) {
     </Modal>
   );
 }
+
+const styles = {
+  modalPaper: { display: "flex", flexDirection: "column", px: 4, py: 6 },
+};

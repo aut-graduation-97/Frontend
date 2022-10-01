@@ -37,20 +37,8 @@ export default function AppToolbar() {
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        color="primary"
-        sx={{ bottom: "auto", top: 0, zIndex: 1000 }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            minHeight: "10px",
-            height: "30px",
-            px: 0.5,
-          }}
-        >
+      <AppBar position="fixed" color="primary" sx={styles.appbarTop}>
+        <Toolbar sx={styles.toolbar}>
           {auth ? (
             <IconButton onClick={logoutHandler}>
               <PowerSettingsNewIcon color={"error"} />
@@ -72,11 +60,7 @@ export default function AppToolbar() {
         </Toolbar>
       </AppBar>
 
-      <AppBar
-        position="fixed"
-        color="primary"
-        sx={{ top: "auto", bottom: 0, zIndex: 1000 }}
-      >
+      <AppBar position="fixed" color="primary" sx={styles.appbarBottom}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-around" }}>
           <IconButton
             sx={{ py: 1, color: "white" }}
@@ -124,3 +108,15 @@ export default function AppToolbar() {
     </>
   );
 }
+
+const styles = {
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    minHeight: "10px",
+    height: "30px",
+    px: 0.5,
+  },
+  appbarTop: { bottom: "auto", top: 0, zIndex: 1000 },
+  appbarBottom: { top: "auto", bottom: 0, zIndex: 1000 },
+};
