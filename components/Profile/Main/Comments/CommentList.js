@@ -15,13 +15,13 @@ const DUMMY_TEXT =
   "        متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی د";
 export default function CommentList({ sid }) {
   // ONLINE - just remove this return
-  // return (
-  //   <Box sx={{ my: 3 }}>
-  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-  //     <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
-  //   </Box>
-  // );
+  return (
+    <Box sx={{ my: 3 }}>
+      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+      <CommentItem text={DUMMY_TEXT} date={"1401/01/02 23:10"} />
+    </Box>
+  );
 
   const { data, isLoading, error } = useQuery(["get-comments"], () =>
     getAllComments(sid)
