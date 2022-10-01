@@ -82,24 +82,24 @@ export default function AppToolbar() {
             sx={{ py: 1, color: "white" }}
             onClick={(event) => router.push("/Mosts")}
           >
-            <GavelIcon fontSize="large" />
+            <GavelIcon fontSize="large" color={"secondary"} />
           </IconButton>
 
           <IconButton
             sx={{ py: 1, color: "white" }}
             onClick={(event) => router.push("/Gallery")}
           >
-            <CollectionsIcon fontSize="large" />
+            <CollectionsIcon fontSize="large" color={"secondary"} />
           </IconButton>
           <IconButton
             selected
             sx={{ py: 1 }}
             onClick={(event) => router.push("/Timeline")}
           >
-            <HomeIcon sx={{ color: "white" }} fontSize="large" />
+            <HomeIcon color={"secondary"} fontSize="large" />
           </IconButton>
           <IconButton onClick={(event) => router.push("/Students")}>
-            <PeopleIcon sx={{ color: "white" }} fontSize="large" />
+            <PeopleIcon fontSize="large" color={"secondary"} />
           </IconButton>
 
           {status === "authenticated" ? (

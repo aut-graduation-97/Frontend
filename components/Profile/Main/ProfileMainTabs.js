@@ -27,7 +27,15 @@ export default function ProfileMainTabs({ isEditable, onScroll }) {
 
         <TabPanel
           value="1"
-          sx={{ pt: 0, overflowY: "scroll", height: "60vh" }}
+          sx={{
+            pt: 0,
+            overflowY: "scroll",
+            height: {
+              xs: "85vh",
+              sm: "85vh",
+              md: "60vh",
+            },
+          }}
           onScroll={onScroll}
         >
           <TweetList tmp="1" isEditable={isEditable} />
@@ -35,7 +43,14 @@ export default function ProfileMainTabs({ isEditable, onScroll }) {
 
         <TabPanel
           value="2"
-          sx={{ overflowY: "scroll", height: "60vh" }}
+          sx={{
+            overflowY: "scroll",
+            height: {
+              xs: "85vh",
+              sm: "85vh",
+              md: "60vh",
+            },
+          }}
           onScroll={onScroll}
         >
           <AddComment sid={router.query.studentId} />

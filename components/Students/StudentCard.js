@@ -16,7 +16,7 @@ export default function StudentCard({ name, avatar, sid, index }) {
           elevation={7}
           sx={{ margin: "auto", maxWidth: 300, p: 3, ...shift }}
         >
-          <Avatar size="100px" link={avatar} />
+          <Avatar size={phone ? "80px" : "100px"} link={avatar} />
           <Typography
             variant="h6"
             component="h6"

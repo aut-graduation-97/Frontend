@@ -97,7 +97,7 @@ export default function NewTweetModal({ shift }) {
                 color="primary"
                 aria-label="upload picture"
                 component="label"
-                sx={{ mx: 3 }}
+                sx={{ mx: 3, borderRadius: 0 }}
               >
                 {tweetImages ? (
                   <Typography variant="caption" component="p">
