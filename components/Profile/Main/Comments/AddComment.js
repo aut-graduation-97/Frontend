@@ -3,7 +3,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
+
 import { useQuery } from "@tanstack/react-query";
 import { postComment } from "../../../../api/students-api";
 import { toast } from "react-toastify";

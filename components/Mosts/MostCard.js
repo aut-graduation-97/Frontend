@@ -7,14 +7,13 @@ import {
   Button,
 } from "@mui/material";
 import Image from "next/image";
-
+import Router from "next/router";
 import Avatar from "../SharedComponents/Elements/Avatar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useRouter } from "next/router";
 
 export default function MostCard({ avatar, name, sid, medal }) {
   const phone = useMediaQuery("(max-width: 600px)");
-  const router = useRouter();
+
   return (
     <>
       <Paper elevation={7} sx={styles.wrapper}>
@@ -37,7 +36,7 @@ export default function MostCard({ avatar, name, sid, medal }) {
               startIcon={<AccountCircleIcon sx={{ ml: 0.4 }} />}
               size="small"
               variant="outlined"
-              onClick={(e) => router.push(`/Students/${sid}`)}
+              onClick={(e) => Router.push(`/Students/${sid}`)}
             >
               پروفایل
             </Button>

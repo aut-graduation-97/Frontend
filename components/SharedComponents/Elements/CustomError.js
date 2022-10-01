@@ -1,5 +1,5 @@
 import { Alert, Divider, Typography, Box, Button } from "@mui/material";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
 /**
  *
@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
  * @returns {JSX.Element} a custom error component
  */
 export default function CustomError({ errorMessage, redirectTo }) {
-  const router = useRouter();
   return (
     <Box
       sx={{
@@ -29,7 +28,7 @@ export default function CustomError({ errorMessage, redirectTo }) {
       <Button
         variant="contained"
         sx={{ my: 5 }}
-        onClick={() => router.push(redirectTo ? redirectTo : "/Timeline")}
+        onClick={() => Router.push(redirectTo ? redirectTo : "/Timeline")}
       >
         بازگشت
       </Button>

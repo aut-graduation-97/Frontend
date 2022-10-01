@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import {
   Box,
   List,
@@ -16,7 +15,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
-
+import Router from "next/router";
 import Avatar from "../Elements/Avatar";
 import { signOut, useSession } from "next-auth/react";
 import { deActiveToken } from "../../../api/auth-api";
@@ -31,7 +30,6 @@ import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
  */
 export default function AppSidebar({ extraButtons, selected }) {
   const { data, status } = useSession();
-  const router = useRouter();
 
   const auth = status === "authenticated";
   const isAdmin = auth && data.user.super_user;
@@ -64,7 +62,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         <ListItemButton
           selected={selected === "TIMELINE"}
           sx={{ py: 1 }}
-          onClick={(event) => router.push("/Timeline")}
+          onClick={(event) => Router.push("/Timeline")}
         >
           <ListItemIcon>
             <HomeIcon fontSize="large" color={"secondary"} />
@@ -77,7 +75,7 @@ export default function AppSidebar({ extraButtons, selected }) {
             selected={selected === "PROFILE"}
             sx={{ py: 1 }}
             onClick={(event) =>
-              router.push(`/Students/${data.user.student_id}`)
+              Router.push(`/Students/${data.user.student_id}`)
             }
           >
             <ListItemIcon>
@@ -90,7 +88,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         <ListItemButton
           selected={selected === "MOSTS"}
           sx={{ py: 1 }}
-          onClick={(event) => router.push("/Mosts")}
+          onClick={(event) => Router.push("/Mosts")}
         >
           <ListItemIcon>
             <GavelIcon fontSize="large" color={"secondary"} />
@@ -101,7 +99,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         <ListItemButton
           selected={selected === "GALLERY"}
           sx={{ py: 1 }}
-          onClick={(event) => router.push("/Gallery")}
+          onClick={(event) => Router.push("/Gallery")}
         >
           <ListItemIcon>
             <CollectionsIcon fontSize="large" color={"secondary"} />
@@ -112,7 +110,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         <ListItemButton
           selected={selected === "STUDENTS"}
           sx={{ py: 1 }}
-          onClick={(event) => router.push("/Students")}
+          onClick={(event) => Router.push("/Students")}
         >
           <ListItemIcon>
             <PeopleIcon fontSize="large" color={"secondary"} />
@@ -127,7 +125,7 @@ export default function AppSidebar({ extraButtons, selected }) {
             <ListItemButton
               selected={selected === "ADMIN"}
               sx={{ py: 1 }}
-              onClick={(event) => router.push("/AdminPanel")}
+              onClick={(event) => Router.push("/AdminPanel")}
             >
               <ListItemIcon>
                 <AdminPanelSettingsIcon fontSize="large" color={"error"} />
@@ -149,7 +147,7 @@ export default function AppSidebar({ extraButtons, selected }) {
         ) : (
           <ListItemButton
             sx={{ py: 1 }}
-            onClick={(event) => router.push("/Login")}
+            onClick={(event) => Router.push("/Login")}
           >
             <ListItemIcon>
               <LoginIcon color={"error"} />

@@ -4,7 +4,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
 
 import { useState } from "react";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
@@ -12,7 +12,6 @@ import ForgotPasswordAccordion from "./ForgotPasswordAccordion";
 import { toast } from "react-toastify";
 
 export default function LoginFormDrawer({ show, setShow }) {
-  const router = useRouter();
   const { data: session, status } = useSession();
 
   const [loading, setLoading] = useState(false);
@@ -61,13 +60,13 @@ export default function LoginFormDrawer({ show, setShow }) {
     // ONLINE
     // if (response.ok) {
     //   setLoading(false);
-    //   router.push("/Timeline");
+    //   Router.push("/Timeline");
     // }
 
     // For dev
     toast.dark("you are logged in because of dev");
     setLoading(false);
-    router.push("/Timeline");
+    Router.push("/Timeline");
   };
 
   return (
