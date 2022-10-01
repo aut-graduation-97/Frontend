@@ -4,7 +4,6 @@ import { PhotoCamera } from "@mui/icons-material";
 import { useQuery } from "@tanstack/react-query";
 import FormData from "form-data";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SendIcon from "@mui/icons-material/Send";
 import { postImage } from "../../../api/admin-api";
 import { toast } from "react-toastify";
 
@@ -22,11 +21,9 @@ export default function AddImage() {
 
   const sendImageHandler = (e) => {
     e.preventDefault();
-
     galleryImages.forEach((image) => {
       formData.append("images", image);
     });
-
     refetch();
   };
 

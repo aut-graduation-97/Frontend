@@ -5,8 +5,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import { useQuery } from "@tanstack/react-query";
+import { deleteTweet, likeTweet } from "../../../api/tweet-api";
+import LoadingProgress from "../UI/LoadingProgress";
 
-export default function TweetDeleteButton() {
+export default function TweetDeleteButton({ tweetId }) {
   const { status } = useSession();
 
   const deleteHandler = () => {
@@ -14,10 +17,19 @@ export default function TweetDeleteButton() {
       toast.error("برای حذف باید وارد شوید!");
       return;
     }
-    // send to api
 
-    // update state
+    refetch();
   };
+
+  const { error, refetch, isSuccess, isFetching } = useQuery({
+    queryKey: ["delete-tweet"],
+    queryFn: () => deleteTweet(tweetId),
+    enabled: false,
+  });
+
+  if (error) toast.error(error.message);
+  if (isSuccess) toast.success("توییت با موفقیت حذف شد");
+  if (isFetching) return <LoadingProgress />;
 
   return (
     <IconButton

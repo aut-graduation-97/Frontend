@@ -21,3 +21,9 @@ export async function postTweet(payload) {
   });
   return response.data;
 }
+
+// ----------------------- DELETE
+export async function deleteTweet(tweetId) {
+  const response = await axios.delete("/tweets/" + tweetId);
+  return response.data;
+}
