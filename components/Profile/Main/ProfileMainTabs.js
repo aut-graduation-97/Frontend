@@ -6,9 +6,10 @@ import { useState } from "react";
 import TweetList from "../../SharedComponents/Tweets/TweetList";
 import CommentList from "./Comments/CommentList";
 import AddComment from "./Comments/AddComment";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 export default function ProfileMainTabs({ isEditable, onScroll }) {
+  const router = useRouter();
   const [tabContent, setTabContent] = useState("1");
 
   return (
@@ -29,8 +30,8 @@ export default function ProfileMainTabs({ isEditable, onScroll }) {
         </TabPanel>
 
         <TabPanel value="2" sx={styles.tabPanel} onScroll={onScroll}>
-          <AddComment sid={Router.query.studentId} />
-          <CommentList sid={Router.query.studentId} />
+          <AddComment sid={router.query.studentId} />
+          <CommentList sid={router.query.studentId} />
         </TabPanel>
       </TabContext>
     </Box>

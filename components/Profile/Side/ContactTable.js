@@ -34,7 +34,7 @@ export default function ContactTable({ isEditable, data }) {
   const tablet = useMediaQuery("(min-width:900px) and (max-width:1100px)");
 
   const getChip = useCallback(
-    (text) => {
+    (text, label) => {
       if (isEditing) return;
       return (
         <Chip
@@ -44,7 +44,10 @@ export default function ContactTable({ isEditable, data }) {
           clickable
           color="primary"
           sx={styles.chip}
-          onClick={() => window.open(text, "_blank")}
+          onClick={() => {
+            if (label === "phone" || label === "email") return null;
+            return window.open(text, "_blank");
+          }}
         />
       );
     },
@@ -133,7 +136,7 @@ export default function ContactTable({ isEditable, data }) {
                   <AlternateEmailIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("folani@yahoo.com")}
+                  {getChip("folani@yahoo.com", "email")}
                   {getTextField("folani@yahoo.com", "email")}
                 </TableCell>
               </TableRow>
@@ -143,7 +146,7 @@ export default function ContactTable({ isEditable, data }) {
                   <PhoneAndroidIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("0910 600 8858")}
+                  {getChip("0910 600 8858", "phone")}
                   {getTextField("0910 600 8858", "phone")}
                 </TableCell>
               </TableRow>
@@ -153,7 +156,10 @@ export default function ContactTable({ isEditable, data }) {
                   <TwitterIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getChip(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "twitter"
+                  )}
                   {getTextField(
                     "https://www.youtube.com/watch?v=hPr-Yc92qaY",
                     "twitter"
@@ -166,7 +172,10 @@ export default function ContactTable({ isEditable, data }) {
                   <TelegramIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getChip(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "telegram"
+                  )}
                   {getTextField(
                     "https://www.youtube.com/watch?v=hPr-Yc92qaY",
                     "telegram"
@@ -179,7 +188,10 @@ export default function ContactTable({ isEditable, data }) {
                   <InstagramIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getChip(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "instagram"
+                  )}
                   {getTextField(
                     "https://www.youtube.com/watch?v=hPr-Yc92qaY",
                     "instagram"
@@ -192,7 +204,10 @@ export default function ContactTable({ isEditable, data }) {
                   <GitHubIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getChip(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "github"
+                  )}
                   {getTextField(
                     "https://www.youtube.com/watch?v=hPr-Yc92qaY",
                     "github"
@@ -205,7 +220,10 @@ export default function ContactTable({ isEditable, data }) {
                   <LinkedInIcon />
                 </TableCell>
                 <TableCell align="left" sx={{ py: 1 }}>
-                  {getChip("https://www.youtube.com/watch?v=hPr-Yc92qaY")}
+                  {getChip(
+                    "https://www.youtube.com/watch?v=hPr-Yc92qaY",
+                    "linkedin"
+                  )}
                   {getTextField(
                     "https://www.youtube.com/watch?v=hPr-Yc92qaY",
                     "linkedin"

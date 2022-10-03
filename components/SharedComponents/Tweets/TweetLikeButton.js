@@ -8,7 +8,6 @@ import { useQuery } from "@tanstack/react-query";
 import { likeTweet } from "../../../api/tweet-api";
 import LoadingProgress from "../UI/LoadingProgress";
 
-let renderedOnce = false;
 export default function TweetLikeButton({
   likesCount,
   tweetId,
@@ -58,8 +57,6 @@ export default function TweetLikeButton({
     setLiked(!liked);
     setCount((prev) => (liked ? prev - 1 : prev + 1));
   }, [likeError, dislikeError]);
-
-  console.log(likeError, dislikeError);
 
   if (likeError || dislikeError) {
     toast.error("خطایی رخ داده است!");

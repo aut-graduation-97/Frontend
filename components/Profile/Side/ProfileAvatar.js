@@ -7,12 +7,13 @@ import { PhotoCamera } from "@mui/icons-material";
 import ChangeProfileModal from "./ChangeProfileModal";
 
 export default function ProfileAvatar({ src, size }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
   const selectImageHandler = (e) => {
     setSelectedImage(e.target.files[0]);
+    console.log(e.target.files[0]);
     setOpenModal(true);
   };
 
@@ -30,39 +31,40 @@ export default function ProfileAvatar({ src, size }) {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/*TODO: add transition */}
-        {isHovered ? (
-          <Box
-            sx={{ ...styles.wrapper, width: size, height: size }}
-            style={{ border: "solid 5px #533483" }}
+
+        <Box
+          sx={{ ...styles.wrapper, width: size, height: size }}
+          style={{ border: "solid 5px #533483" }}
+        >
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="label"
+            sx={{
+              width: "100%",
+              mt: 4.5,
+              display: isHovered ? "block" : "none",
+              transition: "all 0.3s ease-in-out",
+              transform: isHovered ? "translateY(0)" : "translateY(-130%)",
+            }}
           >
-            {isHovered ? (
-              <IconButton
-                color="primary"
-                aria-label="upload picture"
-                component="label"
-                sx={{ width: "100%", mt: 4.5 }}
-              >
-                <input
-                  hidden
-                  accept="image/*"
-                  type="file"
-                  onChange={selectImageHandler}
-                />
-                <PhotoCamera sx={styles.cameraIcon} />
-              </IconButton>
-            ) : (
-              <Image
-                src={"https://i.pravatar.cc/300"}
-                alt="avatar"
-                width={150}
-                height={150}
-                className="rounded-full"
-              />
-            )}
-          </Box>
-        ) : (
-          <Avatar size={size} src={src} />
-        )}
+            <input
+              hidden
+              accept="image/*"
+              type="file"
+              onChange={selectImageHandler}
+            />
+            <PhotoCamera sx={styles.cameraIcon} />
+          </IconButton>
+
+          <Image
+            src={"https://i.pravatar.cc/300"}
+            alt="avatar"
+            width={150}
+            height={150}
+            className="rounded-full"
+          />
+        </Box>
       </Box>
     </>
   );

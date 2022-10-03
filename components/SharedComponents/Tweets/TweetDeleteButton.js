@@ -29,15 +29,17 @@ export default function TweetDeleteButton({ tweetId }) {
 
   if (error) toast.error(error.message);
   if (isSuccess) toast.success("توییت با موفقیت حذف شد");
-  if (isFetching) return <LoadingProgress />;
 
   return (
-    <IconButton
-      color="error"
-      onClick={deleteHandler}
-      sx={{ position: "relative", right: "80%" }}
-    >
-      <DeleteForeverIcon color="primary" />
-    </IconButton>
+    <>
+      {isFetching && <LoadingProgress />}
+      <IconButton
+        color="error"
+        onClick={deleteHandler}
+        sx={{ position: "relative", right: "80%" }}
+      >
+        <DeleteForeverIcon color="primary" />
+      </IconButton>
+    </>
   );
 }
