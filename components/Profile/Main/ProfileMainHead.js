@@ -132,8 +132,9 @@ export default function ProfileMainHead({
               size="small"
               color="error"
               onClick={submitHandler}
+              sx={{ mr: 2 }}
             >
-              دخیره تغییرات
+              بروزرسانی تغییرات
             </Button>
           )}
         </AccordionDetails>

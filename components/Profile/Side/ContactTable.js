@@ -51,7 +51,7 @@ export default function ContactTable({ isEditable, data }) {
         />
       );
     },
-    [isEditing, tablet]
+    [isEditing]
   );
 
   const getTextField = useCallback(
@@ -101,7 +101,7 @@ export default function ContactTable({ isEditable, data }) {
         setOpen={setOpenEditModal}
         toPut={changedContact}
       />
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
         {isEditable && (
           <IconButton
             aria-label="delete"
@@ -122,7 +122,7 @@ export default function ContactTable({ isEditable, data }) {
             sx={{ mr: 4 }}
             color={"error"}
           >
-            ذخیره تغییرات
+            بروزرسانی تغییرات
           </Button>
         )}
       </Box>
