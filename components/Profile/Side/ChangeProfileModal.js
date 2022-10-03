@@ -54,13 +54,8 @@ export default function ChangeProfileModal({ open, setOpen, chosenImage }) {
           </Typography>
 
           {chosenImage && (
-            <Box sx={{ mr: 18.5 }}>
-              <Box
-                sx={{
-                  maxWidth: 200,
-                  maxHeight: 200,
-                }}
-              >
+            <Box>
+              <Box sx={styles.imageWrapper}>
                 <Image
                   style={{ borderRadius: "50%" }}
                   layout="responsive"
@@ -90,4 +85,9 @@ export default function ChangeProfileModal({ open, setOpen, chosenImage }) {
 
 const styles = {
   modalPaper: { display: "flex", flexDirection: "column", px: 4, py: 6 },
+  imageWrapper: {
+    maxWidth: 200,
+    maxHeight: 200,
+    m: "auto",
+  },
 };
