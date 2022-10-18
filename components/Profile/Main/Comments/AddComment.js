@@ -1,7 +1,5 @@
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SendIcon from "@mui/icons-material/Send";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useEffect, useRef, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";

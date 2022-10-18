@@ -44,7 +44,8 @@ export default function LoginFormDrawer({ show, setShow }) {
     setPasswordIsValid(true);
   };
 
-  const loginHandler = async () => {
+  const loginHandler = async (e) => {
+    e.preventDefault();
     setLoading(true);
 
     const response = await signIn("credentials", {
@@ -72,56 +73,60 @@ export default function LoginFormDrawer({ show, setShow }) {
   return (
     <>
       <Drawer anchor={"right"} open={show} onClose={() => setShow(false)}>
-        <FormControl sx={styles.formControl}>
-          <TextField
-            id="username"
-            variant={"filled"}
-            label="شماره دانشجویی"
-            type="username"
-            autoComplete="current-username"
-            onChange={usernameChangeHandler}
-            error={!userNameIsValid}
-            sx={{ my: 4, width: "100%" }}
-          />
+        <form onSubmit={loginHandler}>
+          <FormControl sx={styles.formControl}>
+            <TextField
+              id="username"
+              variant={"filled"}
+              label="شماره دانشجویی"
+              type="username"
+              autoComplete="current-username"
+              onChange={usernameChangeHandler}
+              error={!userNameIsValid}
+              sx={{ my: 4, width: "100%" }}
+            />
 
-          <TextField
-            id="password"
-            variant={"filled"}
-            label="رمز عبور"
-            type="password"
-            autoComplete="current-password"
-            onChange={passwordChangeHandler}
-            error={!passwordIsValid}
-            sx={{ mb: 4, width: "100%" }}
-          />
+            <TextField
+              id="password"
+              variant={"filled"}
+              label="رمز عبور"
+              type="password"
+              autoComplete="current-password"
+              onChange={passwordChangeHandler}
+              error={!passwordIsValid}
+              sx={{ mb: 4, width: "100%" }}
+            />
 
-          <LoadingButton
-            disabled={!(passwordIsValid && userNameIsValid) || formIsUntouched}
-            size="big"
-            onClick={loginHandler}
-            startIcon={<LoginIcon sx={{ mx: 1 }} />}
-            loading={loading}
-            loadingPosition="start"
-            variant="contained"
-            sx={{ my: 4, width: "70%" }}
-          >
-            ورود
-          </LoadingButton>
-          <Divider />
+            <LoadingButton
+              disabled={
+                !(passwordIsValid && userNameIsValid) || formIsUntouched
+              }
+              type={"submit"}
+              size="big"
+              startIcon={<LoginIcon sx={{ mx: 1 }} />}
+              loading={loading}
+              loadingPosition="start"
+              variant="contained"
+              sx={{ my: 4, width: "70%" }}
+            >
+              ورود
+            </LoadingButton>
+            <Divider />
 
-          <ForgotPasswordAccordion />
+            <ForgotPasswordAccordion />
 
-          <Button
-            variant="text"
-            sx={{ mt: 3 }}
-            onClick={(e) => {
-              console.log(session);
-              console.log(status);
-            }}
-          >
-            log session data button (for debugging)
-          </Button>
-        </FormControl>
+            <Button
+              variant="text"
+              sx={{ mt: 3 }}
+              onClick={(e) => {
+                console.log(session);
+                console.log(status);
+              }}
+            >
+              log session data button (for debugging)
+            </Button>
+          </FormControl>
+        </form>
       </Drawer>
     </>
   );

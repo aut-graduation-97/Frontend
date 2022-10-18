@@ -2,6 +2,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  FormControl,
   Typography,
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -19,6 +20,11 @@ export default function ForgotPasswordAccordion() {
     queryFn: () => forgotPassword({ student_id: sidRef.current.value }),
     enabled: false,
   });
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    refetch();
+  };
 
   if (error) {
     toast.error(error.message);
@@ -42,22 +48,30 @@ export default function ForgotPasswordAccordion() {
           فراموشی رمز عبور
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={styles.accordionDetails} color={"primary"}>
-        <TextField
-          inputRef={sidRef}
-          id="outlined-basic"
-          label="شماره دانشجویی"
-          variant="outlined"
-        />
-        <LoadingButton
-          onClick={() => refetch()}
-          sx={{ m: "auto", mt: 2 }}
-          loading={isFetching}
-          variant="contained"
-        >
-          بازیابی
-        </LoadingButton>
-      </AccordionDetails>
+      <form onSubmit={formSubmitHandler}>
+        <AccordionDetails sx={styles.accordionDetails} color={"primary"}>
+          <TextField
+            inputRef={sidRef}
+            id="outlined-basic"
+            label="شماره دانشجویی"
+            variant="filled"
+            maxLength={6}
+          />
+          <LoadingButton
+            type={"submit"}
+            sx={{ m: "auto", my: 2 }}
+            loading={isFetching}
+            variant="contained"
+          >
+            بازیابی
+          </LoadingButton>
+
+          <Typography variant={"caption"} sx={{ opacity: 0.5 }}>
+            درصورتی که شماره دانشجویی شما معتبر باشد، کلمه عبور جدید به ایمیل
+            شما ارسال خواهد شد
+          </Typography>
+        </AccordionDetails>
+      </form>
     </Accordion>
   );
 }
